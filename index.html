@@ -4,60 +4,83 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>فروشگاه</title>
-
 <script src="https://developer.eitaa.com/eitaa-web-app.js"></script>
-
 <style>
 body {
-  font-family: sans-serif;
+  font-family: 'Vazir', sans-serif;
   direction: rtl;
-  background: #f2f2f2;
+  background: #121212;
+  color: #ffffff;
   margin: 0;
-  padding: 15px;
+  padding: 20px;
+  text-align: center; 
   }
+
 h2 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #ffcc00;
 }
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  align-items: center;
 }
+
 .card {
-  background: white;
+  background: #1e1e1e;
   border-radius: 15px;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(255,255
+             transition: transform 0.2s;
+  width: 140px;
+}
+.card:hover {
+  transform: translateY(-5px);
 }
 .card img {
   width: 60px;
   margin-bottom: 10px;
 }
-  .card h4 {
+.card h4 {
   margin: 5px 0;
+  font-size: 16px;
 }
 button {
-  margin-top: 8px;
-  background: #1976d2;
-  color: white;
+  margin-top: 10px;
+  background: #ffcc00;
+  color: #121212;
   border: none;
   padding: 8px;
   width: 100%;
   border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+button:hover {
+  background: #e6b800;
+}
+#products {
+  margin-top: 30px;
+  text-align: center;
 }
 </style>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-<h2> 🗡️ دسته‌بندی محصولات</h2>
-  <div class="grid">
+<h2>🛒 دسته‌بندی محصولات</h2>
 
-<div class="card">
-  <img src="https://files.stickerkade.ir/2016/12.webp">
-  <h4>موبایل</h4>
-  <button onclick="order('موبایل')">مشاهده</button>
+<div class="grid">
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png">
+    <h4>موبایل</h4>
+      <button onclick="order('موبایل')">مشاهده</button>
 </div>
 
 <div class="card">
@@ -71,8 +94,9 @@ button {
   <h4>لوازم جانبی</h4>
   <button onclick="order('لوازم جانبی')">مشاهده</button>
 </div>
-    <div class="card">
-  <img src="https://cdn-icons-png.flaticon.com/512/891/891399.png">
+
+<div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891399.png">
   <h4>ساعت هوشمند</h4>
   <button onclick="order('ساعت هوشمند')">مشاهده</button>
 </div>
