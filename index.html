@@ -3,34 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>برنامک نمونه</title>
+<title>فروشگاه</title>
 
 <script src="https://developer.eitaa.com/eitaa-web-app.js"></script>
 
 <style>
-  body {
-    font-family: sans-serif;
-    text-align: center;
-padding-top: 50px;
-}
-  button {
-    font-size: 18px;
-    padding: 10px 20px;
+body {
+  font-family: sans-serif;
+  direction: rtl;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 15px;
   }
+h2 {
+  margin-bottom: 15px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.card img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+  .card h4 {
+  margin: 5px 0;
+}
+button {
+  margin-top: 8px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+}
 </style>
 </head>
 
 <body>
-<h1>سلام از برنامک من!</h1>
 
-<button onclick="window.Eitaa.WebApp.close()">بستن برنامک</button>
+<h2>🛍 دسته‌بندی محصولات</h2>
+  <div class="grid">
+
+<div class="card">
+  <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png">
+  <h4>موبایل</h4>
+  <button onclick="order('موبایل')">مشاهده</button>
+</div>
+
+<div class="card">
+  <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
+  <h4>هدفون</h4>
+  <button onclick="order('هدفون')">مشاهده</button>
+</div>
+
+<div class="card">
+  <img src="https://cdn-icons-png.flaticon.com/512/891/891448.png">
+  <h4>لوازم جانبی</h4>
+  <button onclick="order('لوازم جانبی')">مشاهده</button>
+</div>
+    <div class="card">
+  <img src="https://cdn-icons-png.flaticon.com/512/891/891399.png">
+  <h4>ساعت هوشمند</h4>
+  <button onclick="order('ساعت هوشمند')">مشاهده</button>
+</div>
+
+</div>
 
 <script>
-  if (window.Eitaa) {
-    console.log("SDK در دسترس است");
-  } else {
-    console.log("SDK فعال نیست");
-  }
+function order(category) {
+  alert("دسته انتخاب شد: " + category);
+}
 </script>
-  </body>
+
+</body>
 </html>
