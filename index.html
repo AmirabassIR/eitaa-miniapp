@@ -33,24 +33,29 @@
   }
 
   .card {
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.7);
     border-radius: 15px;
     padding: 15px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
     transition: 0.2s ease-in-out;
-    }
+    border: 1px solid #444;
+  }
   .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.8);
+    box-shadow: 0 6px 14px rgba(255,221,0,0.3);
+    border-color: #ffdd00;
   }
   .card img {
     width: 60px;
+    height: 60px;
+    object-fit: contain;
     margin-bottom: 8px;
   }
   .card h4 {
     margin: 6px 0;
     font-size: 17px;
+    color: #ffdd00;
   }
 
   button {
@@ -63,80 +68,176 @@
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.3s;
   }
   button:hover {
     background: #e6c800;
+    transform: scale(1.05);
   }
 
   #products, #cart {
-    margin-top: 25px;
-    background: rgba(0,0,0,0.55);
-    padding: 15px;
+    margin: 25px 15px;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
     border-radius: 12px;
+    border: 1px solid #444;
   }
-  #cart p {
-    margin: 5px 0;
+  
+  #cart {
+    position: sticky;
+    bottom: 15px;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
   }
+  
+  #cart h3 {
+    color: #ffdd00;
+    margin-top: 0;
+  }
+  
   .cart-item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
   }
-
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .product-price {
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  .remove-btn {
+    background: #dc3545 !important;
+    color: white !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    width: auto !important;
+    margin-right: 10px;
+  }
+  
+  #products h3 {
+    color: #ffdd00;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .clear-btn {
+    background: #dc3545 !important;
+    color: white !important;
+    margin-top: 15px !important;
+  }
+  
+  .clear-btn:hover {
+    background: #c82333 !important;
+  }
+  
+  .empty-cart {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+  }
 </style>
-  </head>
+</head>
 <body>
 
 <h2>فروشگاه نظامی عماد</h2>
 
 <div class="grid" id="categories">
   <div class="card">
-    <img src="https://images.ontheedgebrands.com/cdn-cgi/image/f=auto,height=1000,width=1000,quality=75/images/a17-bv391/black-legion-stratosphere-triple-set-karambit-huntsman-military-knives-blue-finish.jpg">
-    <h4>𝕜𝕟𝕚𝕗𝕖</h4>
-    <button onclick="showProducts('𝕜𝕟𝕚𝕗𝕖')">نمایش</button>
+    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050525.png">
+    <h4>لوازم دفاع</h4>
+    <button onclick="showProducts('defense')">نمایش محصولات</button>
   </div>
   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
-    <h4>هدفون</h4>
-    <button onclick="showProducts('هدفون')">نمایش</button>
+    <img src="https://cdn-icons-png.flaticon.com/512/3048/3048358.png">
+    <h4>تابلو و علائم</h4>
+    <button onclick="showProducts('signs')">نمایش محصولات</button>
   </div>
   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/891/891448.png">
-    <h4>لوازم جانبی</h4>
-    <button onclick="showProducts('لوازم جانبی')">نمایش</button>
+    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050155.png">
+    <h4>لباس نظامی</h4>
+    <button onclick="showProducts('clothing')">نمایش محصولات</button>
   </div>
   <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/891/891399.png">
-    <h4>ساعت هوشمند</h4>
-    <button onclick="showProducts('ساعت هوشمند')">نمایش</button>
+    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050243.png">
+    <h4>کفش و پوتین</h4>
+    <button onclick="showProducts('shoes')">نمایش محصولات</button>
+  </div>
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050420.png">
+    <h4>تزئینات و نشان‌ها</h4>
+    <button onclick="showProducts('decorations')">نمایش محصولات</button>
+  </div>
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050483.png">
+    <h4>محصولات ویژه</h4>
+    <button onclick="showProducts('special')">نمایش محصولات</button>
   </div>
 </div>
 
 <div id="products"></div>
 
 <div id="cart">
-  <h3>🛍️ سبد خرید</h3>
-  <div id="cartItems"></div>
-  <p><strong>جمع کل: </strong><span id="totalPrice">0</span> تومان</p>
+  <h3>🛒 سبد خرید شما</h3>
+  <div id="cartItems" class="empty-cart">سبد خرید شما خالی است</div>
+  <div id="cartSummary" style="display: none;">
+    <div class="cart-item">
+      <span><strong>تعداد اقلام:</strong></span>
+      <span id="itemCount">0</span>
+    </div>
+    <div class="cart-item">
+      <span><strong>جمع کل:</strong></span>
+      <span class="product-price" id="totalPrice">0</span> تومان
+    </div>
+    <button onclick="clearCart()" class="clear-btn">🗑️ پاک کردن سبد خرید</button>
+  </div>
 </div>
 
 <script>
-// اطلاعات محصولات
+// اطلاعات محصولات بر اساس دسته‌بندی‌های جدید
 const productData = {
-  "𝕜𝕟𝕚𝕗𝕖: [
-    {name:"𝕜𝕟𝕚𝕗𝕖 A", price: 2500000},
-    {name:"𝕜𝕟𝕚𝕗𝕖 B", price: 3500000}
+  "defense": [
+    {name: "دستکش ضد برش", price: 850000},
+    {name: "ماسک گاز نظامی", price: 3200000},
+    {name: "زره بدن سبک", price: 12500000},
+    {name: "کلاه ایمنی تاکتیکی", price: 4500000}
   ],
-  "هدفون": [
-    {name:"هدفون X", price: 450000},
-    {name:"هدفون Y", price: 550000}
+  "signs": [
+    {name: "تابلو فرماندهی", price: 1800000},
+    {name: "علائم راهنمایی نظامی", price: 950000},
+    {name: "پلاک درب بخش‌ها", price: 750000},
+    {name: "تابلو اخطار منطقه نظامی", price: 1200000}
   ],
-  "لوازم جانبی": [
-    {name:"کابل شارژ", price: 120000},
-    {name:"قاب محافظ", price: 180000}
+  "clothing": [
+    {name: "یونیفرم رزمی خاکی", price: 3500000},
+    {name: "کت ضد باران نظامی", price: 4200000},
+    {name: "شلوار تاکتیکی", price: 2800000},
+    {name: "پیراهن رسمی افسری", price: 2500000}
   ],
-  "ساعت هوشمند": [
-    {name:"ساعت مدل 1", price: 1250000},
-    {name:"ساعت مدل 2", price: 1550000}
+  "shoes": [
+    {name: "پوتین نظامی چرمی", price: 3800000},
+    {name: "کفش ورزشی نظامی", price: 2200000},
+    {name: "نیم بوت تاکتیکی", price: 3100000},
+    {name: "کفش پیاده‌روی رزمی", price: 2700000}
+  ],
+  "decorations": [
+    {name: "نشان درجه افسری", price: 650000},
+    {name: "مدال افتخار", price: 1200000},
+    {name: "نوار شانه نظامی", price: 450000},
+    {name: "تزئینات کلاه افسری", price: 850000}
+  ],
+  "special": [
+    {name: "ست کامل فرماندهی", price: 28500000},
+    {name: "بسته ویژه تشریفات", price: 17500000},
+    {name: "ست هدیه نظامی", price: 12500000},
+    {name: "محصولات محدود ویژه", price: 42000000}
   ]
 };
 
@@ -144,36 +245,187 @@ let cart = [];
 
 function showProducts(category) {
   const container = document.getElementById("products");
-  let html = `<h3>📦 محصولات ${category}</h3>`;
+  let html = `<h3>📦 محصولات ${getCategoryName(category)}</h3><div class="grid">`;
+  
   productData[category].forEach((p, i) => {
     html += `
       <div class="card">
         <h4>${p.name}</h4>
-        <p>قیمت: ${p.price.toLocaleString()} تومان</p>
-        <button onclick="addToCart('${category}',${i})">افزودن به سبد</button>
+        <p>قیمت: <span class="product-price">${p.price.toLocaleString('fa-IR')}</span> تومان</p>
+        <button onclick="addToCart('${category}', ${i})">➕ افزودن به سبد</button>
       </div>`;
   });
+  
+  html += '</div>';
   container.innerHTML = html;
-  window.scrollTo(0, document.body.scrollHeight);
+  container.scrollIntoView({ behavior: 'smooth' });
 }
 
-function addToCart(cat, idx) {
-  cart.push(productData[cat][idx]);
+function getCategoryName(key) {
+  const names = {
+    'defense': 'لوازم دفاع',
+    'signs': 'تابلو و علائم',
+    'clothing': 'لباس نظامی',
+    'shoes': 'کفش و پوتین',
+    'decorations': 'تزئینات و نشان‌ها',
+    'special': 'محصولات ویژه'
+  };
+  return names[key] || key;
+}
+
+function addToCart(category, index) {
+  const product = {...productData[category][index]};
+  cart.push(product);
   updateCart();
+  
+  // نمایش پیام موفقیت
+  const message = document.createElement('div');
+  message.style.cssText = `
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease;
+  `;
+  message.innerHTML = `✅ ${product.name} به سبد خرید اضافه شد`;
+  document.body.appendChild(message);
+  
+  setTimeout(() => {
+    message.style.animation = 'slideUp 0.3s ease';
+    setTimeout(() => document.body.removeChild(message), 300);
+  }, 2000);
 }
 
 function updateCart() {
   const list = document.getElementById("cartItems");
   const totalPriceEl = document.getElementById("totalPrice");
-  list.innerHTML = "";
+  const itemCountEl = document.getElementById("itemCount");
+  const cartSummary = document.getElementById("cartSummary");
+  
   let total = 0;
-  cart.forEach(item => {
-    list.innerHTML += `<p class="cart-item">${item.name} - ${item.price.toLocaleString()} تومان</p>`;
-    total += item.price;
-  });
-totalPriceEl.innerText = total.toLocaleString();
+  
+  if (cart.length === 0) {
+    list.innerHTML = '<div class="empty-cart">سبد خرید شما خالی است</div>';
+    cartSummary.style.display = 'none';
+  } else {
+    list.innerHTML = '';
+    cart.forEach((item, index) => {
+      list.innerHTML += `
+        <div class="cart-item">
+          <span>${item.name}</span>
+          <div>
+            <span class="product-price">${item.price.toLocaleString('fa-IR')}</span>
+            <button onclick="removeFromCart(${index})" class="remove-btn">✕</button>
+          </div>
+        </div>`;
+      total += item.price;
+    });
+    
+    itemCountEl.textContent = cart.length;
+    totalPriceEl.textContent = total.toLocaleString('fa-IR');
+    cartSummary.style.display = 'block';
+  }
 }
+
+function removeFromCart(index) {
+  const removedItem = cart[index];
+  cart.splice(index, 1);
+  updateCart();
+  
+  // نمایش پیام حذف
+  const message = document.createElement('div');
+  message.style.cssText = `
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #dc3545;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease;
+  `;
+  message.innerHTML = `❌ ${removedItem.name} از سبد خرید حذف شد`;
+  document.body.appendChild(message);
+  
+  setTimeout(() => {
+    message.style.animation = 'slideUp 0.3s ease';
+    setTimeout(() => document.body.removeChild(message), 300);
+  }, 2000);
+}
+
+function clearCart() {
+  if (cart.length === 0) {
+    alert('سبد خرید شما در حال حاضر خالی است!');
+    return;
+  }
+  
+  if (confirm(`آیا از پاک کردن ${cart.length} آیتم از سبد خرید مطمئن هستید؟`)) {
+    cart = [];
+    updateCart();
+    
+    const message = document.createElement('div');
+    message.style.cssText = `
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffc107;
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 8px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: slideDown 0.3s ease;
+    `;
+    message.innerHTML = `🛒 سبد خرید با موفقیت پاک شد`;
+    document.body.appendChild(message);
+    
+    setTimeout(() => {
+      message.style.animation = 'slideUp 0.3s ease';
+      setTimeout(() => document.body.removeChild(message), 300);
+    }, 2000);
+  }
+}
+
+// استایل‌های انیمیشن
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideDown {
+    from {
+      transform: translateX(-50%) translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-50%) translateY(-100%);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(style);
+
+// بارگذاری اولیه
+updateCart();
 </script>
 
 </body>
-</html>
+</html> 
