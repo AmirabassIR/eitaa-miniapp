@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>برنامک نمونه</title>
+
+<script src="https://developer.eitaa.com/eitaa-web-app.js"></script>
+
+<style>
+  body {
+    font-family: sans-serif;
+    text-align: center;
+padding-top: 50px;
+}
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+</style>
+</head>
+
+<body>
+<h1>سلام از برنامک من!</h1>
+
+<button onclick="window.Eitaa.WebApp.close()">بستن برنامک</button>
+
+<script>
+  if (window.Eitaa) {
+    console.log("SDK در دسترس است");
+  } else {
+    console.log("SDK فعال نیست");
+  }
+</script>
+  </body>
+</html>
