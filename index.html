@@ -3,109 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>فروشگاه</title>
+<title>فروشگاه حرفه‌ای</title>
 <script src="https://developer.eitaa.com/eitaa-web-app.js"></script>
+
 <style>
-body {
-  font-family: 'Vazir', sans-serif;
-  direction: rtl;
-  background: #121212;
-  color: #ffffff;
-  margin: 0;
-  padding: 20px;
-  text-align: center; 
+  @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+  body {
+    font-family: 'Vazir', sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background: url('https://cdn.nody.ir/files/2024/03/20/nody-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B2%D9%85%DB%8C%D9%86%D9%87-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D8%B3%D9%BE%D8%A7%D9%87-1710947711.jpg') center/cover no-repeat fixed;
+    color: #fff;
+  }
+  h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    color: #ffdd00;
+    text-shadow: 1px 1px 4px #000;
   }
 
-h2 {
-  margin-bottom: 20px;
-  font-size: 28px;
-  color: #ffcc00;
-}
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 15px;
-  justify-items: center;
-  align-items: center;
-}
+  .card {
+    background: rgba(0,0,0,0.65);
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    transition: 0.2s ease-in-out;
+    }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.8);
+  }
+  .card img {
+    width: 60px;
+    margin-bottom: 8px;
+  }
+  .card h4 {
+    margin: 6px 0;
+    font-size: 17px;
+  }
 
-.card {
-  background: #1e1e1e;
-  border-radius: 15px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(255,255
-             transition: transform 0.2s;
-  width: 140px;
-}
-.card:hover {
-  transform: translateY(-5px);
-}
-.card img {
-  width: 60px;
-  margin-bottom: 10px;
-}
-.card h4 {
-  margin: 5px 0;
-  font-size: 16px;
-}
-button {
-  margin-top: 10px;
-  background: #ffcc00;
-  color: #121212;
-  border: none;
-  padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-button:hover {
-  background: #e6b800;
-}
-#products {
-  margin-top: 30px;
-  text-align: center;
-}
+  button {
+    margin-top: 8px;
+    background: #ffdd00;
+    color: #000;
+    border: none;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover {
+    background: #e6c800;
+  }
+
+  #products, #cart {
+    margin-top: 25px;
+    background: rgba(0,0,0,0.55);
+    padding: 15px;
+    border-radius: 12px;
+  }
+  #cart p {
+    margin: 5px 0;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
 </style>
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
-</head>
-
+  </head>
 <body>
 
-<h2>🛒 دسته‌بندی محصولات</h2>
+<h2>🛒 فروشگاه حرفه‌ای</h2>
 
-<div class="grid">
+<div class="grid" id="categories">
   <div class="card">
     <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png">
     <h4>موبایل</h4>
-      <button onclick="order('موبایل')">مشاهده</button>
-</div>
-
-<div class="card">
-  <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
-  <h4>هدفون</h4>
-  <button onclick="order('هدفون')">مشاهده</button>
-</div>
-
-<div class="card">
-  <img src="https://cdn-icons-png.flaticon.com/512/891/891448.png">
-  <h4>لوازم جانبی</h4>
-  <button onclick="order('لوازم جانبی')">مشاهده</button>
-</div>
-
-<div class="card">
+    <button onclick="showProducts('موبایل')">نمایش</button>
+  </div>
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png">
+    <h4>هدفون</h4>
+    <button onclick="showProducts('هدفون')">نمایش</button>
+  </div>
+  <div class="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891448.png">
+    <h4>لوازم جانبی</h4>
+    <button onclick="showProducts('لوازم جانبی')">نمایش</button>
+  </div>
+  <div class="card">
     <img src="https://cdn-icons-png.flaticon.com/512/891/891399.png">
-  <h4>ساعت هوشمند</h4>
-  <button onclick="order('ساعت هوشمند')">مشاهده</button>
+    <h4>ساعت هوشمند</h4>
+    <button onclick="showProducts('ساعت هوشمند')">نمایش</button>
+  </div>
 </div>
 
+<div id="products"></div>
+
+<div id="cart">
+  <h3>🛍️ سبد خرید</h3>
+  <div id="cartItems"></div>
+  <p><strong>جمع کل: </strong><span id="totalPrice">0</span> تومان</p>
 </div>
 
 <script>
-function order(category) {
-  alert("دسته انتخاب شد: " + category);
+// اطلاعات محصولات
+const productData = {
+  "موبایل": [
+    {name:"موبایل A", price: 2500000},
+    {name:"موبایل B", price: 3500000}
+  ],
+  "هدفون": [
+    {name:"هدفون X", price: 450000},
+    {name:"هدفون Y", price: 550000}
+  ],
+  "لوازم جانبی": [
+    {name:"کابل شارژ", price: 120000},
+    {name:"قاب محافظ", price: 180000}
+  ],
+  "ساعت هوشمند": [
+    {name:"ساعت مدل 1", price: 1250000},
+    {name:"ساعت مدل 2", price: 1550000}
+  ]
+};
+
+let cart = [];
+
+function showProducts(category) {
+  const container = document.getElementById("products");
+  let html = `<h3>📦 محصولات ${category}</h3>`;
+  productData[category].forEach((p, i) => {
+    html += `
+      <div class="card">
+        <h4>${p.name}</h4>
+        <p>قیمت: ${p.price.toLocaleString()} تومان</p>
+        <button onclick="addToCart('${category}',${i})">افزودن به سبد</button>
+      </div>`;
+  });
+  container.innerHTML = html;
+  window.scrollTo(0, document.body.scrollHeight);
+}
+
+function addToCart(cat, idx) {
+  cart.push(productData[cat][idx]);
+  updateCart();
+}
+
+function updateCart() {
+  const list = document.getElementById("cartItems");
+  const totalPriceEl = document.getElementById("totalPrice");
+  list.innerHTML = "";
+  let total = 0;
+  cart.forEach(item => {
+    list.innerHTML += `<p class="cart-item">${item.name} - ${item.price.toLocaleString()} تومان</p>`;
+    total += item.price;
+  });
+totalPriceEl.innerText = total.toLocaleString();
 }
 </script>
 
