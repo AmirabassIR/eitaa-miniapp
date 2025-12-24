@@ -1,420 +1,650 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>🅴🅼🅰🅳 | فروشگاه نظامی عماد</title>
-    <style>
-        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>🅴🅼🅰🅳 | فروشگاه نظامی عماد</title>
+<style>
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 
-        body {
-            font-family: 'Vazir', sans-serif;
-            direction: rtl;
-            margin: 0;
-            padding: 0;
-            background: url('https://cdn.nody.ir/files/2024/03/20/nody-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B2%D9%85%DB%8C%D9%86%D9%87-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D8%B3%D9%BE%D8%A7%D9%87-1710947711.jpg') center/cover no-repeat fixed;
-            color: #fff;
-            padding-bottom: 100px;
-        }
+    body {
+        font-family: 'Vazir', sans-serif;
+        direction: rtl;
+        margin: 0;
+        padding: 0;
+        background: url('https://cdn.nody.ir/files/2024/03/20/nody-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B2%D9%85%DB%8C%D9%86%D9%87-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D8%B3%D9%BE%D8%A7%D9%87-1710947711.jpg') center/cover no-repeat fixed;
+        color: #fff;
+        padding-bottom: 100px;
+    }
 
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 30px;
-            color: #ffdd00;
-            text-shadow: 1px 1px 4px #000;
-        }
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 30px;
+        color: #ffdd00;
+        text-shadow: 1px 1px 4px #000;
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            padding: 15px;
-        }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
 
-        .card {
-            background: rgba(0,0,0,0.7);
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-            transition: 0.2s ease-in-out;
-            border: 1px solid #444;
-        }
+    .card {
+        background: rgba(0,0,0,0.7);
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+        transition: 0.2s ease-in-out;
+        border: 1px solid #444;
+        position: relative;
+    }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 14px rgba(255,221,0,0.3);
-            border-color: #ffdd00;
-        }
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 14px rgba(255,221,0,0.3);
+        border-color: #ffdd00;
+    }
 
-        .card img {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            margin-bottom: 8px;
-            border-radius: 50%;
-            border: 2px solid #ffdd00;
-            background: rgba(255,255,255,0.05);
-        }
+    .card img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        margin-bottom: 8px;
+        border-radius: 50%;
+        border: 2px solid #ffdd00;
+        background: rgba(255,255,255,0.05);
+    }
 
-        .card h4 {
-            margin: 6px 0;
-            font-size: 17px;
-            color: #ffdd00;
-        }
+    .card h4 {
+        margin: 6px 0;
+        font-size: 17px;
+        color: #ffdd00;
+    }
 
-        button {
-            margin-top: 8px;
-            background: #ffdd00;
-            color: #000;
-            border: none;
-            padding: 8px;
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+    button {
+        margin-top: 8px;
+        background: #ffdd00;
+        color: #000;
+        border: none;
+        padding: 8px;
+        width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-        button:hover {
-            background: #e6c800;
-            transform: scale(1.05);
-        }
+    button:hover {
+        background: #e6c800;
+        transform: scale(1.05);
+    }
 
-        /* استایل‌های ویژه برای بخش مقالات */
-        .article-card {
-            border: 2px solid #9C27B0 !important;
-            background: rgba(156, 39, 176, 0.1) !important;
-        }
+    /* استایل‌های ویژه برای بخش مقالات */
+    .article-card {
+        border: 2px solid #9C27B0 !important;
+        background: rgba(156, 39, 176, 0.1) !important;
+    }
 
-        .article-card:hover {
-            border-color: #7B1FA2 !important;
-            box-shadow: 0 6px 14px rgba(156, 39, 176, 0.4) !important;
-        }
+    .article-card:hover {
+        border-color: #7B1FA2 !important;
+        box-shadow: 0 6px 14px rgba(156, 39, 176, 0.4) !important;
+    }
 
-        .article-card img {
-            border-color: #9C27B0 !important;
-        }
+    .article-card img {
+        border-color: #9C27B0 !important;
+    }
 
-        .article-card h4 {
-            color: #9C27B0 !important;
-        }
+    .article-card h4 {
+        color: #9C27B0 !important;
+    }
 
-        /* مقالات */
-        .article-content {
-            text-align: right;
-            line-height: 1.8;
-            padding: 20px;
-            background: rgba(0,0,0,0.5);
-            border-radius: 10px;
-            margin: 15px 0;
-            max-height: 400px;
-            overflow-y: auto;
-        }
+    /* مقالات */
+    .article-content {
+        text-align: right;
+        line-height: 1.8;
+        padding: 20px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 10px;
+        margin: 15px 0;
+        max-height: 400px;
+        overflow-y: auto;
+    }
 
-        .article-meta {
-            color: #aaa;
-            font-size: 14px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-        }
+    .article-meta {
+        color: #aaa;
+        font-size: 14px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
 
-        /* مودال اطلاعات مشتری */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-        }
+    /* مودال ورود ادمین */
+    .admin-login {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.95);
+        border: 3px solid #dc3545;
+        border-radius: 15px;
+        padding: 30px;
+        width: 90%;
+        max-width: 400px;
+        z-index: 10000;
+        display: none;
+    }
 
-        .modal {
-            background: rgba(0,0,0,0.9);
-            border: 2px solid #ffdd00;
-            border-radius: 15px;
-            padding: 25px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        }
+    .admin-login h3 {
+        color: #dc3545;
+        text-align: center;
+        margin-top: 0;
+    }
 
-        .modal h3 {
-            color: #ffdd00;
-            margin-top: 0;
-        }
+    .login-input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #555;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 16px;
+        text-align: center;
+    }
 
-        .modal-input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #555;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 16px;
-            text-align: center;
-        }
+    .login-btn {
+        background: #dc3545 !important;
+        color: white !important;
+        margin-top: 15px !important;
+    }
 
-        .modal-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
+    .login-btn:hover {
+        background: #c82333 !important;
+    }
 
-        .modal-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+    /* دکمه ورود ادمین */
+    .admin-btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
 
-        .confirm-btn {
-            background: #28a745;
-            color: white;
-        }
+    /* پنل ادمین */
+    .admin-panel {
+        background: rgba(0,0,0,0.9);
+        border: 3px solid #28a745;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px;
+        display: none;
+    }
 
-        .cancel-btn {
-            background: #dc3545;
-            color: white;
-        }
+    .admin-header {
+        color: #28a745;
+        text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        /* سبد خرید */
-        .cart-icon {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #ffdd00;
-            color: #000;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            z-index: 1000;
-            font-size: 24px;
-            transition: all 0.3s ease;
-            border: 2px solid #000;
-        }
+    .admin-actions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
 
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #dc3545;
-            color: white;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
+    .admin-action {
+        background: rgba(255,255,255,0.1);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+    }
 
+    .admin-action h4 {
+        color: #ffdd00;
+        margin-top: 0;
+    }
+
+    /* دکمه‌های مدیریت */
+    .manage-btn {
+        background: #6c757d !important;
+        color: white !important;
+        margin: 5px !important;
+        font-size: 14px !important;
+        padding: 6px 12px !important;
+    }
+
+    .edit-btn {
+        background: #17a2b8 !important;
+    }
+
+    .delete-btn {
+        background: #dc3545 !important;
+    }
+
+    .add-btn {
+        background: #28a745 !important;
+    }
+
+    /* مودال مدیریت محصولات */
+    .product-modal {
+        background: rgba(0,0,0,0.95);
+        border: 2px solid #ffdd00;
+        border-radius: 15px;
+        padding: 25px;
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .modal-row {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 10px;
+        margin: 10px 0;
+        align-items: center;
+    }
+
+    /* مودال اطلاعات مشتری */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+    }
+
+    .modal {
+        background: rgba(0,0,0,0.9);
+        border: 2px solid #ffdd00;
+        border-radius: 15px;
+        padding: 25px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .modal h3 {
+        color: #ffdd00;
+        margin-top: 0;
+    }
+
+    .modal-input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #555;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .modal-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .modal-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .confirm-btn {
+        background: #28a745;
+        color: white;
+    }
+
+    .cancel-btn {
+        background: #dc3545;
+        color: white;
+    }
+
+    /* سبد خرید */
+    .cart-icon {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: #ffdd00;
+        color: #000;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        z-index: 1000;
+        font-size: 24px;
+        transition: all 0.3s ease;
+        border: 2px solid #000;
+    }
+
+    .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .cart-container {
+        position: fixed;
+        bottom: 90px;
+        left: 20px;
+        width: 350px;
+        max-height: 500px;
+        background: rgba(0, 0, 0, 0.95);
+        border: 2px solid #ffdd00;
+        border-radius: 15px;
+        padding: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+        z-index: 999;
+        display: none;
+        backdrop-filter: blur(10px);
+        overflow: hidden;
+    }
+
+    .cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #444;
+    }
+
+    .cart-header h3 {
+        color: #ffdd00;
+        margin: 0;
+    }
+
+    .close-cart {
+        background: #dc3545;
+        color: white;
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cart-content {
+        max-height: 350px;
+        overflow-y: auto;
+        padding-right: 5px;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 8px;
+        border: 1px solid #333;
+    }
+
+    .cart-item-info {
+        flex-grow: 1;
+    }
+
+    .cart-item-name {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .cart-item-price {
+        color: #4CAF50;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .cart-item-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .remove-btn {
+        background: #dc3545 !important;
+        color: white !important;
+        padding: 4px 8px !important;
+        border-radius: 4px !important;
+        font-size: 12px !important;
+        width: auto !important;
+        min-width: 60px;
+    }
+
+    .cart-footer {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #444;
+    }
+
+    .cart-summary {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 16px;
+    }
+
+    .cart-total {
+        color: #ffdd00;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .clear-btn {
+        background: #dc3545 !important;
+        color: white !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    .clear-btn:hover {
+        background: #c82333 !important;
+    }
+
+    .checkout-btn {
+        background: #28a745 !important;
+        color: white !important;
+        width: 100% !important;
+        padding: 12px !important;
+        margin-top: 10px !important;
+        font-size: 16px !important;
+    }
+
+    .checkout-btn:hover {
+        background: #218838 !important;
+    }
+
+    .empty-cart {
+        text-align: center;
+        color: #999;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .cart-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .cart-content::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.1);
+        border-radius: 3px;
+    }
+
+    .cart-content::-webkit-scrollbar-thumb {
+        background: #ffdd00;
+        border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
         .cart-container {
-            position: fixed;
-            bottom: 90px;
-            left: 20px;
-            width: 350px;
-            max-height: 500px;
-            background: rgba(0, 0, 0, 0.95);
-            border: 2px solid #ffdd00;
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-            z-index: 999;
-            display: none;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
+            width: 300px;
+            left: 10px;
         }
 
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
+        .cart-icon {
+            left: 10px;
+            bottom: 10px;
         }
-
-        .cart-header h3 {
-            color: #ffdd00;
-            margin: 0;
-        }
-
-        .close-cart {
-            background: #dc3545;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-content {
-            max-height: 350px;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            margin-bottom: 8px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            border: 1px solid #333;
-        }
-
-        .cart-item-info {
-            flex-grow: 1;
-        }
-
-        .cart-item-name {
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-
-        .cart-item-price {
-            color: #4CAF50;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .cart-item-actions {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .remove-btn {
-            background: #dc3545 !important;
-            color: white !important;
-            padding: 4px 8px !important;
-            border-radius: 4px !important;
-            font-size: 12px !important;
-            width: auto !important;
-            min-width: 60px;
-        }
-
-        .cart-footer {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #444;
-        }
-
-        .cart-summary {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 16px;
-        }
-
-        .cart-total {
-            color: #ffdd00;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .clear-btn {
-            background: #dc3545 !important;
-            color: white !important;
-            width: 100% !important;
-            padding: 10px !important;
-        }
-
-        .clear-btn:hover {
-            background: #c82333 !important;
-        }
-
-        .checkout-btn {
-            background: #28a745 !important;
-            color: white !important;
-            width: 100% !important;
-            padding: 12px !important;
-            margin-top: 10px !important;
-            font-size: 16px !important;
-        }
-
-        .checkout-btn:hover {
-            background: #218838 !important;
-        }
-
-        .empty-cart {
-            text-align: center;
-            color: #999;
-            padding: 20px;
+        
+        .admin-btn {
+            top: 10px;
+            left: 10px;
+            padding: 8px 15px;
             font-size: 14px;
         }
+    }
 
-        .cart-content::-webkit-scrollbar {
-            width: 6px;
+    @media (max-width: 480px) {
+        .cart-container {
+            width: calc(100% - 20px);
+            left: 10px;
         }
-
-        .cart-content::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
+        
+        .modal-row {
+            grid-template-columns: 1fr;
         }
+    }
 
-        .cart-content::-webkit-scrollbar-thumb {
-            background: #ffdd00;
-            border-radius: 3px;
-        }
+    .product-price {
+        color: #4CAF50;
+        font-weight: bold;
+    }
 
-        @media (max-width: 768px) {
-            .cart-container {
-                width: 300px;
-                left: 10px;
-            }
-
-            .cart-icon {
-                left: 10px;
-                bottom: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cart-container {
-                width: calc(100% - 20px);
-                left: 10px;
-            }
-        }
-
-        .product-price {
-            color: #4CAF50;
-            font-weight: bold;
-        }
-
-        #products h3 {
-            color: #ffdd00;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
+    #products h3 {
+        color: #ffdd00;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* نشانگر ادمین */
+    .admin-indicator {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 </head>
 <body>
 
+<!-- دکمه ورود ادمین -->
+<button class="admin-btn" onclick="showAdminLogin()">
+    👑 ورود ادمین
+</button>
+
 <h2>🅴🅼🅰🅳 | فروشگاه نظامی عماد</h2>
+
+<!-- پنل ادمین (پس از ورود) -->
+<div id="adminPanel" class="admin-panel">
+    <div class="admin-header">
+        <h3>👑 پنل مدیریت ادمین</h3>
+        <button onclick="logoutAdmin()" style="background: #dc3545; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
+            خروج از حساب
+        </button>
+    </div>
+    
+    <div class="admin-actions">
+        <div class="admin-action">
+            <h4>📝 مدیریت مقالات</h4>
+            <button onclick="manageArticles()" class="manage-btn">مدیریت مقالات</button>
+        </div>
+        
+        <div class="admin-action">
+            <h4>🛡️ مدیریت لوازم دفاع</h4>
+            <button onclick="manageProducts('defense')" class="manage-btn">ویرایش محصولات</button>
+            <button onclick="addNewProduct('defense')" class="manage-btn add-btn">➕ اضافه کردن</button>
+        </div>
+        
+        <div class="admin-action">
+            <h4>🚧 مدیریت تابلو و علائم</h4>
+            <button onclick="manageProducts('signs')" class="manage-btn">ویرایش محصولات</button>
+            <button onclick="addNewProduct('signs')" class="manage-btn add-btn">➕ اضافه کردن</button>
+        </div>
+        
+        <div class="admin-action">
+            <h4>👕 مدیریت لباس نظامی</h4>
+            <button onclick="manageProducts('clothing')" class="manage-btn">ویرایش محصولات</button>
+            <button onclick="addNewProduct('clothing')" class="manage-btn add-btn">➕ اضافه کردن</button>
+        </div>
+        
+        <div class="admin-action">
+            <h4>👢 مدیریت کفش و پوتین</h4>
+            <button onclick="manageProducts('shoes')" class="manage-btn">ویرایش محصولات</button>
+            <button onclick="addNewProduct('shoes')" class="manage-btn add-btn">➕ اضافه کردن</button>
+        </div>
+        
+        <div class="admin-action">
+            <h4>🎖️ مدیریت تزئینات</h4>
+            <button onclick="manageProducts('decorations')" class="manage-btn">ویرایش محصولات</button>
+            <button onclick="addNewProduct('decorations')" class="manage-btn add-btn">➕ اضافه کردن</button>
+        </div>
+        
+        <div class="admin-action">
+            <h4>⭐ مدیریت محصولات ویژه</h4>
+            <button onclick="manageProducts('special')" class="manage-btn">ویرایش محصولات</button>
+            <button onclick="addNewProduct('special')" class="manage-btn add-btn">➕ اضافه کردن</button>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="viewAllOrders()" class="button" style="background: #17a2b8; color: white;">
+            📋 مشاهده تمام سفارشات
+        </button>
+    </div>
+</div>
 
 <!-- منوی اصلی دسته‌بندی‌ها -->
 <div class="grid" id="categories">
@@ -463,6 +693,25 @@
 </div>
 
 <div id="products"></div>
+
+<!-- مودال ورود ادمین -->
+<div id="adminLogin" class="admin-login">
+    <h3>🔐 ورود به پنل ادمین</h3>
+    <p style="text-align: center; color: #aaa; margin-bottom: 20px;">فقط مدیران می‌توانند وارد شوند</p>
+    
+    <input type="text" id="adminUsername" class="login-input" 
+           placeholder="نام کاربری" required>
+    
+    <input type="password" id="adminPassword" class="login-input" 
+           placeholder="رمز عبور" required>
+    
+    <div id="loginError" style="color: #ff6b6b; text-align: center; margin: 10px 0; display: none;">
+        نام کاربری یا رمز عبور اشتباه است!
+    </div>
+    
+    <button onclick="loginAdmin()" class="button login-btn">ورود به پنل مدیریت</button>
+    <button onclick="hideAdminLogin()" class="button" style="background: #6c757d; color: white; margin-top: 10px;">انصراف</button>
+</div>
 
 <!-- مودال اطلاعات مشتری -->
 <div class="modal-overlay" id="customerModal">
@@ -523,49 +772,59 @@
 </div>
 
 <script>
+// ==================== اطلاعات احراز هویت ====================
+const ADMIN_CREDENTIALS = {
+    username: "admin_military",
+    password: "Em@d313M!2024#Secure"
+};
+
+let isAdminLoggedIn = false;
+let currentAdminSession = null;
+
 // ==================== متغیرهای عمومی ====================
 const productData = {
     "defense": [
-        {name: "دستکش ضد برش", price: 850000},
-        {name: "ماسک گاز نظامی", price: 3200000},
-        {name: "زره بدن سبک", price: 12500000},
-        {name: "کلاه ایمنی تاکتیکی", price: 4500000}
+        {id: 1, name: "دستکش ضد برش", price: 850000},
+        {id: 2, name: "ماسک گاز نظامی", price: 3200000},
+        {id: 3, name: "زره بدن سبک", price: 12500000},
+        {id: 4, name: "کلاه ایمنی تاکتیکی", price: 4500000}
     ],
     "signs": [
-        {name: "تابلو فرماندهی", price: 1800000},
-        {name: "علائم راهنمایی نظامی", price: 950000},
-        {name: "پلاک درب بخش‌ها", price: 750000},
-        {name: "تابلو اخطار منطقه نظامی", price: 1200000}
+        {id: 1, name: "تابلو فرماندهی", price: 1800000},
+        {id: 2, name: "علائم راهنمایی نظامی", price: 950000},
+        {id: 3, name: "پلاک درب بخش‌ها", price: 750000},
+        {id: 4, name: "تابلو اخطار منطقه نظامی", price: 1200000}
     ],
     "clothing": [
-        {name: "یونیفرم رزمی خاکی", price: 3500000},
-        {name: "کت ضد باران نظامی", price: 4200000},
-        {name: "شلوار تاکتیکی", price: 2800000},
-        {name: "پیراهن رسمی افسری", price: 2500000}
+        {id: 1, name: "یونیفرم رزمی خاکی", price: 3500000},
+        {id: 2, name: "کت ضد باران نظامی", price: 4200000},
+        {id: 3, name: "شلوار تاکتیکی", price: 2800000},
+        {id: 4, name: "پیراهن رسمی افسری", price: 2500000}
     ],
     "shoes": [
-        {name: "پوتین نظامی چرمی", price: 3800000},
-        {name: "کفش ورزشی نظامی", price: 2200000},
-        {name: "نیم بوت تاکتیکی", price: 3100000},
-        {name: "کفش پیاده‌روی رزمی", price: 2700000}
+        {id: 1, name: "پوتین نظامی چرمی", price: 3800000},
+        {id: 2, name: "کفش ورزشی نظامی", price: 2200000},
+        {id: 3, name: "نیم بوت تاکتیکی", price: 3100000},
+        {id: 4, name: "کفش پیاده‌روی رزمی", price: 2700000}
     ],
     "decorations": [
-        {name: "نشان درجه افسری", price: 650000},
-        {name: "مدال افتخار", price: 1200000},
-        {name: "نوار شانه نظامی", price: 450000},
-        {name: "تزئینات کلاه افسری", price: 850000}
+        {id: 1, name: "نشان درجه افسری", price: 650000},
+        {id: 2, name: "مدال افتخار", price: 1200000},
+        {id: 3, name: "نوار شانه نظامی", price: 450000},
+        {id: 4, name: "تزئینات کلاه افسری", price: 850000}
     ],
     "special": [
-        {name: "ست کامل فرماندهی", price: 28500000},
-        {name: "بسته ویژه تشریفات", price: 17500000},
-        {name: "ست هدیه نظامی", price: 12500000},
-        {name: "محصولات محدود ویژه", price: 42000000}
+        {id: 1, name: "ست کامل فرماندهی", price: 28500000},
+        {id: 2, name: "بسته ویژه تشریفات", price: 17500000},
+        {id: 3, name: "ست هدیه نظامی", price: 12500000},
+        {id: 4, name: "محصولات محدود ویژه", price: 42000000}
     ]
 };
 
 // مقالات نمونه
 let militaryArticles = [
     {
+        id: 1,
         title: "اصول تاکتیک‌های نظامی مدرن",
         content: "در دنیای امروز، تاکتیک‌های نظامی دستخوش تغییرات اساسی شده‌اند. با پیشرفت فناوری، نیروهای نظامی باید خود را با شرایط جدید تطبیق دهند.",
         author: "سرهنگ احمدی",
@@ -573,8 +832,9 @@ let militaryArticles = [
         views: 125
     },
     {
+        id: 2,
         title: "تاریخچه لباس نظامی در ایران",
-        content: "لباس نظامی در ایران تاریخی کهن دارد که به دوران هخامنشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است.",
+        content: "لباس نظامی در ایران تاریخی کهن دارد که به دوران هخاممشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است.",
         author: "دکتر محمدی",
         date: "۱۴۰۳/۱۰/۱۰",
         views: 89
@@ -585,347 +845,135 @@ let cart = [];
 let cartOpen = false;
 let currentOrderId = '';
 let currentOrderTotal = 0;
+let editingArticleId = null;
+let editingProductId = null;
+let editingCategory = null;
 
-// ==================== توابع سبد خرید ====================
-function toggleCart() {
-    const cartContainer = document.getElementById("cartContainer");
-    cartOpen = !cartOpen;
-    cartContainer.style.display = cartOpen ? 'block' : 'none';
+// ==================== توابع ورود ادمین ====================
+function showAdminLogin() {
+    document.getElementById('adminLogin').style.display = 'block';
 }
 
-function showProducts(category) {
-    console.log("شروع نمایش محصولات برای:", category);
-    
-    const container = document.getElementById("products");
-    if (!container) {
-        alert("خطا: المنت products پیدا نشد!");
-        return;
-    }
-    
-    const products = productData[category];
-    if (!products) {
-        alert("خطا: دسته‌بندی پیدا نشد!");
-        return;
-    }
-    
-    const categoryName = getCategoryName(category);
-    let html = `<h3>📦 محصولات ${categoryName}</h3><div class="grid">`;
-    
-    products.forEach((product, index) => {
-        html += `
-            <div class="card">
-                <h4>${product.name}</h4>
-                <p>قیمت: <span class="product-price">${product.price.toLocaleString('fa-IR')}</span> تومان</p>
-                <button onclick="addToCart('${category}', ${index})">➕ افزودن به سبد</button>
-            </div>`;
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    console.log("محصولات نمایش داده شدند");
-    
-    container.scrollIntoView({ behavior: 'smooth' });
+function hideAdminLogin() {
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('loginError').style.display = 'none';
 }
 
-function getCategoryName(key) {
-    const names = {
-        'defense': 'لوازم دفاع',
-        'signs': 'تابلو و علائم',
-        'clothing': 'لباس نظامی',
-        'shoes': 'کفش و پوتین',
-        'decorations': 'تزئینات و نشان‌ها',
-        'special': 'محصولات ویژه'
-    };
-    return names[key] || key;
-}
-
-function addToCart(category, index) {
-    const product = {...productData[category][index]};
-    cart.push(product);
-    updateCart();
-    showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#28a745');
-}
-
-function updateCart() {
-    const cartContent = document.getElementById("cartContent");
-    const cartFooter = document.getElementById("cartFooter");
-    const cartBadge = document.getElementById("cartBadge");
-    const itemCountEl = document.getElementById("itemCount");
-    const totalPriceEl = document.getElementById("totalPrice");
-
-    let total = 0;
-    cartBadge.textContent = cart.length;
-
-    if (cart.length === 0) {
-        cartContent.innerHTML = '<div class="empty-cart">سبد خرید شما خالی است</div>';
-        cartFooter.style.display = 'none';
-    } else {
-        cartContent.innerHTML = '';
-        cart.forEach((item, index) => {
-            cartContent.innerHTML += `
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">${item.price.toLocaleString('fa-IR')} تومان</div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button onclick="removeFromCart(${index})" class="remove-btn">حذف</button>
-                    </div>
-                </div>`;
-            total += item.price;
-        });
+function loginAdmin() {
+    const username = document.getElementById('adminUsername').value.trim();
+    const password = document.getElementById('adminPassword').value.trim();
+    
+    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+        // ورود موفق
+        isAdminLoggedIn = true;
+        currentAdminSession = {
+            username: username,
+            loginTime: new Date().toISOString(),
+            token: generateToken()
+        };
         
-        itemCountEl.textContent = cart.length;
-        totalPriceEl.textContent = total.toLocaleString('fa-IR');
-        cartFooter.style.display = 'block';
+        // ذخیره در localStorage
+        localStorage.setItem('admin_session', JSON.stringify(currentAdminSession));
+        
+        // پنهان کردن فرم ورود
+        hideAdminLogin();
+        
+        // نمایش پنل ادمین
+        document.getElementById('adminPanel').style.display = 'block';
+        
+        // تغییر دکمه ورود
+        document.querySelector('.admin-btn').textContent = '👑 پنل مدیریت';
+        document.querySelector('.admin-btn').style.background = '#28a745';
+        
+        showMessage('✅ با موفقیت وارد پنل مدیریت شدید', '#28a745');
+        
+        // رفرش نمایش محصولات برای نشان دادن دکمه‌های مدیریت
+        const currentCategory = getCurrentCategory();
+        if (currentCategory) {
+            showProducts(currentCategory);
+        }
+        
+    } else {
+        // نمایش خطا
+        document.getElementById('loginError').style.display = 'block';
+        document.getElementById('adminPassword').value = '';
     }
 }
 
-function removeFromCart(index) {
-    if (index >= 0 && index < cart.length) {
-        const removedItem = cart[index];
-        cart.splice(index, 1);
-        updateCart();
-        showMessage(`❌ ${removedItem.name} از سبد خرید حذف شد`, '#dc3545');
+function generateToken() {
+    return 'token_' + Math.random().toString(36).substr(2) + Date.now().toString(36);
+}
+
+function checkAdminSession() {
+    const savedSession = localStorage.getItem('admin_session');
+    if (savedSession) {
+        try {
+            const session = JSON.parse(savedSession);
+            // بررسی اعتبار توکن (ساده)
+            if (session.token && session.loginTime) {
+                isAdminLoggedIn = true;
+                currentAdminSession = session;
+                
+                // نمایش پنل ادمین
+                document.getElementById('adminPanel').style.display = 'block';
+                document.querySelector('.admin-btn').textContent = '👑 پنل مدیریت';
+                document.querySelector('.admin-btn').style.background = '#28a745';
+            }
+        } catch (e) {
+            localStorage.removeItem('admin_session');
+        }
     }
 }
 
-function clearCart() {
-    if (cart.length === 0) return;
+function logoutAdmin() {
+    isAdminLoggedIn = false;
+    currentAdminSession = null;
+    localStorage.removeItem('admin_session');
     
-    if (confirm(`آیا از پاک کردن ${cart.length} آیتم از سبد خرید مطمئن هستید؟`)) {
-        cart = [];
-        updateCart();
-        showMessage('🛒 سبد خرید با موفقیت پاک شد', '#ffc107', '#000');
+    // پنهان کردن پنل ادمین
+    document.getElementById('adminPanel').style.display = 'none';
+    
+    // بازگرداندن دکمه ورود
+    document.querySelector('.admin-btn').textContent = '👑 ورود ادمین';
+    document.querySelector('.admin-btn').style.background = '#dc3545';
+    
+    // رفرش نمایش محصولات
+    const currentCategory = getCurrentCategory();
+    if (currentCategory) {
+        showProducts(currentCategory);
     }
+    
+    showMessage('👋 از حساب مدیریت خارج شدید', '#6c757d');
 }
 
-// ==================== بخش مقالات نظامی ====================
-function showArticles() {
-    const container = document.getElementById("products");
+// ==================== توابع مدیریت مقالات ====================
+function manageArticles() {
+    showArticles();
     
-    let html = `
-        <h3 style="color: #9C27B0;">📚 مقالات نظامی</h3>
-        <p style="text-align: center; color: #aaa; margin-bottom: 20px;">مقالات تخصصی در حوزه نظامی</p>
-        <div style="text-align: left; margin-bottom: 20px;">
-            <button onclick="addNewArticle()" style="background: #9C27B0; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
-                ✏️ افزودن مقاله جدید
-            </button>
-        </div>
-        <div class="grid">`;
-    
-    militaryArticles.forEach((article, index) => {
-        html += `
-            <div class="card article-card">
-                <h4>${article.title}</h4>
-                <div class="article-meta">
-                    <span>👤 ${article.author}</span>
-                    <span>📅 ${article.date}</span>
-                </div>
-                <p style="color: #ccc; font-size: 14px; margin: 10px 0;">${article.content.substring(0, 100)}...</p>
-                <p style="color: #aaa; font-size: 12px;">👁️ ${article.views} بازدید</p>
-                <button onclick="readArticle(${index})">📖 مطالعه مقاله</button>
-            </div>`;
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    container.scrollIntoView({ behavior: 'smooth' });
-}
-
-function readArticle(index) {
-    const article = militaryArticles[index];
-    article.views = (article.views || 0) + 1;
-    
-    const container = document.getElementById("products");
-    const contentWithBreaks = article.content.replace(/\n/g, '<br>');
-    
-    const html = `
-        <h3 style="color: #9C27B0;">${article.title}</h3>
-        <div class="article-meta">
-            <div>
-                <span>👤 نویسنده: ${article.author}</span><br>
-                <span>📅 تاریخ انتشار: ${article.date}</span>
+    // بعد از نمایش مقالات، دکمه مدیریت را اضافه کن
+    setTimeout(() => {
+        const container = document.getElementById('products');
+        const manageHTML = `
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="addNewArticle()" class="button" style="background: #28a745; margin: 10px;">
+                    ✏️ افزودن مقاله جدید
+                </button>
+                <button onclick="backToAdmin()" class="button" style="background: #6c757d; margin: 10px;">
+                    ↩️ بازگشت به پنل
+                </button>
             </div>
-            <div>
-                <span>👁️ بازدید: ${article.views}</span>
-            </div>
-        </div>
-        <div class="article-content">
-            ${contentWithBreaks}
-        </div>
-        <div style="text-align: center; margin-top: 20px;">
-            <button onclick="showArticles()" style="background: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
-                ↩️ بازگشت به لیست مقالات
-            </button>
-        </div>
-    `;
-    
-    container.innerHTML = html;
+        `;
+        container.innerHTML += manageHTML;
+    }, 100);
 }
 
 function addNewArticle() {
-    const title = prompt("عنوان مقاله جدید را وارد کنید:");
+    const title = prompt("عنوان مقاله جدید:");
     if (!title) return;
     
-    const content = prompt("متن کامل مقاله را وارد کنید:");
+    const content = prompt("متن مقاله (می‌توانید چند خط بنویسید):");
     if (!content) return;
     
     const author = prompt("نام نویسنده:", "مدیر سایت");
     
-    const newArticle = {
-        title: title,
-        content: content,
-        author: author || "مدیر سایت",
-        date: new Date().toLocaleDateString('fa-IR'),
-        views: 0
-    };
-    
-    militaryArticles.unshift(newArticle);
-    showMessage('✅ مقاله جدید با موفقیت اضافه شد', '#9C27B0');
-    showArticles();
-}
-
-// ==================== توابع پرداخت ====================
-function startCheckout() {
-    if (cart.length === 0) {
-        alert('🛒 سبد خرید شما خالی است!');
-        return;
-    }
-    
-    currentOrderId = 'ORD-' + Date.now().toString().slice(-8);
-    currentOrderTotal = cart.reduce((sum, item) => sum + item.price, 0);
-    
-    document.getElementById('modalOrderId').textContent = currentOrderId;
-    document.getElementById('modalTotalPrice').textContent = currentOrderTotal.toLocaleString('fa-IR');
-    
-    document.getElementById('customerName').value = '';
-    document.getElementById('customerPhone').value = '';
-    
-    document.getElementById('customerModal').style.display = 'flex';
-}
-
-function closeCustomerModal() {
-    document.getElementById('customerModal').style.display = 'none';
-}
-
-function proceedToEitaa() {
-    const name = document.getElementById('customerName').value.trim();
-    const phone = document.getElementById('customerPhone').value.trim();
-    
-    if (!name) {
-        alert('❌ لطفاً نام و نام خانوادگی خود را وارد کنید');
-        return;
-    }
-    
-    if (!phone || !/^09[0-9]{9}$/.test(phone)) {
-        alert('❌ لطفاً شماره همراه معتبر وارد کنید (مثال: 09123456789)');
-        return;
-    }
-    
-    // ساخت پیام سفارش
-    const message = `🛒 **سفارش جدید از فروشگاه نظامی عماد**
-شماره سفارش: ${currentOrderId}
-مبلغ: ${currentOrderTotal.toLocaleString('fa-IR')} تومان
-مشتری: ${name}
-تماس: ${phone}`;
-    
-    // هدایت به ایتا
-    const eitaaId = '@www_313M';
-    const eitaaLink = `https://eitaa.com/${eitaaId}?text=${encodeURIComponent(message)}`;
-    
-    alert(`✅ سفارش ثبت شد!\nشماره: ${currentOrderId}\nدر حال انتقال به ایتا...`);
-    
-    window.open(eitaaLink, '_blank');
-    
-    // پاک کردن سبد خرید
-    cart = [];
-    updateCart();
-    closeCustomerModal();
-}
-
-// ==================== توابع کمکی ====================
-function showMessage(text, bgColor, textColor = 'white') {
-    const message = document.createElement('div');
-    message.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: ${bgColor};
-        color: ${textColor};
-        padding: 12px 24px;
-        border-radius: 8px;
-        z-index: 1001;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        animation: slideDown 0.3s ease;
-        font-family: Vazir, sans-serif;
-        text-align: center;
-        max-width: 90%;
-    `;
-    message.innerHTML = text;
-    document.body.appendChild(message);
-    
-    setTimeout(() => {
-        message.style.animation = 'slideUp 0.3s ease';
-        setTimeout(() => {
-            if (message.parentNode) {
-                document.body.removeChild(message);
-            }
-        }, 300);
-    }, 3000);
-}
-
-// ==================== اجرای اولیه ====================
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("فروشگاه نظامی عماد بارگذاری شد");
-    
-    // اضافه کردن استایل‌های انیمیشن
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideDown {
-            from {
-                transform: translateX(-50%) translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideUp {
-            from {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(-50%) translateY(-100%);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-});
-
-// بستن سبد خرید با کلیک بیرون
-document.addEventListener('click', function(event) {
-    const cartContainer = document.getElementById('cartContainer');
-    const cartIcon = document.querySelector('.cart-icon');
-    
-    if (cartOpen && 
-        !cartContainer.contains(event.target) && 
-        !cartIcon.contains(event.target)) {
-        toggleCart();
-    }
-});
-
-// بستن مودال با کلیک بیرون
-document.getElementById('customerModal').addEventListener('click', function(event) {
-    if (event.target === this) {
-        closeCustomerModal();
-    }
-});
-</script>
-</body>
-</html>
+    const newId = militaryArticles.length > 0 ? Math.max(...militaryArticles.map(a => a.id)) + 
