@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>فروشگاه نظامی عماد</title>
+<title>🅴🅼🅰🅳 | فروشگاه نظامی عماد</title>
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 
@@ -14,7 +14,7 @@
         padding: 0;
         background: url('https://cdn.nody.ir/files/2024/03/20/nody-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B2%D9%85%DB%8C%D9%86%D9%87-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D8%B3%D9%BE%D8%A7%D9%87-1710947711.jpg') center/cover no-repeat fixed;
         color: #fff;
-        padding-bottom: 70px;
+        padding-bottom: 100px;
     }
 
     h2 {
@@ -48,13 +48,12 @@
         border-color: #ffdd00;
     }
 
-    /* گرد کردن تصاویر با CSS */
     .card img {
         width: 60px;
         height: 60px;
         object-fit: cover;
         margin-bottom: 8px;
-        border-radius: 50%; /* این خط تصویر را به دایره کامل تبدیل می‌کند[citation:3][citation:6] */
+        border-radius: 50%;
         border: 2px solid #ffdd00;
     }
 
@@ -90,6 +89,46 @@
         border: 1px solid #444;
     }
 
+    /* تنظیمات ایتا - ساده شده */
+    .eitaa-config {
+        background: rgba(0, 0, 0, 0.85);
+        padding: 20px;
+        margin: 15px;
+        border-radius: 12px;
+        border: 2px solid #2e86de;
+        text-align: center;
+    }
+
+    .config-box {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .config-input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #555;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .config-btn {
+        background: #2e86de !important;
+        color: white !important;
+        margin-top: 15px !important;
+        font-size: 16px !important;
+        padding: 12px !important;
+    }
+
+    .config-btn:hover {
+        background: #1a73e8 !important;
+    }
+
+    /* سبد خرید */
     .cart-icon {
         position: fixed;
         bottom: 20px;
@@ -249,11 +288,33 @@
         background: #c82333 !important;
     }
 
+    .eitaa-order-btn {
+        background: #2e86de !important;
+        color: white !important;
+        width: 100% !important;
+        padding: 12px !important;
+        margin-top: 10px !important;
+        font-size: 16px !important;
+    }
+
+    .eitaa-order-btn:hover {
+        background: #1a73e8 !important;
+    }
+
     .empty-cart {
         text-align: center;
         color: #999;
         padding: 20px;
         font-size: 14px;
+    }
+
+    .status-connected {
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .status-disconnected {
+        color: #dc3545;
     }
 
     .cart-content::-webkit-scrollbar {
@@ -303,53 +364,75 @@
 </head>
 <body>
 
-<h2>فروشگاه نظامی عماد</h2>
+<h2>🅴🅼🅰🅳 | فروشگاه نظامی عماد</h2>
 
+<!-- دسته‌بندی محصولات -->
 <div class="grid" id="categories">
-    <!-- لوازم دفاع -->
     <div class="card">
         <img src="https://cdn.ilna.ir/thumbnail/5L0qtIrphEGt/XWHCw76VBsxziNocTLLHoesUW68OoqO1axxWWNC-1_29u4R4x8JTWBcfKP1V5I-iMLLqt6lWi2E,/874490_332.jpg" alt="لوازم دفاع">
         <h4>لوازم دفاع</h4>
         <button onclick="showProducts('defense')">نمایش محصولات</button>
     </div>
 
-    <!-- تابلو و علائم -->
     <div class="card">
         <img src="https://dkstatics-public.digikala.com/digikala-products/121253960.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90" alt="تابلو و علائم">
         <h4>تابلو و علائم</h4>
         <button onclick="showProducts('signs')">نمایش محصولات</button>
     </div>
 
-    <!-- لباس نظامی -->
     <div class="card">
         <img src="https://nezamishop.ir/wp-content/uploads/2023/05/nezamishop.png" alt="لباس نظامی">
         <h4>لباس نظامی</h4>
         <button onclick="showProducts('clothing')">نمایش محصولات</button>
     </div>
 
-    <!-- کفش و پوتین نظامی -->
     <div class="card">
-        <img src="https://imen-kala.ir/wp-content/uploads/2021/07/1399022311403734520374224.jpg" alt="کفش و پوتین نظامی">
+        <img src="https://imen-kala.ir/wp-content/uploads/2021/07/1399022311403734520374224.jpg" alt="کفش و پوتین">
         <h4>کفش و پوتین</h4>
         <button onclick="showProducts('shoes')">نمایش محصولات</button>
     </div>
 
-    <!-- تزئینات و نشان -->
     <div class="card">
         <img src="https://www.faraz.ir/files/fa/news/1403/7/15/122346_975.jpg" alt="تزئینات و نشان‌ها">
         <h4>تزئینات و نشان‌ها</h4>
         <button onclick="showProducts('decorations')">نمایش محصولات</button>
     </div>
 
-    <!-- محصولات ویژه -->
     <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050483.png" alt="محصولات ویژه">
+        <img src="https://cdn.leonardo.ai/users/8df57729-bb65-4bb2-8e53-886271ed8e19/generations/1f0e0589-1329-6300-b8da-a76c782c0950/lucid-origin_A_highly_detailed_realistic_image_of_a_stern_military_soldier_in_full_combat_gea-0.jpg?w=512" alt="محصولات ویژه">
         <h4>محصولات ویژه</h4>
         <button onclick="showProducts('special')">نمایش محصولات</button>
     </div>
 </div>
 
 <div id="products"></div>
+
+<!-- تنظیمات ایتا - ساده شده -->
+<div class="eitaa-config">
+    <div class="config-box">
+        <h3>⚙️ تنظیمات اتصال به ایـتـا</h3>
+        
+        <div style="text-align: right; margin: 15px 0;">
+            <p style="margin: 5px 0; color: #aaa;">وضعیت: 
+                <span id="connectionStatus" class="status-disconnected">قطع</span>
+            </p>
+        </div>
+        
+        <input type="text" id="eitaaToken" class="config-input" 
+               placeholder="توکن ربات (bot428410:694cac21-5288-4cf3-8020-92ad066e8b91-****)">
+        
+        <input type="text" id="eitaaChatId" class="config-input" 
+               placeholder="Chat ID شما (72408862)">
+        
+        <button onclick="saveAndTestConnection()" class="config-btn">
+            💾 ذخیره و تست اتصال
+        </button>
+        
+        <p style="margin-top: 15px; font-size: 14px; color: #aaa;">
+            ✅ پس از تست موفق، می‌توانید سفارش‌ها را به ایـتـا ارسال کنید
+        </p>
+    </div>
+</div>
 
 <!-- آیکون سبد خرید -->
 <div class="cart-icon" onclick="toggleCart()">
@@ -360,7 +443,7 @@
 <!-- پنل سبد خرید -->
 <div class="cart-container" id="cartContainer">
     <div class="cart-header">
-        <h3>🛒 سبد خرید</h3>
+        <h3>🛒 سبد خرید شما</h3>
         <button class="close-cart" onclick="toggleCart()">×</button>
     </div>
 
@@ -378,11 +461,14 @@
             <span class="cart-total" id="totalPrice">0</span> تومان
         </div>
         <button onclick="clearCart()" class="clear-btn">🗑️ پاک کردن سبد خرید</button>
+        <button onclick="completeOrderWithEitaa()" class="eitaa-order-btn" id="orderBtn">
+            📨 ثبت سفارش از طریق ایـتـا
+        </button>
     </div>
 </div>
 
 <script>
-// اطلاعات محصولات
+// ==================== متغیرهای عمومی ====================
 const productData = {
     "defense": [
         {name: "دستکش ضد برش", price: 850000},
@@ -425,36 +511,27 @@ const productData = {
 let cart = [];
 let cartOpen = false;
 
+// ==================== توابع سبد خرید ====================
 function toggleCart() {
     const cartContainer = document.getElementById("cartContainer");
-    const cartIcon = document.querySelector('.cart-icon');
-
     cartOpen = !cartOpen;
-
-    if (cartOpen) {
-        cartContainer.style.display = 'block';
-        cartIcon.style.transform = 'scale(1.1)';
-        cartIcon.style.background = '#e6c800';
-    } else {
-        cartContainer.style.display = 'none';
-        cartIcon.style.transform = 'scale(1)';
-        cartIcon.style.background = '#ffdd00';
-    }
+    cartContainer.style.display = cartOpen ? 'block' : 'none';
 }
 
 function showProducts(category) {
     const container = document.getElementById("products");
-    let html = `<h3>📦 محصولات ${getCategoryName(category)}</h3><div class="grid">`;
-
-    productData[category].forEach((p, i) => {
+    const categoryName = getCategoryName(category);
+    let html = `<h3>📦 محصولات ${categoryName}</h3><div class="grid">`;
+    
+    productData[category].forEach((product, index) => {
         html += `
             <div class="card">
-                <h4>${p.name}</h4>
-                <p>قیمت: <span class="product-price">${p.price.toLocaleString('fa-IR')}</span> تومان</p>
-                <button onclick="addToCart('${category}', ${i})">➕ افزودن به سبد</button>
+                <h4>${product.name}</h4>
+                <p>قیمت: <span class="product-price">${product.price.toLocaleString('fa-IR')}</span> تومان</p>
+                <button onclick="addToCart('${category}', ${index})">➕ افزودن به سبد</button>
             </div>`;
     });
-
+    
     html += '</div>';
     container.innerHTML = html;
     container.scrollIntoView({ behavior: 'smooth' });
@@ -476,13 +553,7 @@ function addToCart(category, index) {
     const product = {...productData[category][index]};
     cart.push(product);
     updateCart();
-
     showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#28a745');
-
-    if (!cartOpen) {
-        cartOpen = true;
-        document.getElementById("cartContainer").style.display = 'block';
-    }
 }
 
 function updateCart() {
@@ -493,7 +564,6 @@ function updateCart() {
     const totalPriceEl = document.getElementById("totalPrice");
 
     let total = 0;
-
     cartBadge.textContent = cart.length;
 
     if (cart.length === 0) {
@@ -514,7 +584,7 @@ function updateCart() {
                 </div>`;
             total += item.price;
         });
-
+        
         itemCountEl.textContent = cart.length;
         totalPriceEl.textContent = total.toLocaleString('fa-IR');
         cartFooter.style.display = 'block';
@@ -522,27 +592,213 @@ function updateCart() {
 }
 
 function removeFromCart(index) {
-    const removedItem = cart[index];
-    cart.splice(index, 1);
-    updateCart();
-
-    showMessage(`❌ ${removedItem.name} از سبد خرید حذف شد`, '#dc3545');
+    if (index >= 0 && index < cart.length) {
+        const removedItem = cart[index];
+        cart.splice(index, 1);
+        updateCart();
+        showMessage(`❌ ${removedItem.name} از سبد خرید حذف شد`, '#dc3545');
+    }
 }
 
 function clearCart() {
-    if (cart.length === 0) {
-        showMessage('سبد خرید شما در حال حاضر خالی است!', '#ffc107', '#000');
-        return;
-    }
-
+    if (cart.length === 0) return;
+    
     if (confirm(`آیا از پاک کردن ${cart.length} آیتم از سبد خرید مطمئن هستید؟`)) {
         cart = [];
         updateCart();
         showMessage('🛒 سبد خرید با موفقیت پاک شد', '#ffc107', '#000');
-        toggleCart();
     }
 }
 
+// ==================== توابع ایـتـا ====================
+async function saveAndTestConnection() {
+    const token = document.getElementById('eitaaToken').value.trim();
+    const chatId = document.getElementById('eitaaChatId').value.trim();
+    
+    if (!token || !chatId) {
+        alert('❌ لطفاً توکن و Chat ID را وارد کنید');
+        return;
+    }
+    
+    // ذخیره در localStorage
+    localStorage.setItem('eitaa_token', token);
+    localStorage.setItem('eitaa_chat_id', chatId);
+    
+    showMessage('🔄 در حال تست اتصال به ایـتـا...', '#17a2b8');
+    
+    try {
+        // ساخت پیام تست
+        const testMessage = `✅ تست اتصال موفقیت‌آمیز بود!
+فروشگاه نظامی عماد آماده است.
+🕒 ${new Date().toLocaleString('fa-IR')}`;
+        
+        // استفاده از CORS proxy (برای تست)
+        const proxyUrl = 'https://corsproxy.io/?';
+        const apiUrl = `https://eitaayar.ir/api/${token}/sendMessage`;
+        
+        const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `chat_id=${chatId}&text=${encodeURIComponent(testMessage)}`
+        });
+        
+        const result = await response.json();
+        
+        if (result.ok) {
+            document.getElementById('connectionStatus').textContent = 'متصل';
+            document.getElementById('connectionStatus').className = 'status-connected';
+            document.getElementById('orderBtn').disabled = false;
+            document.getElementById('orderBtn').style.opacity = '1';
+            document.getElementById('orderBtn').style.cursor = 'pointer';
+            
+            showMessage('🎉 اتصال به ایـتـا موفق بود! پیام تست ارسال شد.', '#4CAF50');
+        } else {
+            document.getElementById('connectionStatus').textContent = 'خطا';
+            showMessage(`❌ خطا: ${result.description || 'ناشناخته'}`, '#dc3545');
+        }
+        
+    } catch (error) {
+        document.getElementById('connectionStatus').textContent = 'خطا';
+        showMessage(`❌ خطای شبکه: ${error.message}`, '#dc3545');
+    }
+}
+
+async function sendToEitaa(message) {
+    const token = localStorage.getItem('eitaa_token');
+    const chatId = localStorage.getItem('eitaa_chat_id');
+    
+    if (!token || !chatId) {
+        alert('❌ ابتدا باید اتصال به ایـتـا را تنظیم کنید');
+        return false;
+    }
+    
+    try {
+        const proxyUrl = 'https://corsproxy.io/?';
+        const apiUrl = `https://eitaayar.ir/api/${token}/sendMessage`;
+        
+        const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=HTML`
+        });
+        
+        const result = await response.json();
+        return result.ok;
+        
+    } catch (error) {
+        console.error('خطا در ارسال به ایـتـا:', error);
+        return false;
+    }
+}
+
+async function completeOrderWithEitaa() {
+    if (cart.length === 0) {
+        alert('🛒 سبد خرید شما خالی است!');
+        return;
+    }
+    
+    // بررسی اتصال به ایـتـا
+    const token = localStorage.getItem('eitaa_token');
+    const chatId = localStorage.getItem('eitaa_chat_id');
+    
+    if (!token || !chatId) {
+        alert('❌ ابتدا باید به بخش "تنظیمات اتصال به ایـتـا" بروید و توکن و Chat ID را وارد کنید.');
+        return;
+    }
+    
+    // دریافت اطلاعات مشتری
+    const customerName = prompt('👤 لطفاً نام و نام خانوادگی خود را وارد کنید:');
+    if (!customerName || customerName.trim() === '') {
+        alert('❌ نام و نام خانوادگی الزامی است');
+        return;
+    }
+    
+    const phone = prompt('📞 لطفاً شماره تماس خود را وارد کنید:');
+    if (!phone || phone.trim() === '') {
+        alert('❌ شماره تماس الزامی است');
+        return;
+    }
+    
+    const address = prompt('📍 آدرس تحویل (اختیاری):', '') || 'ثبت نشده';
+    const notes = prompt('📝 توضیحات اضافی (اختیاری):', '') || 'ندارد';
+    
+    // محاسبه جمع کل
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const orderId = 'ORD-' + Date.now().toString().slice(-8);
+    
+    // ساخت پیام سفارش
+    const orderMessage = `
+🛒 **سفارش جدید از وب‌سایت عماد**
+━━━━━━━━━━━━━━━━
+📋 **شماره سفارش:** ${orderId}
+💰 **مبلغ کل:** ${total.toLocaleString('fa-IR')} تومان
+👤 **مشتری:** ${customerName}
+📞 **تماس:** ${phone}
+📍 **آدرس:** ${address}
+📝 **توضیحات:** ${notes}
+⏰ **زمان:** ${new Date().toLocaleString('fa-IR')}
+━━━━━━━━━━━━━━━━
+📦 **محصولات سفارش:**
+${cart.map((item, index) => `${index + 1}. ${item.name} - ${item.price.toLocaleString('fa-IR')} تومان`).join('\\n')}
+━━━━━━━━━━━━━━━━
+✅ این سفارش از طریق وب‌سایت ثبت شده است.
+    `;
+    
+    showMessage('🔄 در حال ارسال سفارش به ایـتـا...', '#17a2b8');
+    
+    const success = await sendToEitaa(orderMessage);
+    
+    if (success) {
+        // ذخیره سفارش در تاریخچه
+        const orderData = {
+            orderId: orderId,
+            items: [...cart],
+            total: total,
+            customerName: customerName,
+            phone: phone,
+            address: address,
+            notes: notes,
+            date: new Date().toISOString(),
+            sentToEitaa: true
+        };
+        
+        saveOrderToHistory(orderData);
+        
+        // پاک کردن سبد خرید
+        cart = [];
+        updateCart();
+        if (cartOpen) toggleCart();
+        
+        // نمایش پیام موفقیت
+        setTimeout(() => {
+            alert(`🎉 **سفارش شما با موفقیت ثبت شد!**
+
+📋 **شماره سفارش:** ${orderId}
+💰 **مبلغ:** ${total.toLocaleString('fa-IR')} تومان
+👤 **مشتری:** ${customerName}
+
+✅ پیام تأیید به ایـتـا ارسال شد.
+📞 به زودی با شما تماس خواهیم گرفت.
+
+از خرید شما متشکریم! 🛡️`);
+        }, 500);
+        
+    } else {
+        alert('❌ متأسفانه در ارسال سفارش به ایـتـا مشکلی پیش آمد. لطفاً دوباره تلاش کنید.');
+    }
+}
+
+function saveOrderToHistory(order) {
+    const orders = JSON.parse(localStorage.getItem('military_shop_orders') || '[]');
+    orders.push(order);
+    localStorage.setItem('military_shop_orders', JSON.stringify(orders));
+}
+
+// ==================== توابع کمکی ====================
 function showMessage(text, bgColor, textColor = 'white') {
     const message = document.createElement('div');
     message.style.cssText = `
@@ -557,54 +813,81 @@ function showMessage(text, bgColor, textColor = 'white') {
         z-index: 1001;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         animation: slideDown 0.3s ease;
+        font-family: Vazir, sans-serif;
+        text-align: center;
+        max-width: 90%;
     `;
     message.innerHTML = text;
     document.body.appendChild(message);
-
+    
     setTimeout(() => {
         message.style.animation = 'slideUp 0.3s ease';
-        setTimeout(() => document.body.removeChild(message), 300);
-    }, 2000);
+        setTimeout(() => {
+            if (message.parentNode) {
+                document.body.removeChild(message);
+            }
+        }, 300);
+    }, 3000);
 }
 
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideDown {
-        from {
-            transform: translateX(-50%) translateY(-100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
+// ==================== اجرای اولیه ====================
+document.addEventListener('DOMContentLoaded', function() {
+    // بارگذاری تنظیمات ذخیره شده
+    const savedToken = localStorage.getItem('eitaa_token');
+    const savedChatId = localStorage.getItem('eitaa_chat_id');
+    
+    if (savedToken && savedChatId) {
+        document.getElementById('eitaaToken').value = savedToken;
+        document.getElementById('eitaaChatId').value = savedChatId;
+        document.getElementById('connectionStatus').textContent = 'ذخیره شده';
+        document.getElementById('connectionStatus').className = 'status-connected';
+        document.getElementById('orderBtn').disabled = false;
+        document.getElementById('orderBtn').style.opacity = '1';
+        document.getElementById('orderBtn').style.cursor = 'pointer';
     }
-
-    @keyframes slideUp {
-        from {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+    
+    // به‌روزرسانی سبد خرید
+    updateCart();
+    
+    // اضافه کردن استایل‌های انیمیشن
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideDown {
+            from {
+                transform: translateX(-50%) translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
         }
-        to {
-            transform: translateX(-50%) translateY(-100%);
-            opacity: 0;
+        
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(-50%) translateY(-100%);
+                opacity: 0;
+            }
         }
-    }
-`;
-document.head.appendChild(style);
+    `;
+    document.head.appendChild(style);
+});
 
-document.addEventListener('click', (e) => {
-    const cartContainer = document.getElementById("cartContainer");
+// بستن سبد خرید با کلیک بیرون
+document.addEventListener('click', function(event) {
+    const cartContainer = document.getElementById('cartContainer');
     const cartIcon = document.querySelector('.cart-icon');
-
-    if (cartOpen &&
-        !cartContainer.contains(e.target) &&
-        !cartIcon.contains(e.target)) {
+    
+    if (cartOpen && 
+        !cartContainer.contains(event.target) && 
+        !cartIcon.contains(event.target)) {
         toggleCart();
     }
 });
-
-updateCart();
 </script>
 </body>
-</html> 
+</html>
