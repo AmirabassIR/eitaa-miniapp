@@ -1,902 +1,628 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>🅴🅼🅰🅳 | فروشگاه نظامی عماد</title>
-<style>
-    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
-
-    body {
-        font-family: 'Vazir', sans-serif;
-        direction: rtl;
-        margin: 0;
-        padding: 0;
-        background: url('https://cdn.nody.ir/files/2024/03/20/nody-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B2%D9%85%DB%8C%D9%86%D9%87-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D8%B3%D9%BE%D8%A7%D9%87-1710947711.jpg') center/cover no-repeat fixed;
-        color: #fff;
-        padding-bottom: 100px;
-    }
-
-    h2 {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 30px;
-        color: #ffdd00;
-        text-shadow: 1px 1px 4px #000;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .card {
-        background: rgba(0,0,0,0.7);
-        border-radius: 15px;
-        padding: 15px;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-        transition: 0.2s ease-in-out;
-        border: 1px solid #444;
-    }
-
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 14px rgba(255,221,0,0.3);
-        border-color: #ffdd00;
-    }
-
-    .card img {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        margin-bottom: 8px;
-        border-radius: 50%;
-        border: 2px solid #ffdd00;
-        background: rgba(255,255,255,0.05);
-    }
-
-    .card h4 {
-        margin: 6px 0;
-        font-size: 17px;
-        color: #ffdd00;
-    }
-
-    button {
-        margin-top: 8px;
-        background: #ffdd00;
-        color: #000;
-        border: none;
-        padding: 8px;
-        width: 100%;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    button:hover {
-        background: #e6c800;
-        transform: scale(1.05);
-    }
-
-    /* استایل‌های ویژه برای بخش سی‌پی */
-    .cp-card {
-        border: 2px solid #2196F3 !important;
-        background: rgba(33, 150, 243, 0.1) !important;
-    }
-
-    .cp-card:hover {
-        border-color: #0d8bf2 !important;
-        box-shadow: 0 6px 14px rgba(33, 150, 243, 0.4) !important;
-    }
-
-    .cp-card img {
-        border-color: #2196F3 !important;
-    }
-
-    .cp-card h4 {
-        color: #2196F3 !important;
-    }
-
-    /* استایل‌های ویژه برای بخش مقالات */
-    .article-card {
-        border: 2px solid #9C27B0 !important;
-        background: rgba(156, 39, 176, 0.1) !important;
-    }
-
-    .article-card:hover {
-        border-color: #7B1FA2 !important;
-        box-shadow: 0 6px 14px rgba(156, 39, 176, 0.4) !important;
-    }
-
-    .article-card img {
-        border-color: #9C27B0 !important;
-    }
-
-    .article-card h4 {
-        color: #9C27B0 !important;
-    }
-
-    /* بازی سی‌پی رایگان */
-    .game-container {
-        background: rgba(0,0,0,0.85);
-        border: 2px solid #4CAF50;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px 15px;
-        text-align: center;
-    }
-
-    .game-header {
-        color: #4CAF50;
-        margin-bottom: 20px;
-    }
-
-    .game-area {
-        background: rgba(0,0,0,0.5);
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 20px;
-        position: relative;
-        height: 200px;
-        border: 1px solid #333;
-    }
-
-    .target {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        background: #FF5722;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        color: white;
-        transition: transform 0.1s;
-        user-select: none;
-    }
-
-    .game-stats {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 20px;
-    }
-
-    .stat-box {
-        background: rgba(255,255,255,0.1);
-        padding: 10px 20px;
-        border-radius: 8px;
-        min-width: 100px;
-    }
-
-    .stat-value {
-        font-size: 24px;
-        font-weight: bold;
-        color: #FFC107;
-    }
-
-    .stat-label {
-        font-size: 14px;
-        color: #aaa;
-    }
-
-    .game-btn {
-        background: #4CAF50 !important;
-        color: white !important;
-        margin: 5px !important;
-    }
-
-    .game-btn:hover {
-        background: #45a049 !important;
-    }
-
-    /* مقالات */
-    .article-content {
-        text-align: right;
-        line-height: 1.8;
-        padding: 20px;
-        background: rgba(0,0,0,0.5);
-        border-radius: 10px;
-        margin: 15px 0;
-        max-height: 400px;
-        overflow-y: auto;
-    }
-
-    .article-meta {
-        color: #aaa;
-        font-size: 14px;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    /* مودال اطلاعات مشتری */
-    .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.8);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
-    }
-
-    .modal {
-        background: rgba(0,0,0,0.9);
-        border: 2px solid #ffdd00;
-        border-radius: 15px;
-        padding: 25px;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-    }
-
-    .modal h3 {
-        color: #ffdd00;
-        margin-top: 0;
-    }
-
-    .modal-input {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #555;
-        background: rgba(255,255,255,0.1);
-        color: white;
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .modal-buttons {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .modal-btn {
-        flex: 1;
-        padding: 12px;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .confirm-btn {
-        background: #28a745;
-        color: white;
-    }
-
-    .cancel-btn {
-        background: #dc3545;
-        color: white;
-    }
-
-    /* سبد خرید */
-    .cart-icon {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background: #ffdd00;
-        color: #000;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-        z-index: 1000;
-        font-size: 24px;
-        transition: all 0.3s ease;
-        border: 2px solid #000;
-    }
-
-    .cart-badge {
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        background: #dc3545;
-        color: white;
-        border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-    }
-
-    .cart-container {
-        position: fixed;
-        bottom: 90px;
-        left: 20px;
-        width: 350px;
-        max-height: 500px;
-        background: rgba(0, 0, 0, 0.95);
-        border: 2px solid #ffdd00;
-        border-radius: 15px;
-        padding: 15px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-        z-index: 999;
-        display: none;
-        backdrop-filter: blur(10px);
-        overflow: hidden;
-    }
-
-    .cart-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #444;
-    }
-
-    .cart-header h3 {
-        color: #ffdd00;
-        margin: 0;
-    }
-
-    .close-cart {
-        background: #dc3545;
-        color: white;
-        border: none;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .cart-content {
-        max-height: 350px;
-        overflow-y: auto;
-        padding-right: 5px;
-    }
-
-    .cart-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        margin-bottom: 8px;
-        background: rgba(255,255,255,0.05);
-        border-radius: 8px;
-        border: 1px solid #333;
-    }
-
-    .cart-item-info {
-        flex-grow: 1;
-    }
-
-    .cart-item-name {
-        font-size: 14px;
-        margin-bottom: 4px;
-    }
-
-    .cart-item-price {
-        color: #4CAF50;
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    .cart-item-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .remove-btn {
-        background: #dc3545 !important;
-        color: white !important;
-        padding: 4px 8px !important;
-        border-radius: 4px !important;
-        font-size: 12px !important;
-        width: auto !important;
-        min-width: 60px;
-    }
-
-    .cart-footer {
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid #444;
-    }
-
-    .cart-summary {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        font-size: 16px;
-    }
-
-    .cart-total {
-        color: #ffdd00;
-        font-weight: bold;
-        font-size: 18px;
-    }
-
-    .clear-btn {
-        background: #dc3545 !important;
-        color: white !important;
-        width: 100% !important;
-        padding: 10px !important;
-    }
-
-    .clear-btn:hover {
-        background: #c82333 !important;
-    }
-
-    .checkout-btn {
-        background: #28a745 !important;
-        color: white !important;
-        width: 100% !important;
-        padding: 12px !important;
-        margin-top: 10px !important;
-        font-size: 16px !important;
-    }
-
-    .checkout-btn:hover {
-        background: #218838 !important;
-    }
-
-    .empty-cart {
-        text-align: center;
-        color: #999;
-        padding: 20px;
-        font-size: 14px;
-    }
-
-    .cart-content::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    .cart-content::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.1);
-        border-radius: 3px;
-    }
-
-    .cart-content::-webkit-scrollbar-thumb {
-        background: #ffdd00;
-        border-radius: 3px;
-    }
-
-    @media (max-width: 768px) {
-        .cart-container {
-            width: 300px;
-            left: 10px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه نظامی</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-bottom: 2px solid #0ea5e9;
+        }
+        
+        h1 {
+            color: #0ea5e9;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(14, 165, 233, 0.3);
+        }
+        
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .menu-item {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #334155;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            border-color: #0ea5e9;
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+            background: rgba(30, 41, 59, 1);
+        }
+        
+        .menu-item h2 {
+            color: #0ea5e9;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .menu-icon {
+            font-size: 1.8rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #0ea5e9 0%, #3b82f6 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(14, 165, 233, 0.5);
+        }
+        
+        .content-section {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            display: none;
+            border: 2px solid #0ea5e9;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-3px);
+            border-color: #0ea5e9;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background: #334155;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #0ea5e9;
+        }
+        
+        .cart-section {
+            display: none;
+        }
+        
+        .cart-section.active {
+            display: block;
+        }
+        
+        .cart-items {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .cart-total {
+            text-align: left;
+            font-size: 1.3rem;
+            color: #0ea5e9;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #334155;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .article-card {
+            background: #1e293b;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-3px);
+            border-color: #0ea5e9;
+        }
+        
+        .article-card h3 {
+            color: #0ea5e9;
+            margin-bottom: 10px;
+        }
+        
+        .back-btn {
+            background: #64748b;
+            margin-right: 10px;
+        }
+        
+        .back-btn:hover {
+            background: #475569;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #10b981;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
         .cart-icon {
-            left: 10px;
-            bottom: 10px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #0ea5e9;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
         }
-    }
-
-    @media (max-width: 480px) {
-        .cart-container {
-            width: calc(100% - 20px);
-            left: 10px;
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
         }
-    }
-
-    .product-price {
-        color: #4CAF50;
-        font-weight: bold;
-    }
-
-    #products h3 {
-        color: #ffdd00;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-</style>
+        
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cart-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<h2>🅴🅼🅰🅳 | فروشگاه نظامی عماد</h2>
-
-<!-- منوی اصلی دسته‌بندی‌ها -->
-<div class="grid" id="categories">
-    <!-- بخش اصلی محصولات نظامی -->
-    <div class="card">
-        <img src="https://cdn.ilna.ir/thumbnail/5L0qtIrphEGt/XWHCw76VBsxziNocTLLHoesUW68OoqO1axxWWNC-1_29u4R4x8JTWBcfKP1V5I-iMLLqt6lWi2E,/874490_332.jpg" alt="لوازم دفاع">
-        <h4>لوازم دفاع</h4>
-        <button onclick="showProducts('defense')">نمایش محصولات</button>
+    <div class="cart-icon" onclick="showCart()">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
     </div>
-
-    <div class="card">
-        <img src="https://dkstatics-public.digikala.com/digikala-products/121253960.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90" alt="تابلو و علائم">
-        <h4>تابلو و علائم</h4>
-        <button onclick="showProducts('signs')">نمایش محصولات</button>
-    </div>
-
-    <div class="card">
-        <img src="https://nezamishop.ir/wp-content/uploads/2023/05/nezamishop.png" alt="لباس نظامی">
-        <h4>لباس نظامی</h4>
-        <button onclick="showProducts('clothing')">نمایش محصولات</button>
-    </div>
-
-    <div class="card">
-        <img src="https://imen-kala.ir/wp-content/uploads/2021/07/1399022311403734520374224.jpg" alt="کفش و پوتین">
-        <h4>کفش و پوتین</h4>
-        <button onclick="showProducts('shoes')">نمایش محصولات</button>
-    </div>
-
-    <div class="card">
-        <img src="https://www.faraz.ir/files/fa/news/1403/7/15/122346_975.jpg" alt="تزئینات و نشان‌ها">
-        <h4>تزئینات و نشان‌ها</h4>
-        <button onclick="showProducts('decorations')">نمایش محصولات</button>
-    </div>
-
-    <div class="card">
-        <img src="https://cdn.leonardo.ai/users/8df57729-bb65-4bb2-8e53-886271ed8e19/generations/1f0e0589-1329-6300-b8da-a76c782c0950/lucid-origin_A_highly_detailed_realistic_image_of_a_stern_military_soldier_in_full_combat_gea-0.jpg?w=512" alt="محصولات ویژه">
-        <h4>محصولات ویژه</h4>
-        <button onclick="showProducts('special')">نمایش محصولات</button>
-    </div>
-
-    <!-- بخش خرید سی‌پی -->
-    <div class="card cp-card">
-        <img src="https://irangamestore.com/wp-content/uploads/2024/03/cp-call-of-duty-mobile.png" alt="خرید سی‌پی">
-        <h4>خرید سی‌پی</h4>
-        <button onclick="showCPProducts()">ورود به بخش</button>
-    </div>
-
-    <!-- بخش مقالات نظامی -->
-    <div class="card article-card">
-        <img src="https://sibma.ir/uploads/ee834306dca341fcaa57e4bda0d42a23.jpg" alt="مقالات نظامی">
-        <h4>مقالات نظامی</h4>
-        <button onclick="showArticles()">مطالعه مقالات</button>
-    </div>
-</div>
-
-<div id="products"></div>
-
-<!-- مودال اطلاعات مشتری -->
-<div class="modal-overlay" id="customerModal">
-    <div class="modal">
-        <h3>📝 تکمیل اطلاعات سفارش</h3>
-        <p style="color: #aaa; margin-bottom: 20px;">لطفاً اطلاعات خود را وارد کنید</p>
+    
+    <div class="notification" id="notification"></div>
+    
+    <div class="container">
+        <header>
+            <h1>فروشگاه تخصصی نظامی</h1>
+            <p class="subtitle">تجهیزات، لباس‌ها و لوازم دفاعی با کیفیت بالا</p>
+        </header>
         
-        <input type="text" id="customerName" class="modal-input" 
-               placeholder="نام و نام خانوادگی" required>
-        
-        <input type="tel" id="customerPhone" class="modal-input" 
-               placeholder="شماره همراه (مثال: 09123456789)" 
-               pattern="09[0-9]{9}" required>
-        
-        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin: 15px 0;">
-            <p style="margin: 5px 0;">📦 شماره سفارش: <strong id="modalOrderId"></strong></p>
-            <p style="margin: 5px 0;">💰 مبلغ کل: <strong id="modalTotalPrice"></strong> تومان</p>
-            <p style="margin: 5px 0; color: #4CAF50;" id="cpRewardNote"></p>
+        <div class="menu-grid">
+            <!-- تابلو و علائم -->
+            <div class="menu-item" onclick="showProducts('signs')">
+                <h2><span class="menu-icon">🪧</span> تابلو و علائم</h2>
+                <p>انواع تابلوهای راهنمایی و علائم نظامی</p>
+                <button class="btn">نمایش محصولات</button>
+            </div>
+            
+            <!-- لوازم دفاع -->
+            <div class="menu-item" onclick="showProducts('defense')">
+                <h2><span class="menu-icon">🛡️</span> لوازم دفاع</h2>
+                <p>تجهیزات دفاع شخصی و حفاظتی</p>
+                <button class="btn">نمایش محصولات</button>
+            </div>
+            
+            <!-- کشش و پوشین -->
+            <div class="menu-item" onclick="showProducts('climbing')">
+                <h2><span class="menu-icon">🧗</span> کشش و پوشین</h2>
+                <p>تجهیزات صعود و ورزش‌های نظامی</p>
+                <button class="btn">نمایش محصولات</button>
+            </div>
+            
+            <!-- لباس نظامی -->
+            <div class="menu-item" onclick="showProducts('clothing')">
+                <h2><span class="menu-icon">👕</span> لباس نظامی</h2>
+                <p>لباس‌های رسمی و عملیاتی نظامی</p>
+                <button class="btn">نمایش محصولات</button>
+            </div>
+            
+            <!-- محصولات ویژه -->
+            <div class="menu-item" onclick="showProducts('special')">
+                <h2><span class="menu-icon">⭐</span> محصولات ویژه</h2>
+                <p>تجهیزات خاص و محدود</p>
+                <button class="btn">نمایش محصولات</button>
+            </div>
+            
+            <!-- پاترزینات و نشان -->
+            <div class="menu-item" onclick="showProducts('patches')">
+                <h2><span class="menu-icon">🎖️</span> پاترزینات و نشان</h2>
+                <p>نشان‌ها، مدال‌ها و پچ‌های نظامی</p>
+                <button class="btn">نمایش محصولات</button>
+            </div>
+            
+            <!-- مقالات نظامی -->
+            <div class="menu-item" onclick="showArticles()">
+                <h2><span class="menu-icon">📚</span> مقالات نظامی</h2>
+                <p>مقالات تخصصی نظامی و راهنماها</p>
+                <button class="btn">مشاهده مقالات</button>
+            </div>
         </div>
         
-        <div class="modal-buttons">
-            <button class="modal-btn cancel-btn" onclick="closeCustomerModal()">انصراف</button>
-            <button class="modal-btn confirm-btn" onclick="proceedToEitaa()">پرداخت و ارسال به ایتا</button>
+        <!-- بخش محصولات -->
+        <div class="content-section" id="productsSection">
+            <h2 id="sectionTitle"></h2>
+            <div class="products-grid" id="productsGrid"></div>
+            <button class="btn back-btn" onclick="hideContent()">بازگشت به منو</button>
+        </div>
+        
+        <!-- بخش مقالات -->
+        <div class="content-section" id="articlesSection">
+            <h2>مقالات نظامی</h2>
+            <div class="articles-grid" id="articlesGrid"></div>
+            <button class="btn back-btn" onclick="hideContent()">بازگشت به منو</button>
+        </div>
+        
+        <!-- بخش سبد خرید -->
+        <div class="content-section cart-section" id="cartSection">
+            <h2>🛒 سبد خرید شما</h2>
+            <div class="cart-items" id="cartItems">
+                <!-- آیتم‌های سبد خرید اینجا نمایش داده می‌شوند -->
+            </div>
+            <div class="cart-total" id="cartTotal">جمع کل: ۰ تومان</div>
+            <button class="btn" onclick="checkout()">تکمیل خرید</button>
+            <button class="btn back-btn" onclick="hideCart()">بازگشت</button>
         </div>
     </div>
-</div>
 
-<!-- آیکون سبد خرید -->
-<div class="cart-icon" onclick="toggleCart()">
-    🛒
-    <div class="cart-badge" id="cartBadge">0</div>
-</div>
-
-<!-- پنل سبد خرید -->
-<div class="cart-container" id="cartContainer">
-    <div class="cart-header">
-        <h3>🛒 سبد خرید شما</h3>
-        <button class="close-cart" onclick="toggleCart()">×</button>
-    </div>
-
-    <div class="cart-content" id="cartContent">
-        <div class="empty-cart">سبد خرید شما خالی است</div>
-    </div>
-
-    <div class="cart-footer" id="cartFooter" style="display: none;">
-        <div class="cart-summary">
-            <span>تعداد اقلام:</span>
-            <span id="itemCount">0</span>
-        </div>
-        <div class="cart-summary">
-            <span>جمع کل:</span>
-            <span class="cart-total" id="totalPrice">0</span> تومان
-        </div>
-        <button onclick="clearCart()" class="clear-btn">🗑️ پاک کردن سبد خرید</button>
-        <button onclick="startCheckout()" class="checkout-btn" id="checkoutBtn">
-            💰 پرداخت و ثبت سفارش
-        </button>
-    </div>
-</div>
-
-<script>
-// ==================== متغیرهای عمومی ====================
-const productData = {
-    "defense": [
-        {name: "دستکش ضد برش", price: 850000},
-        {name: "ماسک گاز نظامی", price: 3200000},
-        {name: "زره بدن سبک", price: 12500000},
-        {name: "کلاه ایمنی تاکتیکی", price: 4500000}
-    ],
-    "signs": [
-        {name: "تابلو فرماندهی", price: 1800000},
-        {name: "علائم راهنمایی نظامی", price: 950000},
-        {name: "پلاک درب بخش‌ها", price: 750000},
-        {name: "تابلو اخطار منطقه نظامی", price: 1200000}
-    ],
-    "clothing": [
-        {name: "یونیفرم رزمی خاکی", price: 3500000},
-        {name: "کت ضد باران نظامی", price: 4200000},
-        {name: "شلوار تاکتیکی", price: 2800000},
-        {name: "پیراهن رسمی افسری", price: 2500000}
-    ],
-    "shoes": [
-        {name: "پوتین نظامی چرمی", price: 3800000},
-        {name: "کفش ورزشی نظامی", price: 2200000},
-        {name: "نیم بوت تاکتیکی", price: 3100000},
-        {name: "کفش پیاده‌روی رزمی", price: 2700000}
-    ],
-    "decorations": [
-        {name: "نشان درجه افسری", price: 650000},
-        {name: "مدال افتخار", price: 1200000},
-        {name: "نوار شانه نظامی", price: 450000},
-        {name: "تزئینات کلاه افسری", price: 850000}
-    ],
-    "special": [
-        {name: "ست کامل فرماندهی", price: 28500000},
-        {name: "بسته ویژه تشریفات", price: 17500000},
-        {name: "ست هدیه نظامی", price: 12500000},
-        {name: "محصولات محدود ویژه", price: 42000000}
-    ],
-    // بخش سی‌پی
-    "cp_products": [
-        {name: "سی‌پی دوبل", price: 50000, img: "https://rengogame.com/wp-content/uploads/2023/09/cp2x-codm-rengogame.jpg"},
-        {name: "آفر ویژه", price: 75000, img: "https://rengogame.com/wp-content/uploads/2025/08/battlepass-call-of-duty-mobile-2025.webp"},
-        {name: "سی‌پی رایگان", price: 0, img: "https://rengogame.com/wp-content/uploads/2023/09/free-cp-icon-rengogame-min.webp"},
-        {name: "بسته طلایی", price: 120000, img: "https://rengogame.com/wp-content/uploads/2025/08/cp-fori-call-of-duty-mobile-2025.webp"},
-        {name: "بسته نقره‌ای", price: 80000, img: "https://rengogame.com/wp-content/uploads/2025/08/cp-fori-call-of-duty-mobile-2025.webp"},
-        {name: "بسته برنزی", price: 40000, img: "https://rengogame.com/wp-content/uploads/2025/08/cp-fori-call-of-duty-mobile-2025.webp"}
-    ]
-};
-
-// مقالات نمونه
-let militaryArticles = [
-    {
-        title: "اصول تاکتیک‌های نظامی مدرن",
-        content: "در دنیای امروز، تاکتیک‌های نظامی دستخوش تغییرات اساسی شده‌اند. با پیشرفت فناوری، نیروهای نظامی باید خود را با شرایط جدید تطبیق دهند. تاکتیک‌های نامتقارن، جنگ شهری و عملیات‌های اطلاعاتی از مهم‌ترین تحولات اخیر هستند.\n\nنکات کلیدی:\n- استفاده از فناوری‌های پیشرفته\n- تاکتیک‌های روانی\n- عملیات‌های سریع و دقیق\n- همکاری بین نیروهای مختلف",
-        author: "سرهنگ احمدی",
-        date: "۱۴۰۳/۱۰/۱۵",
-        views: 125
-    },
-    {
-        title: "تاریخچه لباس نظامی در ایران",
-        content: "لباس نظامی در ایران تاریخی کهن دارد که به دوران هخامنشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است. از لباس‌های ساده دوران صفویه تا یونیفرم‌های مدرن امروزی، همه نشان‌دهنده تحول در تفکر نظامی ایران است.\n\nدوره‌های مهم:\n- دوره هخامنشی\n- دوره صفوی\n- دوره قاجار\n- دوره معاصر",
-        author: "دکتر محمدی",
-        date: "۱۴۰۳/۱۰/۱۰",
-        views: 89
-    },
-    {
-        title: "نگهداری و مراقبت از تجهیزات نظامی",
-        content: "نگهداری صحیح از تجهیزات نظامی یکی از مهم‌ترین وظایف هر نیروی نظامی است. تجهیزاتی که به خوبی نگهداری نشوند، نه تنها کارایی خود را از دست می‌دهند، بلکه می‌توانند خطرناک نیز باشند.\n\nنکات نگهداری:\n- تمیزکاری منظم\n- روغن‌کاری قسمت‌های متحرک\n- بررسی دوره‌ای\n- نگهداری در محیط مناسب",
-        author: "ستوان یکم رضایی",
-        date: "۱۴۰۳/۱۰/۰۵",
-        views: 67
-    }
-];
-
-let cart = [];
-let cartOpen = false;
-let currentOrderId = '';
-let currentOrderTotal = 0;
-let freeCPUnlocked = false;
-let gameActive = false;
-let gameScore = 0;
-let gameTime = 30;
-let gameTargets = 0;
-let gameInterval;
-let targetInterval;
-
-// ==================== توابع اصلی ====================
-function getCategoryName(key) {
-    const names = {
-        'defense': 'لوازم دفاع',
-        'signs': 'تابلو و علائم',
-        'clothing': 'لباس نظامی',
-        'shoes': 'کفش و پوتین',
-        'decorations': 'تزئینات و نشان‌ها',
-        'special': 'محصولات ویژه',
-        'cp_products': 'خرید سی‌پی'
-    };
-    return names[key] || key;
-}
-
-// ==================== توابع سبد خرید ====================
-function toggleCart() {
-    const cartContainer = document.getElementById("cartContainer");
-    cartOpen = !cartOpen;
-    cartContainer.style.display = cartOpen ? 'block' : 'none';
-}
-
-function addToCart(category, index) {
-    const product = {...productData[category][index]};
-    cart.push(product);
-    updateCart();
-    showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#28a745');
-}
-
-function addCPToCart(index) {
-    const product = {...productData["cp_products"][index]};
-    cart.push(product);
-    updateCart();
-    showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#2196F3');
-}
-
-function updateCart() {
-    const cartContent = document.getElementById("cartContent");
-    const cartFooter = document.getElementById("cartFooter");
-    const cartBadge = document.getElementById("cartBadge");
-    const itemCountEl = document.getElementById("itemCount");
-    const totalPriceEl = document.getElementById("totalPrice");
-
-    let total = 0;
-    cartBadge.textContent = cart.length;
-
-    if (cart.length === 0) {
-        cartContent.innerHTML = '<div class="empty-cart">سبد خرید شما خالی است</div>';
-        cartFooter.style.display = 'none';
-    } else {
-        cartContent.innerHTML = '';
-        cart.forEach((item, index) => {
-            const priceDisplay = item.price === 0 ? 'رایگان' : item.price.toLocaleString('fa-IR') + ' تومان';
-            cartContent.innerHTML += `
-                <div class="cart-item" style="${item.isFreeCP ? 'border-color: #4CAF50;' : ''}">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price" style="${item.isFreeCP ? 'color: #4CAF50;' : ''}">${priceDisplay}</div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button onclick="removeFromCart(${index})" class="remove-btn">حذف</button>
-                    </div>
-                </div>`;
-            if (!item.isFreeCP) {
-                total += item.price;
+    <script>
+        // داده‌های نمونه محصولات
+        const productsData = {
+            signs: [
+                { id: 1, name: "تابلو ایست نظامی", price: 250000, image: "🛑" },
+                { id: 2, name: "علائم منطقه نظامی", price: 180000, image: "⚠️" },
+                { id: 3, name: "پلاک یگان", price: 120000, image: "🔰" },
+                { id: 4, name: "تابلو محرمانه", price: 200000, image: "🔒" }
+            ],
+            defense: [
+                { id: 5, name: "کلاه ایمنی نظامی", price: 450000, image: "🪖" },
+                { id: 6, name: "جلیقه ضد گلوله", price: 8500000, image: "👕" },
+                { id: 7, name: "ماسک گاز", price: 320000, image: "😷" },
+                { id: 8, name: "دستکش تاکتیکی", price: 150000, image: "🧤" }
+            ],
+            climbing: [
+                { id: 9, name: "طناب کوهنوردی نظامی", price: 380000, image: "🧵" },
+                { id: 10, name: "کارابین فولادی", price: 85000, image: "🔗" },
+                { id: 11, name: "هارنس نظامی", price: 550000, image: "🦺" },
+                { id: 12, name: "کفش صخره‌نوردی", price: 620000, image: "👟" }
+            ],
+            clothing: [
+                { id: 13, name: "لباس رسمی ارتش", price: 850000, image: "👔" },
+                { id: 14, name: "یونیفرم عملیاتی", price: 720000, image: "👕" },
+                { id: 15, name: "پالتو زمستانی", price: 950000, image: "🧥" },
+                { id: 16, name: "شلوار تاکتیکی", price: 380000, image: "👖" }
+            ],
+            special: [
+                { id: 17, name: "بی‌سیم نظامی", price: 2500000, image: "📻" },
+                { id: 18, name: "دوربین دید در شب", price: 4800000, image: "📹" },
+                { id: 19, name: "قطب‌نما پیشرفته", price: 320000, image: "🧭" },
+                { id: 20, name: "ساعت نظامی ضدآب", price: 1850000, image: "⌚" }
+            ],
+            patches: [
+                { id: 21, name: "نشان درجه سربازی", price: 50000, image: "⭐" },
+                { id: 22, name: "پچ یگان ویژه", price: 75000, image: "🎖️" },
+                { id: 23, name: "مدال شجاعت", price: 120000, image: "🏅" },
+                { id: 24, name: "نشان واحد نظامی", price: 60000, image: "🔰" }
+            ]
+        };
+        
+        // داده‌های نمونه مقالات
+        const articlesData = [
+            { id: 1, title: "تاکتیک‌های پیشرفته نظامی", content: "بررسی تاکتیک‌های مدرن در عملیات‌های نظامی..." },
+            { id: 2, title: "تجهیزات دفاع شخصی", content: "آشنایی با جدیدترین تجهیزات دفاع شخصی نظامی..." },
+            { id: 3, title: "تاریخچه لباس نظامی در ایران", content: "تحولات لباس نظامی از دوران قاجار تا امروز..." },
+            { id: 4, title: "نحوه نگهداری سلاح", content: "راهنمای کامل نگهداری و سرویس سلاح‌های نظامی..." },
+            { id: 5, title: "اصول پنهانکاری در عملیات", content: "متدهای مدرن استتار و پنهانکاری در عملیات..." },
+            { id: 6, title: "آموزش اصولی تیراندازی", content: "مراحل یادگیری اصولی تیراندازی با سلاح نظامی..." }
+        ];
+        
+        // سبد خرید
+        let cart = [];
+        const cartSection = document.getElementById('cartSection');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const cartCount = document.getElementById('cartCount');
+        
+        // عناصر اصلی
+        const productsSection = document.getElementById('productsSection');
+        const articlesSection = document.getElementById('articlesSection');
+        const sectionTitle = document.getElementById('sectionTitle');
+        const productsGrid = document.getElementById('productsGrid');
+        const articlesGrid = document.getElementById('articlesGrid');
+        const notification = document.getElementById('notification');
+        
+        // تابع نمایش محصولات
+        function showProducts(category) {
+            const categoryNames = {
+                signs: "تابلو و علائم",
+                defense: "لوازم دفاع",
+                climbing: "کشش و پوشین",
+                clothing: "لباس نظامی",
+                special: "محصولات ویژه",
+                patches: "پاترزینات و نشان"
+            };
+            
+            sectionTitle.textContent = `محصولات ${categoryNames[category]}`;
+            productsGrid.innerHTML = '';
+            
+            productsData[category].forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image">${product.image}</div>
+                    <h3>${product.name}</h3>
+                    <p>قیمت: ${product.price.toLocaleString()} تومان</p>
+                    <button class="btn" onclick="addToCart(${product.id}, '${category}')">افزودن به سبد</button>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+            
+            hideAllSections();
+            productsSection.classList.add('active');
+        }
+        
+        // تابع نمایش مقالات
+        function showArticles() {
+            articlesGrid.innerHTML = '';
+            
+            articlesData.forEach(article => {
+                const articleCard = document.createElement('div');
+                articleCard.className = 'article-card';
+                articleCard.innerHTML = `
+                    <h3>${article.title}</h3>
+                    <p>${article.content}</p>
+                    <button class="btn" onclick="showNotification('مقاله "${article.title}" باز شد')">مطالعه مقاله</button>
+                `;
+                articlesGrid.appendChild(articleCard);
+            });
+            
+            hideAllSections();
+            articlesSection.classList.add('active');
+        }
+        
+        // تابع افزودن به سبد خرید
+        function addToCart(productId, category) {
+            const product = productsData[category].find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1,
+                    category: category
+                });
             }
-        });
+            
+            updateCart();
+            showNotification(`"${product.name}" به سبد خرید اضافه شد`);
+        }
         
-        itemCountEl.textContent = cart.length;
-        totalPriceEl.textContent = total.toLocaleString('fa-IR');
-        cartFooter.style.display = 'block';
-    }
-}
-
-function removeFromCart(index) {
-    if (index >= 0 && index < cart.length) {
-        const removedItem = cart[index];
-        cart.splice(index, 1);
+        // تابع بروزرسانی سبد خرید
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #94a3b8;">سبد خرید شما خالی است</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div>
+                            <strong>${item.name}</strong><br>
+                            <small>${item.price.toLocaleString()} تومان</small>
+                        </div>
+                        <div>
+                            <button onclick="changeQuantity(${index}, -1)">➖</button>
+                            <span style="margin: 0 10px;">${item.quantity}</span>
+                            <button onclick="changeQuantity(${index}, 1)">➕</button>
+                            <button class="btn" style="padding: 5px 10px; margin-right: 10px;" onclick="removeFromCart(${index})">حذف</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+            }
+            
+            cartTotal.textContent = `جمع کل: ${total.toLocaleString()} تومان`;
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+        
+        // تابع تغییر تعداد محصول
+        function changeQuantity(index, change) {
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+            } else {
+                cart.splice(index, 1);
+            }
+            updateCart();
+        }
+        
+        // تابع حذف از سبد
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+            showNotification('محصول از سبد حذف شد');
+        }
+        
+        // تابع نمایش سبد خرید
+        function showCart() {
+            hideAllSections();
+            cartSection.classList.add('active');
+            updateCart();
+        }
+        
+        // تابع پنهان کردن سبد خرید
+        function hideCart() {
+            cartSection.classList.remove('active');
+        }
+        
+        // تابع تکمیل خرید
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('سبد خرید شما خالی است', 'error');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            showNotification(`خرید با مبلغ ${total.toLocaleString()} تومان تکمیل شد!`, 'success');
+            cart = [];
+            updateCart();
+            hideCart();
+        }
+        
+        // تابع پنهان کردن تمام بخش‌ها
+        function hideAllSections() {
+            productsSection.classList.remove('active');
+            articlesSection.classList.remove('active');
+            cartSection.classList.remove('active');
+        }
+        
+        // تابع بازگشت به منو
+        function hideContent() {
+            hideAllSections();
+        }
+        
+        // تابع نمایش اعلان
+        function showNotification(message, type = 'success') {
+            notification.textContent = message;
+            notification.style.background = type === 'error' ? '#ef4444' : '#10b981';
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // مقداردهی اولیه
         updateCart();
-        showMessage(`❌ ${removedItem.name} از سبد خرید حذف شد`, '#dc3545');
-    }
-}
-
-function clearCart() {
-    if (cart.length === 0) return;
-    
-    if (confirm(`آیا از پاک کردن ${cart.length} آیتم از سبد خرید مطمئن هستید؟`)) {
-        cart = [];
-        updateCart();
-        showMessage('🛒 سبد خرید با موفقیت پاک شد', '#ffc107', '#000');
-    }
-}
-
-// ==================== نمایش محصولات ====================
-function showProducts(category) {
-    const container = document.getElementById("products");
-    const categoryName = getCategoryName(category);
-    let html = `<h3>📦 محصولات ${categoryName}</h3><div class="grid">`;
-    
-    productData[category].forEach((product, index) => {
-        html += `
-            <div class="card">
-                <h4>${product.name}</h4>
-                <p>قیمت: <span class="product-price">${product.price.toLocaleString('fa-IR')}</span> تومان</p>
-                <button onclick="addToCart('${category}', ${index})">➕ افزودن به سبد</button>
-            </div>`;
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    container.scrollIntoView({ behavior: 'smooth' });
-}
-
-// ==================== بخش مقالات نظامی ====================
-function showArticles() {
-    const container = document.getElementById("products");
-    
-    let html = `
-        <h3 style="color: #9C27B0;">📚 مقالات نظامی</h3>
-        <p style="text-align: center; color: #aaa; margin-bottom: 20px;">مقالات تخصصی در حوزه نظامی</p>
-        <div style="text-align: left; margin-bottom: 20px;">
-            <button onclick="addNewArticle()" style="background: #9C27B0; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
-                ✏️ افزودن مقاله جدید
-            </button>
-        </div>
-        <div class="grid">`;
-    
-    militaryArticles.forEach((article, index) => {
-        html += `
-            <div class="card article-card">
-                <h4>${article.title}</h4>
-                <div class="article-meta">
-                    <span>👤 ${article.author}</span>
-                    <span>📅 ${article.date}</span>
-                </div>
-                <p style="color: #ccc; font-size: 14px; margin: 10px 0;">${article.content.substring(0, 100)}...</p>
-                <p style="color: #aaa; font-size: 12px;">👁️ ${article.views} بازدید</p>
-                <button onclick="readArticle(${index})">📖 مطالعه مقاله</button>
-                <button onclick="editArticle(${index})" style="background: #6c757d; margin-top: 5px;">✏️ ویرایش</button>
-            </div>`;
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    container.scrollIntoView({ behavior: 'smooth' });
-}
-
-function readArticle(index) {
-    const article = militaryArticles[index];
-    article.views = (article.views || 0) + 1;
-    
-    const container = document.getElementById("products");
-    const contentWithBreaks = article.content.replace(/\n/g, '<br>');
-    
-    const html = `
-        <h3 style="color: #9C27B0;">${article.title}</h3>
-        <div class="article-meta">
-            <div>
-                <span>👤 نویسنده: ${article.author}</span><br>
-                <span>📅 تاریخ انتشار: ${article.date}</span>
-            </div>
-            <div>
-                <span>👁️ بازدید: ${article.views}</span>
-            </div>
-        </div>
-        <div class="article-content">
-            ${contentWithBreaks}
-        </div>
-        <div style="text-align: center; margin-top: 20px;">
-            <button onclick="showArticles()" style="background: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
-                ↩️ بازگشت به لیست مقالات
-            </button>
-            <button onclick="editArticle(${index})" style="background: #9C27B0; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; margin-right: 10px;">
-                ✏️ ویرایش این مقاله
-            </button>
-        </div>
-    `;
-    
-    container.innerHTML = html;
-}
-
-function addNewArticle() {
-    const title = prompt("عنوان مقاله جدید را وارد کنید:");
-    if (!title) return;
-    
-    const content = prompt("متن کامل مقاله را وارد کنید:");
-    if (!content) return;
-    
-    const author
+        
+        // نمایش پیام خوش‌آمد
+        setTimeout(() => {
+            showNotification('به فروشگاه نظامی خوش آمدید!');
+        }, 1000);
+    </script>
+</body>
+</html>
