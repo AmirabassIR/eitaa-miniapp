@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>🅴🅼🅰🅳 | فروشگاه نظامی عماد</title>
+<title>🅴🅼🅰🅳|عماد</title>
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 
@@ -81,30 +81,169 @@
         transform: scale(1.05);
     }
 
-    #products {
-        margin: 25px 15px;
-        background: rgba(0,0,0,0.7);
-        padding: 20px;
-        border-radius: 12px;
-        border: 1px solid #444;
+    /* استایل‌های ویژه برای بخش سی‌پی */
+    .cp-card {
+        border: 2px solid #2196F3 !important;
+        background: rgba(33, 150, 243, 0.1) !important;
     }
 
-    /* تنظیمات ایتا - ساده شده */
-    .eitaa-config {
-        background: rgba(0, 0, 0, 0.85);
+    .cp-card:hover {
+        border-color: #0d8bf2 !important;
+        box-shadow: 0 6px 14px rgba(33, 150, 243, 0.4) !important;
+    }
+
+    .cp-card img {
+        border-color: #2196F3 !important;
+    }
+
+    .cp-card h4 {
+        color: #2196F3 !important;
+    }
+
+    /* استایل‌های ویژه برای بخش مقالات */
+    .article-card {
+        border: 2px solid #9C27B0 !important;
+        background: rgba(156, 39, 176, 0.1) !important;
+    }
+
+    .article-card:hover {
+        border-color: #7B1FA2 !important;
+        box-shadow: 0 6px 14px rgba(156, 39, 176, 0.4) !important;
+    }
+
+    .article-card img {
+        border-color: #9C27B0 !important;
+    }
+
+    .article-card h4 {
+        color: #9C27B0 !important;
+    }
+
+    /* بازی سی‌پی رایگان */
+    .game-container {
+        background: rgba(0,0,0,0.85);
+        border: 2px solid #4CAF50;
+        border-radius: 15px;
         padding: 20px;
-        margin: 15px;
-        border-radius: 12px;
-        border: 2px solid #2e86de;
+        margin: 20px 15px;
         text-align: center;
     }
 
-    .config-box {
-        max-width: 500px;
-        margin: 0 auto;
+    .game-header {
+        color: #4CAF50;
+        margin-bottom: 20px;
     }
 
-    .config-input {
+    .game-area {
+        background: rgba(0,0,0,0.5);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        height: 200px;
+        border: 1px solid #333;
+    }
+
+    .target {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: #FF5722;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        transition: transform 0.1s;
+        user-select: none;
+    }
+
+    .game-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+
+    .stat-box {
+        background: rgba(255,255,255,0.1);
+        padding: 10px 20px;
+        border-radius: 8px;
+        min-width: 100px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #FFC107;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        color: #aaa;
+    }
+
+    .game-btn {
+        background: #4CAF50 !important;
+        color: white !important;
+        margin: 5px !important;
+    }
+
+    .game-btn:hover {
+        background: #45a049 !important;
+    }
+
+    /* مقالات */
+    .article-content {
+        text-align: right;
+        line-height: 1.8;
+        padding: 20px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 10px;
+        margin: 15px 0;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .article-meta {
+        color: #aaa;
+        font-size: 14px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* مودال اطلاعات مشتری */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+    }
+
+    .modal {
+        background: rgba(0,0,0,0.9);
+        border: 2px solid #ffdd00;
+        border-radius: 15px;
+        padding: 25px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .modal h3 {
+        color: #ffdd00;
+        margin-top: 0;
+    }
+
+    .modal-input {
         width: 100%;
         padding: 12px;
         margin: 10px 0;
@@ -112,20 +251,33 @@
         border: 1px solid #555;
         background: rgba(255,255,255,0.1);
         color: white;
-        text-align: center;
         font-size: 16px;
+        text-align: center;
     }
 
-    .config-btn {
-        background: #2e86de !important;
-        color: white !important;
-        margin-top: 15px !important;
-        font-size: 16px !important;
-        padding: 12px !important;
+    .modal-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
     }
 
-    .config-btn:hover {
-        background: #1a73e8 !important;
+    .modal-btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .confirm-btn {
+        background: #28a745;
+        color: white;
+    }
+
+    .cancel-btn {
+        background: #dc3545;
+        color: white;
     }
 
     /* سبد خرید */
@@ -288,8 +440,8 @@
         background: #c82333 !important;
     }
 
-    .eitaa-order-btn {
-        background: #2e86de !important;
+    .checkout-btn {
+        background: #28a745 !important;
         color: white !important;
         width: 100% !important;
         padding: 12px !important;
@@ -297,8 +449,8 @@
         font-size: 16px !important;
     }
 
-    .eitaa-order-btn:hover {
-        background: #1a73e8 !important;
+    .checkout-btn:hover {
+        background: #218838 !important;
     }
 
     .empty-cart {
@@ -306,15 +458,6 @@
         color: #999;
         padding: 20px;
         font-size: 14px;
-    }
-
-    .status-connected {
-        color: #4CAF50;
-        font-weight: bold;
-    }
-
-    .status-disconnected {
-        color: #dc3545;
     }
 
     .cart-content::-webkit-scrollbar {
@@ -366,8 +509,9 @@
 
 <h2>🅴🅼🅰🅳 | فروشگاه نظامی عماد</h2>
 
-<!-- دسته‌بندی محصولات -->
+<!-- منوی اصلی دسته‌بندی‌ها -->
 <div class="grid" id="categories">
+    <!-- بخش اصلی محصولات نظامی -->
     <div class="card">
         <img src="https://cdn.ilna.ir/thumbnail/5L0qtIrphEGt/XWHCw76VBsxziNocTLLHoesUW68OoqO1axxWWNC-1_29u4R4x8JTWBcfKP1V5I-iMLLqt6lWi2E,/874490_332.jpg" alt="لوازم دفاع">
         <h4>لوازم دفاع</h4>
@@ -403,34 +547,47 @@
         <h4>محصولات ویژه</h4>
         <button onclick="showProducts('special')">نمایش محصولات</button>
     </div>
+
+    <!-- بخش خرید سی‌پی -->
+    <div class="card cp-card">
+        <img src="https://rengogame.com/wp-content/uploads/2025/08/cp-fori-call-of-duty-mobile-2025.webp" alt="خرید سی‌پی">
+        <h4>خرید سی‌پی</h4>
+        <button onclick="showCPProducts()">ورود به بخش</button>
+    </div>
+
+    <!-- بخش مقالات نظامی -->
+    <div class="card article-card">
+        <img src="https://sibma.ir/uploads/ee834306dca341fcaa57e4bda0d42a23.jpg" alt="مقالات نظامی">
+        <h4>مقالات نظامی</h4>
+        <button onclick="showArticles()">مطالعه مقالات</button>
+    </div>
 </div>
 
 <div id="products"></div>
 
-<!-- تنظیمات ایتا - ساده شده -->
-<div class="eitaa-config">
-    <div class="config-box">
-        <h3>⚙️ تنظیمات اتصال به ایـتـا</h3>
+<!-- مودال اطلاعات مشتری -->
+<div class="modal-overlay" id="customerModal">
+    <div class="modal">
+        <h3>📝 تکمیل اطلاعات سفارش</h3>
+        <p style="color: #aaa; margin-bottom: 20px;">لطفاً اطلاعات خود را وارد کنید</p>
         
-        <div style="text-align: right; margin: 15px 0;">
-            <p style="margin: 5px 0; color: #aaa;">وضعیت: 
-                <span id="connectionStatus" class="status-disconnected">قطع</span>
-            </p>
+        <input type="text" id="customerName" class="modal-input" 
+               placeholder="نام و نام خانوادگی" required>
+        
+        <input type="tel" id="customerPhone" class="modal-input" 
+               placeholder="شماره همراه (مثال: 09123456789)" 
+               pattern="09[0-9]{9}" required>
+        
+        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin: 15px 0;">
+            <p style="margin: 5px 0;">📦 شماره سفارش: <strong id="modalOrderId"></strong></p>
+            <p style="margin: 5px 0;">💰 مبلغ کل: <strong id="modalTotalPrice"></strong> تومان</p>
+            <p style="margin: 5px 0; color: #4CAF50;" id="cpRewardNote"></p>
         </div>
         
-        <input type="text" id="eitaaToken" class="config-input" 
-               placeholder="توکن ربات (bot428410:694cac21-5288-4cf3-8020-92ad066e8b91-****)">
-        
-        <input type="text" id="eitaaChatId" class="config-input" 
-               placeholder="Chat ID شما (72408862)">
-        
-        <button onclick="saveAndTestConnection()" class="config-btn">
-            💾 ذخیره و تست اتصال
-        </button>
-        
-        <p style="margin-top: 15px; font-size: 14px; color: #aaa;">
-            ✅ پس از تست موفق، می‌توانید سفارش‌ها را به ایـتـا ارسال کنید
-        </p>
+        <div class="modal-buttons">
+            <button class="modal-btn cancel-btn" onclick="closeCustomerModal()">انصراف</button>
+            <button class="modal-btn confirm-btn" onclick="proceedToEitaa()">پرداخت و ارسال به ایتا</button>
+        </div>
     </div>
 </div>
 
@@ -461,8 +618,8 @@
             <span class="cart-total" id="totalPrice">0</span> تومان
         </div>
         <button onclick="clearCart()" class="clear-btn">🗑️ پاک کردن سبد خرید</button>
-        <button onclick="completeOrderWithEitaa()" class="eitaa-order-btn" id="orderBtn">
-            📨 ثبت سفارش از طریق ایـتـا
+        <button onclick="startCheckout()" class="checkout-btn" id="checkoutBtn">
+            💰 پرداخت و ثبت سفارش
         </button>
     </div>
 </div>
@@ -505,11 +662,48 @@ const productData = {
         {name: "بسته ویژه تشریفات", price: 17500000},
         {name: "ست هدیه نظامی", price: 12500000},
         {name: "محصولات محدود ویژه", price: 42000000}
+    ],
+    // بخش سی‌پی
+    "cp_products": [
+        {name: "سی‌پی دوبل", price: 50000, img: "https://rengogame.com/wp-content/uploads/2023/09/cp2x-codm-rengogame.jpg"},
+        {name: "آفر ویژه", price: 75000, img: "https://rengogame.com/wp-content/uploads/2025/08/battlepass-call-of-duty-mobile-2025.webp"},
+        {name: "سی‌پی رایگان", price: 0, img: "https://rengogame.com/wp-content/uploads/2023/09/free-cp-icon-rengogame-min.webp"},
+        {name: "بسته طلایی", price: 120000, img: "https://irangamestore.com/wp-content/uploads/2024/03/cp-call-of-duty-mobile.png"},
+        {name: "بسته نقره‌ای", price: 80000, img: "https://irangamestore.com/wp-content/uploads/2024/03/cp-call-of-duty-mobile.png"},
+        {name: "بسته برنزی", price: 40000, img: "https://irangamestore.com/wp-content/uploads/2024/03/cp-call-of-duty-mobile.png"}
     ]
 };
 
+// مقالات نمونه
+let militaryArticles = [
+    {
+        title: "اصول تاکتیک‌های نظامی مدرن",
+        content: "در دنیای امروز، تاکتیک‌های نظامی دستخوش تغییرات اساسی شده‌اند. با پیشرفت فناوری، نیروهای نظامی باید خود را با شرایط جدید تطبیق دهند. تاکتیک‌های نامتقارن، جنگ شهری و عملیات‌های اطلاعاتی از مهم‌ترین تحولات اخیر هستند.\n\nنکات کلیدی:\n- استفاده از فناوری‌های پیشرفته\n- تاکتیک‌های روانی\n- عملیات‌های سریع و دقیق\n- همکاری بین نیروهای مختلف",
+        author: "سرهنگ احمدی",
+        date: "۱۴۰۳/۱۰/۱۵",
+        views: 125
+    },
+    {
+        title: "تاریخچه لباس نظامی در ایران",
+        content: "لباس نظامی در ایران تاریخی کهن دارد که به دوران هخامنشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است. از لباس‌های ساده دوران صفویه تا یونیفرم‌های مدرن امروزی، همه نشان‌دهنده تحول در تفکر نظامی ایران است.\n\nدوره‌های مهم:\n- دوره هخامنشی\n- دوره صفوی\n- دوره قاجار\n- دوره معاصر",
+        author: "دکتر محمدی",
+        date: "۱۴۰۳/۱۰/۱۰",
+        views: 89
+    },
+    {
+        title: "نگهداری و مراقبت از تجهیزات نظامی",
+        content: "نگهداری صحیح از تجهیزات نظامی یکی از مهم‌ترین وظایف هر نیروی نظامی است. تجهیزاتی که به خوبی نگهداری نشوند، نه تنها کارایی خود را از دست می‌دهند، بلکه می‌توانند خطرناک نیز باشند.\n\nنکات نگهداری:\n- تمیزکاری منظم\n- روغن‌کاری قسمت‌های متحرک\n- بررسی دوره‌ای\n- نگهداری در محیط مناسب",
+        author: "ستوان یکم رضایی",
+        date: "۱۴۰۳/۱۰/۰۵",
+        views: 67
+    }
+];
+
 let cart = [];
 let cartOpen = false;
+let currentOrderId = '';
+let currentOrderTotal = 0;
+let freeCPUnlocked = false;
 
 // ==================== توابع سبد خرید ====================
 function toggleCart() {
@@ -537,357 +731,167 @@ function showProducts(category) {
     container.scrollIntoView({ behavior: 'smooth' });
 }
 
-function getCategoryName(key) {
-    const names = {
-        'defense': 'لوازم دفاع',
-        'signs': 'تابلو و علائم',
-        'clothing': 'لباس نظامی',
-        'shoes': 'کفش و پوتین',
-        'decorations': 'تزئینات و نشان‌ها',
-        'special': 'محصولات ویژه'
+// ==================== بخش مقالات نظامی ====================
+function showArticles() {
+    const container = document.getElementById("products");
+    
+    let html = `
+        <h3 style="color: #9C27B0;">📚 مقالات نظامی</h3>
+        <p style="text-align: center; color: #aaa; margin-bottom: 20px;">مقالات تخصصی در حوزه نظامی</p>
+        <div style="text-align: left; margin-bottom: 20px;">
+            <button onclick="addNewArticle()" style="background: #9C27B0; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                ✏️ افزودن مقاله جدید
+            </button>
+        </div>
+        <div class="grid">`;
+    
+    militaryArticles.forEach((article, index) => {
+        html += `
+            <div class="card article-card">
+                <h4>${article.title}</h4>
+                <div class="article-meta">
+                    <span>👤 ${article.author}</span>
+                    <span>📅 ${article.date}</span>
+                </div>
+                <p style="color: #ccc; font-size: 14px; margin: 10px 0;">${article.content.substring(0, 100)}...</p>
+                <p style="color: #aaa; font-size: 12px;">👁️ ${article.views} بازدید</p>
+                <button onclick="readArticle(${index})">📖 مطالعه مقاله</button>
+                <button onclick="editArticle(${index})" style="background: #6c757d; margin-top: 5px;">✏️ ویرایش</button>
+            </div>`;
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+    container.scrollIntoView({ behavior: 'smooth' });
+}
+
+function readArticle(index) {
+    const article = militaryArticles[index];
+    
+    // افزایش تعداد بازدید
+    article.views = (article.views || 0) + 1;
+    
+    const container = document.getElementById("products");
+    const contentWithBreaks = article.content.replace(/\n/g, '<br>');
+    
+    const html = `
+        <h3 style="color: #9C27B0;">${article.title}</h3>
+        <div class="article-meta">
+            <div>
+                <span>👤 نویسنده: ${article.author}</span><br>
+                <span>📅 تاریخ انتشار: ${article.date}</span>
+            </div>
+            <div>
+                <span>👁️ بازدید: ${article.views}</span>
+            </div>
+        </div>
+        <div class="article-content">
+            ${contentWithBreaks}
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="showArticles()" style="background: #6c757d; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
+                ↩️ بازگشت به لیست مقالات
+            </button>
+            <button onclick="editArticle(${index})" style="background: #9C27B0; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; margin-right: 10px;">
+                ✏️ ویرایش این مقاله
+            </button>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+}
+
+function addNewArticle() {
+    const title = prompt("عنوان مقاله جدید را وارد کنید:");
+    if (!title) return;
+    
+    const content = prompt("متن کامل مقاله را وارد کنید (می‌توانید چند خط بنویسید):");
+    if (!content) return;
+    
+    const author = prompt("نام نویسنده:", "مدیر سایت");
+    
+    const newArticle = {
+        title: title,
+        content: content,
+        author: author || "مدیر سایت",
+        date: new Date().toLocaleDateString('fa-IR'),
+        views: 0
     };
-    return names[key] || key;
+    
+    militaryArticles.unshift(newArticle);
+    showMessage('✅ مقاله جدید با موفقیت اضافه شد', '#9C27B0');
+    showArticles();
 }
 
-function addToCart(category, index) {
-    const product = {...productData[category][index]};
-    cart.push(product);
-    updateCart();
-    showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#28a745');
+function editArticle(index) {
+    const article = militaryArticles[index];
+    
+    const newTitle = prompt("عنوان جدید:", article.title);
+    if (newTitle === null) return;
+    
+    const newContent = prompt("متن جدید:", article.content);
+    if (newContent === null) return;
+    
+    const newAuthor = prompt("نویسنده جدید:", article.author);
+    
+    militaryArticles[index] = {
+        title: newTitle || article.title,
+        content: newContent || article.content,
+        author: newAuthor || article.author,
+        date: article.date,
+        views: article.views
+    };
+    
+    showMessage('✅ مقاله با موفقیت ویرایش شد', '#9C27B0');
+    showArticles();
 }
 
-function updateCart() {
-    const cartContent = document.getElementById("cartContent");
-    const cartFooter = document.getElementById("cartFooter");
-    const cartBadge = document.getElementById("cartBadge");
-    const itemCountEl = document.getElementById("itemCount");
-    const totalPriceEl = document.getElementById("totalPrice");
-
-    let total = 0;
-    cartBadge.textContent = cart.length;
-
-    if (cart.length === 0) {
-        cartContent.innerHTML = '<div class="empty-cart">سبد خرید شما خالی است</div>';
-        cartFooter.style.display = 'none';
-    } else {
-        cartContent.innerHTML = '';
-        cart.forEach((item, index) => {
-            cartContent.innerHTML += `
-                <div class="cart-item">
-                    <div class="cart-item-info">
-                        <div class="cart-item-name">${item.name}</div>
-                        <div class="cart-item-price">${item.price.toLocaleString('fa-IR')} تومان</div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button onclick="removeFromCart(${index})" class="remove-btn">حذف</button>
-                    </div>
-                </div>`;
-            total += item.price;
-        });
+// ==================== بخش خرید سی‌پی ====================
+function showCPProducts() {
+    const container = document.getElementById("products");
+    let html = `
+        <h3 style="color: #2196F3;">🎮 بخش خرید سی‌پی</h3>
+        <p style="text-align: center; color: #aaa; margin-bottom: 20px;">انتخاب محصول مورد نظر</p>
+        <div class="grid">`;
+    
+    productData["cp_products"].forEach((product, index) => {
+        const buttonText = product.name === "سی‌پی رایگان" ? "🎮 بازی و دریافت رایگان" : "➕ افزودن به سبد";
+        const onClick = product.name === "سی‌پی رایگان" ? `startFreeCPGame()` : `addCPToCart(${index})`;
         
-        itemCountEl.textContent = cart.length;
-        totalPriceEl.textContent = total.toLocaleString('fa-IR');
-        cartFooter.style.display = 'block';
-    }
+        html += `
+            <div class="card cp-card">
+                <img src="${product.img}" alt="${product.name}">
+                <h4>${product.name}</h4>
+                <p>قیمت: <span class="product-price">${product.price === 0 ? 'رایگان' : product.price.toLocaleString('fa-IR') + ' تومان'}</span></p>
+                <button onclick="${onClick}">${buttonText}</button>
+            </div>`;
+    });
+    
+    html += '</div>';
+    container.innerHTML = html;
+    container.scrollIntoView({ behavior: 'smooth' });
 }
 
-function removeFromCart(index) {
-    if (index >= 0 && index < cart.length) {
-        const removedItem = cart[index];
-        cart.splice(index, 1);
-        updateCart();
-        showMessage(`❌ ${removedItem.name} از سبد خرید حذف شد`, '#dc3545');
-    }
-}
-
-function clearCart() {
-    if (cart.length === 0) return;
+// ==================== بازی سی‌پی رایگان ====================
+function startFreeCPGame() {
+    const container = document.getElementById("products");
     
-    if (confirm(`آیا از پاک کردن ${cart.length} آیتم از سبد خرید مطمئن هستید؟`)) {
-        cart = [];
-        updateCart();
-        showMessage('🛒 سبد خرید با موفقیت پاک شد', '#ffc107', '#000');
-    }
-}
-
-// ==================== توابع ایـتـا ====================
-async function saveAndTestConnection() {
-    const token = document.getElementById('eitaaToken').value.trim();
-    const chatId = document.getElementById('eitaaChatId').value.trim();
-    
-    if (!token || !chatId) {
-        alert('❌ لطفاً توکن و Chat ID را وارد کنید');
-        return;
-    }
-    
-    // ذخیره در localStorage
-    localStorage.setItem('eitaa_token', token);
-    localStorage.setItem('eitaa_chat_id', chatId);
-    
-    showMessage('🔄 در حال تست اتصال به ایـتـا...', '#17a2b8');
-    
-    try {
-        // ساخت پیام تست
-        const testMessage = `✅ تست اتصال موفقیت‌آمیز بود!
-فروشگاه نظامی عماد آماده است.
-🕒 ${new Date().toLocaleString('fa-IR')}`;
-        
-        // استفاده از CORS proxy (برای تست)
-        const proxyUrl = 'https://corsproxy.io/?';
-        const apiUrl = `https://eitaayar.ir/api/${token}/sendMessage`;
-        
-        const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `chat_id=${chatId}&text=${encodeURIComponent(testMessage)}`
-        });
-        
-        const result = await response.json();
-        
-        if (result.ok) {
-            document.getElementById('connectionStatus').textContent = 'متصل';
-            document.getElementById('connectionStatus').className = 'status-connected';
-            document.getElementById('orderBtn').disabled = false;
-            document.getElementById('orderBtn').style.opacity = '1';
-            document.getElementById('orderBtn').style.cursor = 'pointer';
+    const gameHTML = `
+        <div class="game-container">
+            <h3 class="game-header">🎮 بازی برای دریافت 80 سی‌پی رایگان</h3>
+            <p style="color: #aaa; margin-bottom: 20px;">تا 1000 امتیاز برسید تا 80 سی‌پی رایگان دریافت کنید!</p>
             
-            showMessage('🎉 اتصال به ایـتـا موفق بود! پیام تست ارسال شد.', '#4CAF50');
-        } else {
-            document.getElementById('connectionStatus').textContent = 'خطا';
-            showMessage(`❌ خطا: ${result.description || 'ناشناخته'}`, '#dc3545');
-        }
-        
-    } catch (error) {
-        document.getElementById('connectionStatus').textContent = 'خطا';
-        showMessage(`❌ خطای شبکه: ${error.message}`, '#dc3545');
-    }
-}
-
-async function sendToEitaa(message) {
-    const token = localStorage.getItem('eitaa_token');
-    const chatId = localStorage.getItem('eitaa_chat_id');
-    
-    if (!token || !chatId) {
-        alert('❌ ابتدا باید اتصال به ایـتـا را تنظیم کنید');
-        return false;
-    }
-    
-    try {
-        const proxyUrl = 'https://corsproxy.io/?';
-        const apiUrl = `https://eitaayar.ir/api/${token}/sendMessage`;
-        
-        const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `chat_id=${chatId}&text=${encodeURIComponent(message)}&parse_mode=HTML`
-        });
-        
-        const result = await response.json();
-        return result.ok;
-        
-    } catch (error) {
-        console.error('خطا در ارسال به ایـتـا:', error);
-        return false;
-    }
-}
-
-async function completeOrderWithEitaa() {
-    if (cart.length === 0) {
-        alert('🛒 سبد خرید شما خالی است!');
-        return;
-    }
-    
-    // بررسی اتصال به ایـتـا
-    const token = localStorage.getItem('eitaa_token');
-    const chatId = localStorage.getItem('eitaa_chat_id');
-    
-    if (!token || !chatId) {
-        alert('❌ ابتدا باید به بخش "تنظیمات اتصال به ایـتـا" بروید و توکن و Chat ID را وارد کنید.');
-        return;
-    }
-    
-    // دریافت اطلاعات مشتری
-    const customerName = prompt('👤 لطفاً نام و نام خانوادگی خود را وارد کنید:');
-    if (!customerName || customerName.trim() === '') {
-        alert('❌ نام و نام خانوادگی الزامی است');
-        return;
-    }
-    
-    const phone = prompt('📞 لطفاً شماره تماس خود را وارد کنید:');
-    if (!phone || phone.trim() === '') {
-        alert('❌ شماره تماس الزامی است');
-        return;
-    }
-    
-    const address = prompt('📍 آدرس تحویل (اختیاری):', '') || 'ثبت نشده';
-    const notes = prompt('📝 توضیحات اضافی (اختیاری):', '') || 'ندارد';
-    
-    // محاسبه جمع کل
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
-    const orderId = 'ORD-' + Date.now().toString().slice(-8);
-    
-    // ساخت پیام سفارش
-    const orderMessage = `
-🛒 **سفارش جدید از وب‌سایت عماد**
-━━━━━━━━━━━━━━━━
-📋 **شماره سفارش:** ${orderId}
-💰 **مبلغ کل:** ${total.toLocaleString('fa-IR')} تومان
-👤 **مشتری:** ${customerName}
-📞 **تماس:** ${phone}
-📍 **آدرس:** ${address}
-📝 **توضیحات:** ${notes}
-⏰ **زمان:** ${new Date().toLocaleString('fa-IR')}
-━━━━━━━━━━━━━━━━
-📦 **محصولات سفارش:**
-${cart.map((item, index) => `${index + 1}. ${item.name} - ${item.price.toLocaleString('fa-IR')} تومان`).join('\\n')}
-━━━━━━━━━━━━━━━━
-✅ این سفارش از طریق وب‌سایت ثبت شده است.
-    `;
-    
-    showMessage('🔄 در حال ارسال سفارش به ایـتـا...', '#17a2b8');
-    
-    const success = await sendToEitaa(orderMessage);
-    
-    if (success) {
-        // ذخیره سفارش در تاریخچه
-        const orderData = {
-            orderId: orderId,
-            items: [...cart],
-            total: total,
-            customerName: customerName,
-            phone: phone,
-            address: address,
-            notes: notes,
-            date: new Date().toISOString(),
-            sentToEitaa: true
-        };
-        
-        saveOrderToHistory(orderData);
-        
-        // پاک کردن سبد خرید
-        cart = [];
-        updateCart();
-        if (cartOpen) toggleCart();
-        
-        // نمایش پیام موفقیت
-        setTimeout(() => {
-            alert(`🎉 **سفارش شما با موفقیت ثبت شد!**
-
-📋 **شماره سفارش:** ${orderId}
-💰 **مبلغ:** ${total.toLocaleString('fa-IR')} تومان
-👤 **مشتری:** ${customerName}
-
-✅ پیام تأیید به ایـتـا ارسال شد.
-📞 به زودی با شما تماس خواهیم گرفت.
-
-از خرید شما متشکریم! 🛡️`);
-        }, 500);
-        
-    } else {
-        alert('❌ متأسفانه در ارسال سفارش به ایـتـا مشکلی پیش آمد. لطفاً دوباره تلاش کنید.');
-    }
-}
-
-function saveOrderToHistory(order) {
-    const orders = JSON.parse(localStorage.getItem('military_shop_orders') || '[]');
-    orders.push(order);
-    localStorage.setItem('military_shop_orders', JSON.stringify(orders));
-}
-
-// ==================== توابع کمکی ====================
-function showMessage(text, bgColor, textColor = 'white') {
-    const message = document.createElement('div');
-    message.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: ${bgColor};
-        color: ${textColor};
-        padding: 12px 24px;
-        border-radius: 8px;
-        z-index: 1001;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        animation: slideDown 0.3s ease;
-        font-family: Vazir, sans-serif;
-        text-align: center;
-        max-width: 90%;
-    `;
-    message.innerHTML = text;
-    document.body.appendChild(message);
-    
-    setTimeout(() => {
-        message.style.animation = 'slideUp 0.3s ease';
-        setTimeout(() => {
-            if (message.parentNode) {
-                document.body.removeChild(message);
-            }
-        }, 300);
-    }, 3000);
-}
-
-// ==================== اجرای اولیه ====================
-document.addEventListener('DOMContentLoaded', function() {
-    // بارگذاری تنظیمات ذخیره شده
-    const savedToken = localStorage.getItem('eitaa_token');
-    const savedChatId = localStorage.getItem('eitaa_chat_id');
-    
-    if (savedToken && savedChatId) {
-        document.getElementById('eitaaToken').value = savedToken;
-        document.getElementById('eitaaChatId').value = savedChatId;
-        document.getElementById('connectionStatus').textContent = 'ذخیره شده';
-        document.getElementById('connectionStatus').className = 'status-connected';
-        document.getElementById('orderBtn').disabled = false;
-        document.getElementById('orderBtn').style.opacity = '1';
-        document.getElementById('orderBtn').style.cursor = 'pointer';
-    }
-    
-    // به‌روزرسانی سبد خرید
-    updateCart();
-    
-    // اضافه کردن استایل‌های انیمیشن
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideDown {
-            from {
-                transform: translateX(-50%) translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideUp {
-            from {
-                transform: translateX(-50%) translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(-50%) translateY(-100%);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-});
-
-// بستن سبد خرید با کلیک بیرون
-document.addEventListener('click', function(event) {
-    const cartContainer = document.getElementById('cartContainer');
-    const cartIcon = document.querySelector('.cart-icon');
-    
-    if (cartOpen && 
-        !cartContainer.contains(event.target) && 
-        !cartIcon.contains(event.target)) {
-        toggleCart();
-    }
-});
-</script>
-</body>
-</html>
+            <div class="game-stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="gameScore">0</div>
+                    <div class="stat-label">امتیاز</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="gameTime">30</div>
+                    <div class="stat-label">ثانیه</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="gameTargets">0</div>
+                    <div class="stat-label">هدف زده</div>
+                </div>
+    </div> 
