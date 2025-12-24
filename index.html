@@ -55,6 +55,7 @@
         margin-bottom: 8px;
         border-radius: 50%;
         border: 2px solid #ffdd00;
+        background: rgba(255,255,255,0.05);
     }
 
     .card h4 {
@@ -704,6 +705,26 @@ let cartOpen = false;
 let currentOrderId = '';
 let currentOrderTotal = 0;
 let freeCPUnlocked = false;
+let gameActive = false;
+let gameScore = 0;
+let gameTime = 30;
+let gameTargets = 0;
+let gameInterval;
+let targetInterval;
+
+// ==================== توابع اصلی ====================
+function getCategoryName(key) {
+    const names = {
+        'defense': 'لوازم دفاع',
+        'signs': 'تابلو و علائم',
+        'clothing': 'لباس نظامی',
+        'shoes': 'کفش و پوتین',
+        'decorations': 'تزئینات و نشان‌ها',
+        'special': 'محصولات ویژه',
+        'cp_products': 'خرید سی‌پی'
+    };
+    return names[key] || key;
+}
 
 // ==================== توابع سبد خرید ====================
 function toggleCart() {
@@ -712,6 +733,78 @@ function toggleCart() {
     cartContainer.style.display = cartOpen ? 'block' : 'none';
 }
 
+function addToCart(category, index) {
+    const product = {...productData[category][index]};
+    cart.push(product);
+    updateCart();
+    showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#28a745');
+}
+
+function addCPToCart(index) {
+    const product = {...productData["cp_products"][index]};
+    cart.push(product);
+    updateCart();
+    showMessage(`✅ ${product.name} به سبد خرید اضافه شد`, '#2196F3');
+}
+
+function updateCart() {
+    const cartContent = document.getElementById("cartContent");
+    const cartFooter = document.getElementById("cartFooter");
+    const cartBadge = document.getElementById("cartBadge");
+    const itemCountEl = document.getElementById("itemCount");
+    const totalPriceEl = document.getElementById("totalPrice");
+
+    let total = 0;
+    cartBadge.textContent = cart.length;
+
+    if (cart.length === 0) {
+        cartContent.innerHTML = '<div class="empty-cart">سبد خرید شما خالی است</div>';
+        cartFooter.style.display = 'none';
+    } else {
+        cartContent.innerHTML = '';
+        cart.forEach((item, index) => {
+            const priceDisplay = item.price === 0 ? 'رایگان' : item.price.toLocaleString('fa-IR') + ' تومان';
+            cartContent.innerHTML += `
+                <div class="cart-item" style="${item.isFreeCP ? 'border-color: #4CAF50;' : ''}">
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price" style="${item.isFreeCP ? 'color: #4CAF50;' : ''}">${priceDisplay}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button onclick="removeFromCart(${index})" class="remove-btn">حذف</button>
+                    </div>
+                </div>`;
+            if (!item.isFreeCP) {
+                total += item.price;
+            }
+        });
+        
+        itemCountEl.textContent = cart.length;
+        totalPriceEl.textContent = total.toLocaleString('fa-IR');
+        cartFooter.style.display = 'block';
+    }
+}
+
+function removeFromCart(index) {
+    if (index >= 0 && index < cart.length) {
+        const removedItem = cart[index];
+        cart.splice(index, 1);
+        updateCart();
+        showMessage(`❌ ${removedItem.name} از سبد خرید حذف شد`, '#dc3545');
+    }
+}
+
+function clearCart() {
+    if (cart.length === 0) return;
+    
+    if (confirm(`آیا از پاک کردن ${cart.length} آیتم از سبد خرید مطمئن هستید؟`)) {
+        cart = [];
+        updateCart();
+        showMessage('🛒 سبد خرید با موفقیت پاک شد', '#ffc107', '#000');
+    }
+}
+
+// ==================== نمایش محصولات ====================
 function showProducts(category) {
     const container = document.getElementById("products");
     const categoryName = getCategoryName(category);
@@ -767,8 +860,6 @@ function showArticles() {
 
 function readArticle(index) {
     const article = militaryArticles[index];
-    
-    // افزایش تعداد بازدید
     article.views = (article.views || 0) + 1;
     
     const container = document.getElementById("products");
@@ -805,92 +896,7 @@ function addNewArticle() {
     const title = prompt("عنوان مقاله جدید را وارد کنید:");
     if (!title) return;
     
-    const content = prompt("متن کامل مقاله را وارد کنید (می‌توانید چند خط بنویسید):");
+    const content = prompt("متن کامل مقاله را وارد کنید:");
     if (!content) return;
     
-    const author = prompt("نام نویسنده:", "مدیر سایت");
-    
-    const newArticle = {
-        title: title,
-        content: content,
-        author: author || "مدیر سایت",
-        date: new Date().toLocaleDateString('fa-IR'),
-        views: 0
-    };
-    
-    militaryArticles.unshift(newArticle);
-    showMessage('✅ مقاله جدید با موفقیت اضافه شد', '#9C27B0');
-    showArticles();
-}
-
-function editArticle(index) {
-    const article = militaryArticles[index];
-    
-    const newTitle = prompt("عنوان جدید:", article.title);
-    if (newTitle === null) return;
-    
-    const newContent = prompt("متن جدید:", article.content);
-    if (newContent === null) return;
-    
-    const newAuthor = prompt("نویسنده جدید:", article.author);
-    
-    militaryArticles[index] = {
-        title: newTitle || article.title,
-        content: newContent || article.content,
-        author: newAuthor || article.author,
-        date: article.date,
-        views: article.views
-    };
-    
-    showMessage('✅ مقاله با موفقیت ویرایش شد', '#9C27B0');
-    showArticles();
-}
-
-// ==================== بخش خرید سی‌پی ====================
-function showCPProducts() {
-    const container = document.getElementById("products");
-    let html = `
-        <h3 style="color: #2196F3;">🎮 بخش خرید سی‌پی</h3>
-        <p style="text-align: center; color: #aaa; margin-bottom: 20px;">انتخاب محصول مورد نظر</p>
-        <div class="grid">`;
-    
-    productData["cp_products"].forEach((product, index) => {
-        const buttonText = product.name === "سی‌پی رایگان" ? "🎮 بازی و دریافت رایگان" : "➕ افزودن به سبد";
-        const onClick = product.name === "سی‌پی رایگان" ? `startFreeCPGame()` : `addCPToCart(${index})`;
-        
-        html += `
-            <div class="card cp-card">
-                <img src="${product.img}" alt="${product.name}">
-                <h4>${product.name}</h4>
-                <p>قیمت: <span class="product-price">${product.price === 0 ? 'رایگان' : product.price.toLocaleString('fa-IR') + ' تومان'}</span></p>
-                <button onclick="${onClick}">${buttonText}</button>
-            </div>`;
-    });
-    
-    html += '</div>';
-    container.innerHTML = html;
-    container.scrollIntoView({ behavior: 'smooth' });
-}
-
-// ==================== بازی سی‌پی رایگان ====================
-function startFreeCPGame() {
-    const container = document.getElementById("products");
-    
-    const gameHTML = `
-        <div class="game-container">
-            <h3 class="game-header">🎮 بازی برای دریافت 80 سی‌پی رایگان</h3>
-            <p style="color: #aaa; margin-bottom: 20px;">تا 1000 امتیاز برسید تا 80 سی‌پی رایگان دریافت کنید!</p>
-            
-            <div class="game-stats">
-                <div class="stat-box">
-                    <div class="stat-value" id="gameScore">0</div>
-                    <div class="stat-label">امتیاز</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="gameTime">30</div>
-                    <div class="stat-label">ثانیه</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="gameTargets">0</div>
-                    <div class="stat-label">هدف زده</div>
-                </div
+    const author
