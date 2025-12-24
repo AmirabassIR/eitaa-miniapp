@@ -102,162 +102,85 @@
         color: #9C27B0 !important;
     }
 
-    /* مقالات */
-    .article-content {
-        text-align: right;
-        line-height: 1.8;
-        padding: 20px;
-        background: rgba(0,0,0,0.5);
-        border-radius: 10px;
-        margin: 15px 0;
-        max-height: 400px;
+    /* نمایش تمام صفحه مقالات */
+    .fullscreen-article {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
         overflow-y: auto;
+        padding: 20px;
+        display: none;
+    }
+
+    .article-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #9C27B0;
+    }
+
+    .article-title {
+        font-size: 28px;
+        color: #9C27B0;
+        margin-bottom: 10px;
     }
 
     .article-meta {
         color: #aaa;
-        font-size: 14px;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    /* مودال ورود ادمین */
-    .admin-login {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0,0,0,0.95);
-        border: 3px solid #dc3545;
-        border-radius: 15px;
-        padding: 30px;
-        width: 90%;
-        max-width: 400px;
-        z-index: 10000;
-        display: none;
-    }
-
-    .admin-login h3 {
-        color: #dc3545;
-        text-align: center;
-        margin-top: 0;
-    }
-
-    .login-input {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #555;
-        background: rgba(255,255,255,0.1);
-        color: white;
         font-size: 16px;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
 
-    .login-btn {
-        background: #dc3545 !important;
-        color: white !important;
-        margin-top: 15px !important;
+    .article-content {
+        font-size: 18px;
+        line-height: 2;
+        text-align: justify;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        border: 1px solid rgba(156, 39, 176, 0.3);
     }
 
-    .login-btn:hover {
-        background: #c82333 !important;
-    }
-
-    /* دکمه ورود ادمین */
-    .admin-btn {
-        position: fixed;
+    .close-article-btn {
+        position: absolute;
         top: 20px;
         left: 20px;
         background: #dc3545;
         color: white;
-        padding: 10px 20px;
-        border-radius: 25px;
         border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
         cursor: pointer;
         font-weight: bold;
-        z-index: 1000;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
 
-    /* پنل ادمین */
-    .admin-panel {
-        background: rgba(0,0,0,0.9);
-        border: 3px solid #28a745;
-        border-radius: 15px;
-        padding: 20px;
-        margin: 20px;
-        display: none;
+    .articles-list {
+        max-height: 500px;
+        overflow-y: auto;
+        margin: 20px 0;
     }
 
-    .admin-header {
-        color: #28a745;
-        text-align: center;
-        margin-bottom: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .admin-actions {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-
-    .admin-action {
-        background: rgba(255,255,255,0.1);
+    .article-list-item {
+        background: rgba(156, 39, 176, 0.1);
+        margin: 10px 0;
         padding: 15px;
         border-radius: 10px;
-        text-align: center;
+        border: 1px solid rgba(156, 39, 176, 0.3);
+        cursor: pointer;
+        transition: 0.3s;
     }
 
-    .admin-action h4 {
-        color: #ffdd00;
-        margin-top: 0;
-    }
-
-    /* دکمه‌های مدیریت */
-    .manage-btn {
-        background: #6c757d !important;
-        color: white !important;
-        margin: 5px !important;
-        font-size: 14px !important;
-        padding: 6px 12px !important;
-    }
-
-    .edit-btn {
-        background: #17a2b8 !important;
-    }
-
-    .delete-btn {
-        background: #dc3545 !important;
-    }
-
-    .add-btn {
-        background: #28a745 !important;
-    }
-
-    /* مودال مدیریت محصولات */
-    .product-modal {
-        background: rgba(0,0,0,0.95);
-        border: 2px solid #ffdd00;
-        border-radius: 15px;
-        padding: 25px;
-        width: 90%;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .modal-row {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 10px;
-        margin: 10px 0;
-        align-items: center;
+    .article-list-item:hover {
+        background: rgba(156, 39, 176, 0.2);
+        transform: translateX(-5px);
     }
 
     /* مودال اطلاعات مشتری */
@@ -531,11 +454,13 @@
             bottom: 10px;
         }
         
-        .admin-btn {
-            top: 10px;
-            left: 10px;
-            padding: 8px 15px;
-            font-size: 14px;
+        .article-content {
+            font-size: 16px;
+            padding: 15px;
+        }
+        
+        .article-title {
+            font-size: 24px;
         }
     }
 
@@ -547,6 +472,15 @@
         
         .modal-row {
             grid-template-columns: 1fr;
+        }
+        
+        .article-content {
+            font-size: 14px;
+            padding: 10px;
+        }
+        
+        .article-title {
+            font-size: 20px;
         }
     }
 
@@ -561,90 +495,16 @@
         margin-bottom: 20px;
     }
     
-    /* نشانگر ادمین */
-    .admin-indicator {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        background: #dc3545;
-        color: white;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .back-btn {
+        background: #6c757d !important;
+        color: white !important;
+        margin: 10px !important;
     }
 </style>
 </head>
 <body>
 
-<!-- دکمه ورود ادمین -->
-<button class="admin-btn" onclick="showAdminLogin()">
-    👑 ورود ادمین
-</button>
-
 <h2>🅴🅼🅰🅳 | فروشگاه نظامی عماد</h2>
-
-<!-- پنل ادمین (پس از ورود) -->
-<div id="adminPanel" class="admin-panel">
-    <div class="admin-header">
-        <h3>👑 پنل مدیریت ادمین</h3>
-        <button onclick="logoutAdmin()" style="background: #dc3545; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;">
-            خروج از حساب
-        </button>
-    </div>
-    
-    <div class="admin-actions">
-        <div class="admin-action">
-            <h4>📝 مدیریت مقالات</h4>
-            <button onclick="manageArticles()" class="manage-btn">مدیریت مقالات</button>
-        </div>
-        
-        <div class="admin-action">
-            <h4>🛡️ مدیریت لوازم دفاع</h4>
-            <button onclick="manageProducts('defense')" class="manage-btn">ویرایش محصولات</button>
-            <button onclick="addNewProduct('defense')" class="manage-btn add-btn">➕ اضافه کردن</button>
-        </div>
-        
-        <div class="admin-action">
-            <h4>🚧 مدیریت تابلو و علائم</h4>
-            <button onclick="manageProducts('signs')" class="manage-btn">ویرایش محصولات</button>
-            <button onclick="addNewProduct('signs')" class="manage-btn add-btn">➕ اضافه کردن</button>
-        </div>
-        
-        <div class="admin-action">
-            <h4>👕 مدیریت لباس نظامی</h4>
-            <button onclick="manageProducts('clothing')" class="manage-btn">ویرایش محصولات</button>
-            <button onclick="addNewProduct('clothing')" class="manage-btn add-btn">➕ اضافه کردن</button>
-        </div>
-        
-        <div class="admin-action">
-            <h4>👢 مدیریت کفش و پوتین</h4>
-            <button onclick="manageProducts('shoes')" class="manage-btn">ویرایش محصولات</button>
-            <button onclick="addNewProduct('shoes')" class="manage-btn add-btn">➕ اضافه کردن</button>
-        </div>
-        
-        <div class="admin-action">
-            <h4>🎖️ مدیریت تزئینات</h4>
-            <button onclick="manageProducts('decorations')" class="manage-btn">ویرایش محصولات</button>
-            <button onclick="addNewProduct('decorations')" class="manage-btn add-btn">➕ اضافه کردن</button>
-        </div>
-        
-        <div class="admin-action">
-            <h4>⭐ مدیریت محصولات ویژه</h4>
-            <button onclick="manageProducts('special')" class="manage-btn">ویرایش محصولات</button>
-            <button onclick="addNewProduct('special')" class="manage-btn add-btn">➕ اضافه کردن</button>
-        </div>
-    </div>
-    
-    <div style="text-align: center; margin-top: 20px;">
-        <button onclick="viewAllOrders()" class="button" style="background: #17a2b8; color: white;">
-            📋 مشاهده تمام سفارشات
-        </button>
-    </div>
-</div>
 
 <!-- منوی اصلی دسته‌بندی‌ها -->
 <div class="grid" id="categories">
@@ -694,23 +554,10 @@
 
 <div id="products"></div>
 
-<!-- مودال ورود ادمین -->
-<div id="adminLogin" class="admin-login">
-    <h3>🔐 ورود به پنل ادمین</h3>
-    <p style="text-align: center; color: #aaa; margin-bottom: 20px;">فقط مدیران می‌توانند وارد شوند</p>
-    
-    <input type="text" id="adminUsername" class="login-input" 
-           placeholder="نام کاربری" required>
-    
-    <input type="password" id="adminPassword" class="login-input" 
-           placeholder="رمز عبور" required>
-    
-    <div id="loginError" style="color: #ff6b6b; text-align: center; margin: 10px 0; display: none;">
-        نام کاربری یا رمز عبور اشتباه است!
-    </div>
-    
-    <button onclick="loginAdmin()" class="button login-btn">ورود به پنل مدیریت</button>
-    <button onclick="hideAdminLogin()" class="button" style="background: #6c757d; color: white; margin-top: 10px;">انصراف</button>
+<!-- صفحه تمام صفحه مقالات -->
+<div id="fullscreenArticle" class="fullscreen-article">
+    <button class="close-article-btn" onclick="closeFullscreenArticle()">✕ بستن</button>
+    <div id="articleContainer"></div>
 </div>
 
 <!-- مودال اطلاعات مشتری -->
@@ -772,15 +619,6 @@
 </div>
 
 <script>
-// ==================== اطلاعات احراز هویت ====================
-const ADMIN_CREDENTIALS = {
-    username: "admin_military",
-    password: "Em@d313M!2024#Secure"
-};
-
-let isAdminLoggedIn = false;
-let currentAdminSession = null;
-
 // ==================== متغیرهای عمومی ====================
 const productData = {
     "defense": [
@@ -826,7 +664,21 @@ let militaryArticles = [
     {
         id: 1,
         title: "اصول تاکتیک‌های نظامی مدرن",
-        content: "در دنیای امروز، تاکتیک‌های نظامی دستخوش تغییرات اساسی شده‌اند. با پیشرفت فناوری، نیروهای نظامی باید خود را با شرایط جدید تطبیق دهند.",
+        content: `
+            <p>در دنیای امروز، تاکتیک‌های نظامی دستخوش تغییرات اساسی شده‌اند. با پیشرفت فناوری، نیروهای نظامی باید خود را با شرایط جدید تطبیق دهند. تاکتیک‌های مدرن بر اساس سرعت، انعطاف‌پذیری و غافلگیری طراحی شده‌اند.</p>
+            
+            <h3>مهم‌ترین اصول تاکتیک‌های نظامی مدرن:</h3>
+            
+            <p><strong>۱. جنگ اطلاعاتی (Information Warfare):</strong> در عصر دیجیتال، اطلاعات به مهم‌ترین سلاح تبدیل شده است. کنترل اطلاعات و اختلال در سیستم‌های ارتباطی دشمن از اولویت‌های اصلی است.</p>
+            
+            <p><strong>۲. عملیات ترکیبی (Hybrid Warfare):</strong> استفاده همزمان از روش‌های نظامی سنتی و غیرسنتی مانند جنگ روانی، عملیات سایبری و فشار اقتصادی.</p>
+            
+            <p><strong>۳. انعطاف‌پذیری سازمانی:</strong> واحدهای کوچک و مستقل که می‌توانند به سرعت تصمیم‌گیری کنند و عمل نمایند.</p>
+            
+            <p><strong>۴. برتری تکنولوژیک:</strong> استفاده از فناوری‌های پیشرفته مانند پهپادها، سامانه‌های دفاعی پیشرفته و سیستم‌های شناسایی هوشمند.</p>
+            
+            <p>این تغییرات نیازمند آموزش مستمر و تجهیزات مدرن است. نیروهای نظامی موفق آنهایی هستند که بتوانند خود را با این تحولات هماهنگ کنند.</p>
+        `,
         author: "سرهنگ احمدی",
         date: "۱۴۰۳/۱۰/۱۵",
         views: 125
@@ -834,10 +686,57 @@ let militaryArticles = [
     {
         id: 2,
         title: "تاریخچه لباس نظامی در ایران",
-        content: "لباس نظامی در ایران تاریخی کهن دارد که به دوران هخاممشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است.",
+        content: `
+            <p>لباس نظامی در ایران تاریخی کهن دارد که به دوران هخامنشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است که نشان‌دهنده فرهنگ، اعتقادات و نیازهای نظامی آن دوره بوده است.</p>
+            
+            <h3>دوره‌های تاریخی لباس نظامی در ایران:</h3>
+            
+            <p><strong>۱. دوران باستان (هخامنشیان تا ساسانیان):</strong></p>
+            <p>سربازان هخامنشی از لباس‌های رنگارنگ با نقوش حیوانی استفاده می‌کردند. در دوران ساسانی، زره‌های زنجیری و کلاه‌خودهای مخروطی رایج بود.</p>
+            
+            <p><strong>۲. دوره اسلامی:</strong></p>
+            <p>پس از اسلام، تأثیر فرهنگ عربی و اسلامی در لباس نظامی ایرانیان مشهود است. استفاده از عرق‌چین و لباس‌های گشادتر مرسوم شد.</p>
+            
+            <p><strong>۳. دوره قاجار:</strong></p>
+            <p>نفوذ اروپاییان در این دوره مشهود است. لباس نظامی به سبک اروپایی با کت و شلوار و کلاه نظامی مرسوم شد.</p>
+            
+            <p><strong>۴. دوره پهلوی:</strong></p>
+            <p>یکسان‌سازی لباس نظامی با الگوگیری از کشورهای غربی. معرفی درجات نظامی به سبک مدرن.</p>
+            
+            <p><strong>۵. دوره پس از انقلاب اسلامی:</strong></p>
+            <p>بازگشت به هویت اسلامی-ایرانی. استفاده از رنگ‌های استتار و طراحی متناسب با نیازهای دفاعی کشور.</p>
+            
+            <p>امروزه لباس نظامی در ایران ترکیبی از تکنولوژی مدرن و هویت ملی است که نیازهای عملیاتی مختلف را پاسخگو می‌باشد.</p>
+        `,
         author: "دکتر محمدی",
         date: "۱۴۰۳/۱۰/۱۰",
         views: 89
+    },
+    {
+        id: 3,
+        title: "تجهیزات دفاعی مدرن و کاربردهای آن",
+        content: `
+            <p>تجهیزات دفاعی مدرن نقش حیاتی در حفظ امنیت ملی ایفا می‌کنند. این تجهیزات شامل طیف وسیعی از فناوری‌ها از سامانه‌های دفاع موشکی تا تجهیزات حفاظت فردی می‌شود.</p>
+            
+            <h3>انواع تجهیزات دفاعی مدرن:</h3>
+            
+            <p><strong>۱. سامانه‌های دفاع هوایی:</strong></p>
+            <p>این سامانه‌ها برای شناسایی، ردیابی و انهدام اهداف هوایی طراحی شده‌اند. سامانه‌هایی مانند باور-۳۷۳ و سوم خرداد از نمونه‌های پیشرفته ایرانی هستند.</p>
+            
+            <p><strong>۲. تجهیزات حفاظت فردی (PPE):</strong></p>
+            <p>شامل زره بدن، کلاه ایمنی، ماسک گاز و دستکش‌های ضد برش. این تجهیزات باید سبک، مقاوم و کاربرپسند باشند.</p>
+            
+            <p><strong>۳. سیستم‌های ارتباطی و شناسایی:</strong></p>
+            <p>ارتباط امن و پایدار در میدان نبرد حیاتی است. رادیوهای نظامی رمزنگاری شده و سیستم‌های شناسایی دوست از دشمن از اهمیت ویژه‌ای برخوردارند.</p>
+            
+            <p><strong>۴. وسایل نقلیه نظامی:</strong></p>
+            <p>از جمله تانک‌ها، نفربرها و خودروهای زرهی که باید در شرایط سخت عملیاتی قابلیت مانور بالایی داشته باشند.</p>
+            
+            <p>توسعه این تجهیزات نیازمند تحقیق و توسعه مستمر، آزمایش‌های دقیق و توجه به تجربیات عملیاتی است.</p>
+        `,
+        author: "سرهنگ دوم رضایی",
+        date: "۱۴۰۳/۱۰/۰۵",
+        views: 156
     }
 ];
 
@@ -845,135 +744,125 @@ let cart = [];
 let cartOpen = false;
 let currentOrderId = '';
 let currentOrderTotal = 0;
-let editingArticleId = null;
-let editingProductId = null;
-let editingCategory = null;
 
-// ==================== توابع ورود ادمین ====================
-function showAdminLogin() {
-    document.getElementById('adminLogin').style.display = 'block';
-}
-
-function hideAdminLogin() {
-    document.getElementById('adminLogin').style.display = 'none';
-    document.getElementById('loginError').style.display = 'none';
-}
-
-function loginAdmin() {
-    const username = document.getElementById('adminUsername').value.trim();
-    const password = document.getElementById('adminPassword').value.trim();
+// ==================== توابع نمایش محصولات ====================
+function showProducts(category) {
+    const products = productData[category];
+    if (!products) return;
     
-    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-        // ورود موفق
-        isAdminLoggedIn = true;
-        currentAdminSession = {
-            username: username,
-            loginTime: new Date().toISOString(),
-            token: generateToken()
-        };
-        
-        // ذخیره در localStorage
-        localStorage.setItem('admin_session', JSON.stringify(currentAdminSession));
-        
-        // پنهان کردن فرم ورود
-        hideAdminLogin();
-        
-        // نمایش پنل ادمین
-        document.getElementById('adminPanel').style.display = 'block';
-        
-        // تغییر دکمه ورود
-        document.querySelector('.admin-btn').textContent = '👑 پنل مدیریت';
-        document.querySelector('.admin-btn').style.background = '#28a745';
-        
-        showMessage('✅ با موفقیت وارد پنل مدیریت شدید', '#28a745');
-        
-        // رفرش نمایش محصولات برای نشان دادن دکمه‌های مدیریت
-        const currentCategory = getCurrentCategory();
-        if (currentCategory) {
-            showProducts(currentCategory);
-        }
-        
-    } else {
-        // نمایش خطا
-        document.getElementById('loginError').style.display = 'block';
-        document.getElementById('adminPassword').value = '';
-    }
-}
-
-function generateToken() {
-    return 'token_' + Math.random().toString(36).substr(2) + Date.now().toString(36);
-}
-
-function checkAdminSession() {
-    const savedSession = localStorage.getItem('admin_session');
-    if (savedSession) {
-        try {
-            const session = JSON.parse(savedSession);
-            // بررسی اعتبار توکن (ساده)
-            if (session.token && session.loginTime) {
-                isAdminLoggedIn = true;
-                currentAdminSession = session;
-                
-                // نمایش پنل ادمین
-                document.getElementById('adminPanel').style.display = 'block';
-                document.querySelector('.admin-btn').textContent = '👑 پنل مدیریت';
-                document.querySelector('.admin-btn').style.background = '#28a745';
-            }
-        } catch (e) {
-            localStorage.removeItem('admin_session');
-        }
-    }
-}
-
-function logoutAdmin() {
-    isAdminLoggedIn = false;
-    currentAdminSession = null;
-    localStorage.removeItem('admin_session');
+    let html = `
+        <div style="text-align: center; margin: 20px 0;">
+            <button onclick="showCategories()" class="button back-btn">
+                ↩️ بازگشت به دسته‌بندی‌ها
+            </button>
+        </div>
+        <h3>محصولات ${getCategoryName(category)}</h3>
+        <div class="grid">
+    `;
     
-    // پنهان کردن پنل ادمین
-    document.getElementById('adminPanel').style.display = 'none';
-    
-    // بازگرداندن دکمه ورود
-    document.querySelector('.admin-btn').textContent = '👑 ورود ادمین';
-    document.querySelector('.admin-btn').style.background = '#dc3545';
-    
-    // رفرش نمایش محصولات
-    const currentCategory = getCurrentCategory();
-    if (currentCategory) {
-        showProducts(currentCategory);
-    }
-    
-    showMessage('👋 از حساب مدیریت خارج شدید', '#6c757d');
-}
-
-// ==================== توابع مدیریت مقالات ====================
-function manageArticles() {
-    showArticles();
-    
-    // بعد از نمایش مقالات، دکمه مدیریت را اضافه کن
-    setTimeout(() => {
-        const container = document.getElementById('products');
-        const manageHTML = `
-            <div style="text-align: center; margin-top: 30px;">
-                <button onclick="addNewArticle()" class="button" style="background: #28a745; margin: 10px;">
-                    ✏️ افزودن مقاله جدید
-                </button>
-                <button onclick="backToAdmin()" class="button" style="background: #6c757d; margin: 10px;">
-                    ↩️ بازگشت به پنل
-                </button>
+    products.forEach(product => {
+        html += `
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="${product.name}">
+                <h4>${product.name}</h4>
+                <p class="product-price">${product.price.toLocaleString()} تومان</p>
+                <button onclick="addToCart('${category}', ${product.id})">افزودن به سبد خرید</button>
             </div>
         `;
-        container.innerHTML += manageHTML;
-    }, 100);
+    });
+    
+    html += `</div>`;
+    document.getElementById('products').innerHTML = html;
+    document.getElementById('categories').style.display = 'none';
 }
 
-function addNewArticle() {
-    const title = prompt("عنوان مقاله جدید:");
-    if (!title) return;
+function getCategoryName(category) {
+    const names = {
+        'defense': 'لوازم دفاع',
+        'signs': 'تابلو و علائم',
+        'clothing': 'لباس نظامی',
+        'shoes': 'کفش و پوتین',
+        'decorations': 'تزئینات و نشان‌ها',
+        'special': 'محصولات ویژه'
+    };
+    return names[category] || category;
+}
+
+function showCategories() {
+    document.getElementById('products').innerHTML = '';
+    document.getElementById('categories').style.display = 'grid';
+}
+
+// ==================== توابع مقالات ====================
+function showArticles() {
+    let html = `
+        <div style="text-align: center; margin: 20px 0;">
+            <button onclick="showCategories()" class="button back-btn">
+                ↩️ بازگشت به دسته‌بندی‌ها
+            </button>
+        </div>
+        <h3 style="color: #9C27B0;">مقالات نظامی</h3>
+        <p style="text-align: center; color: #aaa; margin-bottom: 30px;">
+            دانش نظامی خود را با مطالعه این مقالات افزایش دهید
+        </p>
+        <div class="articles-list">
+    `;
     
-    const content = prompt("متن مقاله (می‌توانید چند خط بنویسید):");
-    if (!content) return;
+    militaryArticles.forEach(article => {
+        html += `
+            <div class="article-list-item" onclick="openFullscreenArticle(${article.id})">
+                <h4 style="color: #9C27B0; margin-top: 0;">${article.title}</h4>
+                <p style="color: #aaa; font-size: 14px; margin-bottom: 8px;">
+                    نویسنده: ${article.author} | تاریخ: ${article.date} | بازدید: ${article.views}
+                </p>
+                <p style="color: #ccc; font-size: 14px;">
+                    ${article.content.substring(0, 150)}...
+                </p>
+                <button style="margin-top: 10px; background: #9C27B0;">مطالعه کامل مقاله</button>
+            </div>
+        `;
+    });
     
-    const author = prompt("نام نویسنده:", "مدیر سایت");
+    html += `</div>`;
+    document.getElementById('products').innerHTML = html;
+    document.getElementById('categories').style.display = 'none';
+}
+
+function openFullscreenArticle(articleId) {
+    const article = militaryArticles.find(a => a.id === articleId);
+    if (!article) return;
     
-    const newId = militaryArticles.length > 0 ? Math.max(...militaryArticles.map(a => a.id)) + 
+    // افزایش تعداد بازدیدها
+    article.views++;
+    
+    const container = document.getElementById('articleContainer');
+    container.innerHTML = `
+        <div class="article-header">
+            <h1 class="article-title">${article.title}</h1>
+            <div class="article-meta">
+                <span>✍️ نویسنده: ${article.author}</span>
+                <span>📅 تاریخ: ${article.date}</span>
+                <span>👁️ بازدید: ${article.views}</span>
+            </div>
+        </div>
+        <div class="article-content">
+            ${article.content}
+        </div>
+    `;
+    
+    document.getElementById('fullscreenArticle').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFullscreenArticle() {
+    document.getElementById('fullscreenArticle').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// ==================== توابع سبد خرید ====================
+function addToCart(category, productId) {
+    const product = productData[category].find(p => p.id === productId);
+    if (!product) return;
+    
+    // بررسی وجود محصول در سبد خرید
+   
