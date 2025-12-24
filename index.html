@@ -7,460 +7,857 @@
 <style>
     @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
 
+    :root {
+        --primary-color: #8B0000;
+        --secondary-color: #D4AF37;
+        --accent-color: #2E8B57;
+        --dark-bg: #0A0A0A;
+        --light-text: #FFFFFF;
+        --dark-text: #333333;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     body {
         font-family: 'Vazir', sans-serif;
         direction: rtl;
-        margin: 0;
-        padding: 0;
-        background: url('https://cdn.nody.ir/files/2024/03/20/nody-%D8%AA%D8%B5%D9%88%DB%8C%D8%B1-%D8%B2%D9%85%DB%8C%D9%86%D9%87-%D9%86%D8%B8%D8%A7%D9%85%DB%8C-%D8%B3%D9%BE%D8%A7%D9%87-1710947711.jpg') center/cover no-repeat fixed;
-        color: #fff;
+        background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%);
+        color: var(--light-text);
+        min-height: 100vh;
         padding-bottom: 100px;
     }
 
-    h2 {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 30px;
-        color: #ffdd00;
-        text-shadow: 1px 1px 4px #000;
+    /* نوار ناوبری */
+    .navbar {
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 15px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 3px solid var(--secondary-color);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 15px;
-        padding: 15px;
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .card {
-        background: rgba(0,0,0,0.7);
-        border-radius: 15px;
-        padding: 15px;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-        transition: 0.2s ease-in-out;
-        border: 1px solid #444;
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+        color: var(--secondary-color);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo-icon {
+        font-size: 32px;
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--light-text);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 20px;
+        transition: all 0.3s;
         position: relative;
     }
 
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 6px 14px rgba(255,221,0,0.3);
-        border-color: #ffdd00;
+    .nav-links a:hover {
+        background: rgba(139, 0, 0, 0.2);
+        color: var(--secondary-color);
     }
 
-    .card img {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        margin-bottom: 8px;
-        border-radius: 50%;
-        border: 2px solid #ffdd00;
-        background: rgba(255,255,255,0.05);
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background: var(--secondary-color);
+        transition: width 0.3s;
     }
 
-    .card h4 {
-        margin: 6px 0;
-        font-size: 17px;
-        color: #ffdd00;
-    }
-
-    button {
-        margin-top: 8px;
-        background: #ffdd00;
-        color: #000;
-        border: none;
-        padding: 8px;
+    .nav-links a:hover::after {
         width: 100%;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: 0.3s;
     }
 
-    button:hover {
-        background: #e6c800;
-        transform: scale(1.05);
+    /* هیرو بخش */
+    .hero {
+        padding: 80px 20px;
+        text-align: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url('https://images.unsplash.com/photo-1581985673473-0784a7a44e39?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
     }
 
-    /* استایل‌های ویژه برای بخش مقالات */
-    .article-card {
-        border: 2px solid #9C27B0 !important;
-        background: rgba(156, 39, 176, 0.1) !important;
-    }
-
-    .article-card:hover {
-        border-color: #7B1FA2 !important;
-        box-shadow: 0 6px 14px rgba(156, 39, 176, 0.4) !important;
-    }
-
-    .article-card img {
-        border-color: #9C27B0 !important;
-    }
-
-    .article-card h4 {
-        color: #9C27B0 !important;
-    }
-
-    /* نمایش تمام صفحه مقالات */
-    .fullscreen-article {
-        position: fixed;
+    .hero::before {
+        content: '';
+        position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 1000;
-        overflow-y: auto;
-        padding: 20px;
-        display: none;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 70%);
     }
 
-    .article-header {
-        text-align: center;
-        margin-bottom: 30px;
-        padding-bottom: 20px;
-        border-bottom: 2px solid #9C27B0;
-    }
-
-    .article-title {
-        font-size: 28px;
-        color: #9C27B0;
-        margin-bottom: 10px;
-    }
-
-    .article-meta {
-        color: #aaa;
-        font-size: 16px;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .article-content {
-        font-size: 18px;
-        line-height: 2;
-        text-align: justify;
+    .hero-content {
+        position: relative;
+        z-index: 1;
         max-width: 800px;
         margin: 0 auto;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 10px;
-        border: 1px solid rgba(156, 39, 176, 0.3);
     }
 
-    .close-article-btn {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background: #dc3545;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
+    .hero h2 {
+        font-size: 48px;
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+        }
+        to {
+            text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color);
+        }
+    }
+
+    .hero p {
+        font-size: 20px;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        color: #DDD;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        padding: 10px 25px;
+        border-radius: 30px;
         font-weight: bold;
+        margin-top: 20px;
+        border: 2px solid var(--secondary-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .articles-list {
-        max-height: 500px;
-        overflow-y: auto;
-        margin: 20px 0;
+    /* دسته‌بندی محصولات */
+    .categories {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    .article-list-item {
-        background: rgba(156, 39, 176, 0.1);
-        margin: 10px 0;
-        padding: 15px;
-        border-radius: 10px;
-        border: 1px solid rgba(156, 39, 176, 0.3);
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        color: var(--secondary-color);
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        margin: 15px auto;
+        border-radius: 2px;
+    }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    .category-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
         cursor: pointer;
-        transition: 0.3s;
+        backdrop-filter: blur(10px);
     }
 
-    .article-list-item:hover {
-        background: rgba(156, 39, 176, 0.2);
-        transform: translateX(-5px);
+    .category-card:hover {
+        transform: translateY(-10px) scale(1.03);
+        border-color: var(--secondary-color);
+        box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+        background: rgba(255, 255, 255, 0.08);
     }
 
-    /* مودال اطلاعات مشتری */
-    .modal-overlay {
-        position: fixed;
+    .category-card::before {
+        content: '';
+        position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.8);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        opacity: 0;
+        transition: opacity 0.3s;
     }
 
-    .modal {
-        background: rgba(0,0,0,0.9);
-        border: 2px solid #ffdd00;
-        border-radius: 15px;
-        padding: 25px;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
+    .category-card:hover::before {
+        opacity: 1;
     }
 
-    .modal h3 {
-        color: #ffdd00;
-        margin-top: 0;
+    .category-icon {
+        font-size: 48px;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    .modal-input {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border-radius: 8px;
-        border: 1px solid #555;
-        background: rgba(255,255,255,0.1);
+    .category-title {
+        font-size: 24px;
+        color: var(--light-text);
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .category-desc {
+        color: #AAA;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .category-btn {
+        background: linear-gradient(135deg, var(--primary-color), #A52A2A);
         color: white;
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .modal-buttons {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .modal-btn {
-        flex: 1;
-        padding: 12px;
         border: none;
-        border-radius: 8px;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
         font-weight: bold;
         cursor: pointer;
+        transition: all 0.3s;
+        width: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.1);
     }
 
-    .confirm-btn {
-        background: #28a745;
-        color: white;
+    .category-btn:hover {
+        background: linear-gradient(135deg, #A52A2A, var(--primary-color));
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(139, 0, 0, 0.4);
     }
 
-    .cancel-btn {
-        background: #dc3545;
+    /* محصولات ویژه */
+    .featured-products {
+        padding: 60px 20px;
+        background: rgba(0, 0, 0, 0.3);
+        border-top: 1px solid rgba(212, 175, 55, 0.1);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        border-color: var(--secondary-color);
+    }
+
+    .product-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
         color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        z-index: 1;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .product-title {
+        font-size: 20px;
+        color: var(--light-text);
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .product-desc {
+        color: #AAA;
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        height: 60px;
+        overflow: hidden;
+    }
+
+    .product-price {
+        font-size: 24px;
+        color: var(--secondary-color);
+        font-weight: bold;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .original-price {
+        font-size: 16px;
+        color: #888;
+        text-decoration: line-through;
+    }
+
+    .add-to-cart-btn {
+        background: linear-gradient(135deg, var(--accent-color), #228B22);
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .add-to-cart-btn:hover {
+        background: linear-gradient(135deg, #228B22, var(--accent-color));
+        transform: scale(1.05);
     }
 
     /* سبد خرید */
     .cart-icon {
         position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background: #ffdd00;
-        color: #000;
-        width: 60px;
-        height: 60px;
+        bottom: 30px;
+        left: 30px;
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: white;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
         z-index: 1000;
-        font-size: 24px;
+        font-size: 28px;
         transition: all 0.3s ease;
-        border: 2px solid #000;
+        border: 3px solid var(--secondary-color);
+    }
+
+    .cart-icon:hover {
+        transform: scale(1.1) rotate(10deg);
+        box-shadow: 0 8px 25px rgba(139, 0, 0, 0.6);
     }
 
     .cart-badge {
         position: absolute;
         top: -5px;
         right: -5px;
-        background: #dc3545;
-        color: white;
+        background: var(--secondary-color);
+        color: var(--dark-text);
         border-radius: 50%;
-        width: 24px;
-        height: 24px;
-        font-size: 14px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: bold;
+        border: 2px solid var(--primary-color);
     }
 
     .cart-container {
         position: fixed;
-        bottom: 90px;
-        left: 20px;
-        width: 350px;
-        max-height: 500px;
-        background: rgba(0, 0, 0, 0.95);
-        border: 2px solid #ffdd00;
-        border-radius: 15px;
-        padding: 15px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+        bottom: 120px;
+        left: 30px;
+        width: 400px;
+        max-height: 600px;
+        background: rgba(10, 10, 10, 0.97);
+        border: 3px solid var(--secondary-color);
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 10px 35px rgba(0, 0, 0, 0.8);
         z-index: 999;
         display: none;
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(20px);
         overflow: hidden;
+        animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 
     .cart-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #444;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
     }
 
     .cart-header h3 {
-        color: #ffdd00;
+        color: var(--secondary-color);
         margin: 0;
+        font-size: 24px;
     }
 
     .close-cart {
-        background: #dc3545;
+        background: var(--primary-color);
         color: white;
         border: none;
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: 2px solid var(--secondary-color);
+        transition: all 0.3s;
+    }
+
+    .close-cart:hover {
+        background: #660000;
+        transform: rotate(90deg);
     }
 
     .cart-content {
         max-height: 350px;
         overflow-y: auto;
-        padding-right: 5px;
+        padding-right: 10px;
+        margin-bottom: 20px;
     }
 
     .cart-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
-        margin-bottom: 8px;
-        background: rgba(255,255,255,0.05);
-        border-radius: 8px;
-        border: 1px solid #333;
+        padding: 15px;
+        margin-bottom: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+    }
+
+    .cart-item:hover {
+        background: rgba(139, 0, 0, 0.1);
+        border-color: var(--primary-color);
     }
 
     .cart-item-info {
         flex-grow: 1;
+        text-align: right;
     }
 
     .cart-item-name {
-        font-size: 14px;
-        margin-bottom: 4px;
-    }
-
-    .cart-item-price {
-        color: #4CAF50;
-        font-size: 13px;
+        font-size: 16px;
+        margin-bottom: 5px;
+        color: var(--light-text);
         font-weight: bold;
     }
 
-    .cart-item-actions {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+    .cart-item-price {
+        color: var(--accent-color);
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    .cart-item-quantity {
+        color: var(--secondary-color);
+        font-size: 14px;
+        margin-top: 5px;
     }
 
     .remove-btn {
-        background: #dc3545 !important;
-        color: white !important;
-        padding: 4px 8px !important;
-        border-radius: 4px !important;
-        font-size: 12px !important;
-        width: auto !important;
-        min-width: 60px;
+        background: linear-gradient(135deg, var(--primary-color), #DC143C);
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .remove-btn:hover {
+        background: linear-gradient(135deg, #DC143C, var(--primary-color));
+        transform: scale(1.05);
     }
 
     .cart-footer {
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid #444;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 2px solid rgba(212, 175, 55, 0.3);
     }
 
     .cart-summary {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 12px;
-        font-size: 16px;
+        margin-bottom: 15px;
+        font-size: 18px;
+        padding: 15px;
+        background: rgba(139, 0, 0, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba(212, 175, 55, 0.2);
     }
 
     .cart-total {
-        color: #ffdd00;
+        color: var(--secondary-color);
         font-weight: bold;
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .clear-btn {
-        background: #dc3545 !important;
-        color: white !important;
-        width: 100% !important;
-        padding: 10px !important;
+        background: linear-gradient(135deg, var(--primary-color), #660000);
+        color: white;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 15px;
+        transition: all 0.3s;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
 
     .clear-btn:hover {
-        background: #c82333 !important;
+        background: linear-gradient(135deg, #660000, var(--primary-color));
+        transform: scale(1.02);
     }
 
     .checkout-btn {
-        background: #28a745 !important;
-        color: white !important;
-        width: 100% !important;
-        padding: 12px !important;
-        margin-top: 10px !important;
-        font-size: 16px !important;
+        background: linear-gradient(135deg, var(--accent-color), #32CD32);
+        color: white;
+        border: none;
+        padding: 18px;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
     }
 
     .checkout-btn:hover {
-        background: #218838 !important;
+        background: linear-gradient(135deg, #32CD32, var(--accent-color));
+        transform: scale(1.02);
+        box-shadow: 0 8px 20px rgba(46, 139, 87, 0.4);
     }
 
     .empty-cart {
         text-align: center;
-        color: #999;
-        padding: 20px;
-        font-size: 14px;
+        color: #888;
+        padding: 40px 20px;
+        font-size: 16px;
     }
 
     .cart-content::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
     }
 
     .cart-content::-webkit-scrollbar-track {
-        background: rgba(255,255,255,0.1);
-        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
     }
 
     .cart-content::-webkit-scrollbar-thumb {
-        background: #ffdd00;
-        border-radius: 3px;
+        background: linear-gradient(var(--primary-color), var(--secondary-color));
+        border-radius: 4px;
     }
 
-    @media (max-width: 768px) {
-        .cart-container {
-            width: 300px;
-            left: 10px;
-        }
+    /* مودال */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
 
+    .modal {
+        background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98));
+        border: 3px solid var(--secondary-color);
+        border-radius: 20px;
+        padding: 40px;
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+        animation: modalAppear 0.4s ease;
+    }
+
+    @keyframes modalAppear {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .modal h3 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .modal-input {
+        width: 100%;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border-radius: 10px;
+        border: 2px solid rgba(212, 175, 55, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        transition: all 0.3s;
+    }
+
+    .modal-input:focus {
+        border-color: var(--secondary-color);
+        outline: none;
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .modal-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .modal-btn {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
+
+    .confirm-btn {
+        background: linear-gradient(135deg, var(--accent-color), #32CD32);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .confirm-btn:hover {
+        background: linear-gradient(135deg, #32CD32, var(--accent-color));
+        transform: translateY(-3px);
+    }
+
+    .cancel-btn {
+        background: linear-gradient(135deg, var(--primary-color), #A52A2A);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cancel-btn:hover {
+        background: linear-gradient(135deg, #A52A2A, var(--primary-color));
+        transform: translateY(-3px);
+    }
+
+    /* فوتر */
+    .footer {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 50px 20px;
+        margin-top: 80px;
+        border-top: 3px solid var(--secondary-color);
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+
+    .footer-section h4 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+
+    .footer-section p {
+        color: #AAA;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .social-link:hover {
+        background: var(--secondary-color);
+        color: var(--dark-text);
+        transform: translateY(-5px);
+    }
+
+    .copyright {
+        text-align: center;
+        padding: 20px;
+        color: #888;
+        font-size: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 40px;
+    }
+
+    /* ریسپانسیو */
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 10px;
+        }
+        
+        .nav-container {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-links {
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hero h2 {
+            font-size: 32px;
+        }
+        
+        .hero p {
+            font-size: 16px;
+        }
+        
+        .cart-container {
+            width: 350px;
+            left: 10px;
+            bottom: 100px;
+        }
+        
         .cart-icon {
             left: 10px;
             bottom: 10px;
-        }
-        
-        .article-content {
-            font-size: 16px;
-            padding: 15px;
-        }
-        
-        .article-title {
+            width: 60px;
+            height: 60px;
             font-size: 24px;
+        }
+        
+        .products-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
     }
 
@@ -470,95 +867,135 @@
             left: 10px;
         }
         
-        .modal-row {
+        .modal {
+            padding: 25px;
+        }
+        
+        .modal-buttons {
+            flex-direction: column;
+        }
+        
+        .categories-grid {
             grid-template-columns: 1fr;
         }
         
-        .article-content {
-            font-size: 14px;
-            padding: 10px;
-        }
-        
-        .article-title {
-            font-size: 20px;
+        .hero {
+            padding: 40px 20px;
         }
     }
 
-    .product-price {
-        color: #4CAF50;
-        font-weight: bold;
+    /* انیمیشن‌ها */
+    .fade-in {
+        animation: fadeIn 0.5s ease forwards;
     }
 
-    #products h3 {
-        color: #ffdd00;
-        text-align: center;
-        margin-bottom: 20px;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
-    
-    .back-btn {
-        background: #6c757d !important;
-        color: white !important;
-        margin: 10px !important;
+
+    .pulse {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
     }
 </style>
 </head>
 <body>
 
-<h2>🅴🅼🅰🅳 | فروشگاه نظامی عماد</h2>
-
-<!-- منوی اصلی دسته‌بندی‌ها -->
-<div class="grid" id="categories">
-    <div class="card">
-        <img src="https://cdn.ilna.ir/thumbnail/5L0qtIrphEGt/XWHCw76VBsxziNocTLLHoesUW68OoqO1axxWWNC-1_29u4R4x8JTWBcfKP1V5I-iMLLqt6lWi2E,/874490_332.jpg" alt="لوازم دفاع">
-        <h4>لوازم دفاع</h4>
-        <button onclick="showProducts('defense')">نمایش محصولات</button>
+<!-- نوار ناوبری -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">🛡️</div>
+            <h1>فروشگاه نظامی عماد</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">خانه</a></li>
+            <li><a href="#categories">دسته‌بندی‌ها</a></li>
+            <li><a href="#products">محصولات ویژه</a></li>
+            <li><a href="#about">درباره ما</a></li>
+            <li><a href="#contact">تماس با ما</a></li>
+        </ul>
     </div>
+</nav>
 
-    <div class="card">
-        <img src="https://dkstatics-public.digikala.com/digikala-products/121253960.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90" alt="تابلو و علائم">
-        <h4>تابلو و علائم</h4>
-        <button onclick="showProducts('signs')">نمایش محصولات</button>
+<!-- هیرو بخش -->
+<section class="hero" id="home">
+    <div class="hero-content fade-in">
+        <h2>🛡️ فروشگاه تخصصی تجهیزات نظامی</h2>
+        <p>مرجع تخصصی خرید لوازم، تجهیزات و پوشاک نظامی با بهترین کیفیت و مناسب‌ترین قیمت</p>
+        <div class="hero-badge pulse">
+            ⭐ ضمانت اصالت کالا | 🚚 ارسال سریع | 🔒 پرداخت امن
+        </div>
     </div>
+</section>
 
-    <div class="card">
-        <img src="https://nezamishop.ir/wp-content/uploads/2023/05/nezamishop.png" alt="لباس نظامی">
-        <h4>لباس نظامی</h4>
-        <button onclick="showProducts('clothing')">نمایش محصولات</button>
+<!-- دسته‌بندی‌ها -->
+<section class="categories" id="categories">
+    <h2 class="section-title">🏷️ دسته‌بندی محصولات</h2>
+    <div class="categories-grid">
+        <div class="category-card" onclick="showCategory('defense')">
+            <div class="category-icon">🛡️</div>
+            <h3 class="category-title">لوازم دفاع شخصی</h3>
+            <p class="category-desc">کلاه ایمنی، جلیقه ضدگلوله، ماسک گاز، دستکش تاکتیکی</p>
+            <button class="category-btn">مشاهده محصولات</button>
+        </div>
+        
+        <div class="category-card" onclick="showCategory('clothing')">
+            <div class="category-icon">👕</div>
+            <h3 class="category-title">لباس و پوشاک نظامی</h3>
+            <p class="category-desc">یونیفرم، کت، شلوار، پیراهن و ست‌های کامل نظامی</p>
+            <button class="category-btn">مشاهده محصولات</button>
+        </div>
+        
+        <div class="category-card" onclick="showCategory('shoes')">
+            <div class="category-icon">👢</div>
+            <h3 class="category-title">کفش و پوتین نظامی</h3>
+            <p class="category-desc">پوتین چرمی، کفش رزمی، نیم‌بوت و کفش‌های مخصوص عملیات</p>
+            <button class="category-btn">مشاهده محصولات</button>
+        </div>
+        
+        <div class="category-card" onclick="showCategory('equipment')">
+            <div class="category-icon">🎒</div>
+            <h3 class="category-title">تجهیزات و ادوات</h3>
+            <p class="category-desc">کوله‌پشتی، کیف، چراغ قوه، بی‌سیم و لوازم جانبی</p>
+            <button class="category-btn">مشاهده محصولات</button>
+        </div>
+        
+        <div class="category-card" onclick="showCategory('training')">
+            <div class="category-icon">🎯</div>
+            <h3 class="category-title">وسایل آموزشی</h3>
+            <p class="category-desc">ماکت سلاح، وسایل شبیه‌سازی، کیت‌های آموزشی</p>
+            <button class="category-btn">مشاهده محصولات</button>
+        </div>
+        
+        <div class="category-card" onclick="showCategory('collectibles')">
+            <div class="category-icon">🏅</div>
+            <h3 class="category-title">کلکسیونی و تزئینی</h3>
+            <p class="category-desc">مدال، نشان، ماکت و اشیای کلکسیونی نظامی</p>
+            <button class="category-btn">مشاهده محصولات</button>
+        </div>
     </div>
+</section>
 
-    <div class="card">
-        <img src="https://imen-kala.ir/wp-content/uploads/2021/07/1399022311403734520374224.jpg" alt="کفش و پوتین">
-        <h4>کفش و پوتین</h4>
-        <button onclick="showProducts('shoes')">نمایش محصولات</button>
+<!-- محصولات ویژه -->
+<section class="featured-products" id="products">
+    <h2 class="section-title">🔥 محصولات ویژه این هفته</h2>
+    <div class="products-grid">
+        <!-- محصولات به صورت داینامیک اضافه می‌شوند -->
     </div>
-
-    <div class="card">
-        <img src="https://www.faraz.ir/files/fa/news/1403/7/15/122346_975.jpg" alt="تزئینات و نشان‌ها">
-        <h4>تزئینات و نشان‌ها</h4>
-        <button onclick="showProducts('decorations')">نمایش محصولات</button>
-    </div>
-
-    <div class="card">
-        <img src="https://cdn.leonardo.ai/users/8df57729-bb65-4bb2-8e53-886271ed8e19/generations/1f0e0589-1329-6300-b8da-a76c782c0950/lucid-origin_A_highly_detailed_realistic_image_of_a_stern_military_soldier_in_full_combat_gea-0.jpg?w=512" alt="محصولات ویژه">
-        <h4>محصولات ویژه</h4>
-        <button onclick="showProducts('special')">نمایش محصولات</button>
-    </div>
-
-    <!-- بخش مقالات نظامی -->
-    <div class="card article-card">
-        <img src="https://sibma.ir/uploads/ee834306dca341fcaa57e4bda0d42a23.jpg" alt="مقالات نظامی">
-        <h4>مقالات نظامی</h4>
-        <button onclick="showArticles()">مطالعه مقالات</button>
-    </div>
-</div>
-
-<div id="products"></div>
-
-<!-- صفحه تمام صفحه مقالات -->
-<div id="fullscreenArticle" class="fullscreen-article">
-    <button class="close-article-btn" onclick="closeFullscreenArticle()">✕ بستن</button>
-    <div id="articleContainer"></div>
-</div>
+</section>
 
 <!-- مودال اطلاعات مشتری -->
 <div class="modal-overlay" id="customerModal">
@@ -573,14 +1010,18 @@
                placeholder="شماره همراه (مثال: 09123456789)" 
                pattern="09[0-9]{9}" required>
         
+        <textarea id="customerAddress" class="modal-input" 
+                  placeholder="آدرس دقیق ارسال" rows="3"></textarea>
+        
         <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; margin: 15px 0;">
-            <p style="margin: 5px 0;">📦 شماره سفارش: <strong id="modalOrderId"></strong></p>
-            <p style="margin: 5px 0;">💰 مبلغ کل: <strong id="modalTotalPrice"></strong> تومان</p>
+            <p style="margin: 5px 0; font-size: 14px;">📦 شماره سفارش: <strong id="modalOrderId"></strong></p>
+            <p style="margin: 5px 0; font-size: 14px;">💰 مبلغ کل: <strong id="modalTotalPrice"></strong> تومان</p>
+            <p style="margin: 5px 0; font-size: 14px;">🚚 هزینه ارسال: <strong>۴۰,۰۰۰</strong> تومان</p>
         </div>
         
         <div class="modal-buttons">
             <button class="modal-btn cancel-btn" onclick="closeCustomerModal()">انصراف</button>
-            <button class="modal-btn confirm-btn" onclick="proceedToEitaa()">پرداخت و ارسال به ایتا</button>
+            <button class="modal-btn confirm-btn" onclick="proceedToPayment()">پرداخت نهایی</button>
         </div>
     </div>
 </div>
@@ -611,258 +1052,17 @@
             <span>جمع کل:</span>
             <span class="cart-total" id="totalPrice">0</span> تومان
         </div>
-        <button onclick="clearCart()" class="clear-btn">🗑️ پاک کردن سبد خرید</button>
+        <button onclick="clearCart()" class="clear-btn">
+            <span>🗑️</span> پاک کردن سبد خرید
+        </button>
         <button onclick="startCheckout()" class="checkout-btn" id="checkoutBtn">
-            💰 پرداخت و ثبت سفارش
+            <span>💰</span> پرداخت و ثبت سفارش
         </button>
     </div>
 </div>
 
-<script>
-// ==================== متغیرهای عمومی ====================
-const productData = {
-    "defense": [
-        {id: 1, name: "دستکش ضد برش", price: 850000},
-        {id: 2, name: "ماسک گاز نظامی", price: 3200000},
-        {id: 3, name: "زره بدن سبک", price: 12500000},
-        {id: 4, name: "کلاه ایمنی تاکتیکی", price: 4500000}
-    ],
-    "signs": [
-        {id: 1, name: "تابلو فرماندهی", price: 1800000},
-        {id: 2, name: "علائم راهنمایی نظامی", price: 950000},
-        {id: 3, name: "پلاک درب بخش‌ها", price: 750000},
-        {id: 4, name: "تابلو اخطار منطقه نظامی", price: 1200000}
-    ],
-    "clothing": [
-        {id: 1, name: "یونیفرم رزمی خاکی", price: 3500000},
-        {id: 2, name: "کت ضد باران نظامی", price: 4200000},
-        {id: 3, name: "شلوار تاکتیکی", price: 2800000},
-        {id: 4, name: "پیراهن رسمی افسری", price: 2500000}
-    ],
-    "shoes": [
-        {id: 1, name: "پوتین نظامی چرمی", price: 3800000},
-        {id: 2, name: "کفش ورزشی نظامی", price: 2200000},
-        {id: 3, name: "نیم بوت تاکتیکی", price: 3100000},
-        {id: 4, name: "کفش پیاده‌روی رزمی", price: 2700000}
-    ],
-    "decorations": [
-        {id: 1, name: "نشان درجه افسری", price: 650000},
-        {id: 2, name: "مدال افتخار", price: 1200000},
-        {id: 3, name: "نوار شانه نظامی", price: 450000},
-        {id: 4, name: "تزئینات کلاه افسری", price: 850000}
-    ],
-    "special": [
-        {id: 1, name: "ست کامل فرماندهی", price: 28500000},
-        {id: 2, name: "بسته ویژه تشریفات", price: 17500000},
-        {id: 3, name: "ست هدیه نظامی", price: 12500000},
-        {id: 4, name: "محصولات محدود ویژه", price: 42000000}
-    ]
-};
-
-// مقالات نمونه
-let militaryArticles = [
-    {
-        id: 1,
-        title: "اصول تاکتیک‌های نظامی مدرن",
-        content: `
-            <p>در دنیای امروز، تاکتیک‌های نظامی دستخوش تغییرات اساسی شده‌اند. با پیشرفت فناوری، نیروهای نظامی باید خود را با شرایط جدید تطبیق دهند. تاکتیک‌های مدرن بر اساس سرعت، انعطاف‌پذیری و غافلگیری طراحی شده‌اند.</p>
-            
-            <h3>مهم‌ترین اصول تاکتیک‌های نظامی مدرن:</h3>
-            
-            <p><strong>۱. جنگ اطلاعاتی (Information Warfare):</strong> در عصر دیجیتال، اطلاعات به مهم‌ترین سلاح تبدیل شده است. کنترل اطلاعات و اختلال در سیستم‌های ارتباطی دشمن از اولویت‌های اصلی است.</p>
-            
-            <p><strong>۲. عملیات ترکیبی (Hybrid Warfare):</strong> استفاده همزمان از روش‌های نظامی سنتی و غیرسنتی مانند جنگ روانی، عملیات سایبری و فشار اقتصادی.</p>
-            
-            <p><strong>۳. انعطاف‌پذیری سازمانی:</strong> واحدهای کوچک و مستقل که می‌توانند به سرعت تصمیم‌گیری کنند و عمل نمایند.</p>
-            
-            <p><strong>۴. برتری تکنولوژیک:</strong> استفاده از فناوری‌های پیشرفته مانند پهپادها، سامانه‌های دفاعی پیشرفته و سیستم‌های شناسایی هوشمند.</p>
-            
-            <p>این تغییرات نیازمند آموزش مستمر و تجهیزات مدرن است. نیروهای نظامی موفق آنهایی هستند که بتوانند خود را با این تحولات هماهنگ کنند.</p>
-        `,
-        author: "سرهنگ احمدی",
-        date: "۱۴۰۳/۱۰/۱۵",
-        views: 125
-    },
-    {
-        id: 2,
-        title: "تاریخچه لباس نظامی در ایران",
-        content: `
-            <p>لباس نظامی در ایران تاریخی کهن دارد که به دوران هخامنشیان بازمی‌گردد. در هر دوره تاریخی، لباس نظامی ایرانیان ویژگی‌های منحصر به فردی داشته است که نشان‌دهنده فرهنگ، اعتقادات و نیازهای نظامی آن دوره بوده است.</p>
-            
-            <h3>دوره‌های تاریخی لباس نظامی در ایران:</h3>
-            
-            <p><strong>۱. دوران باستان (هخامنشیان تا ساسانیان):</strong></p>
-            <p>سربازان هخامنشی از لباس‌های رنگارنگ با نقوش حیوانی استفاده می‌کردند. در دوران ساسانی، زره‌های زنجیری و کلاه‌خودهای مخروطی رایج بود.</p>
-            
-            <p><strong>۲. دوره اسلامی:</strong></p>
-            <p>پس از اسلام، تأثیر فرهنگ عربی و اسلامی در لباس نظامی ایرانیان مشهود است. استفاده از عرق‌چین و لباس‌های گشادتر مرسوم شد.</p>
-            
-            <p><strong>۳. دوره قاجار:</strong></p>
-            <p>نفوذ اروپاییان در این دوره مشهود است. لباس نظامی به سبک اروپایی با کت و شلوار و کلاه نظامی مرسوم شد.</p>
-            
-            <p><strong>۴. دوره پهلوی:</strong></p>
-            <p>یکسان‌سازی لباس نظامی با الگوگیری از کشورهای غربی. معرفی درجات نظامی به سبک مدرن.</p>
-            
-            <p><strong>۵. دوره پس از انقلاب اسلامی:</strong></p>
-            <p>بازگشت به هویت اسلامی-ایرانی. استفاده از رنگ‌های استتار و طراحی متناسب با نیازهای دفاعی کشور.</p>
-            
-            <p>امروزه لباس نظامی در ایران ترکیبی از تکنولوژی مدرن و هویت ملی است که نیازهای عملیاتی مختلف را پاسخگو می‌باشد.</p>
-        `,
-        author: "دکتر محمدی",
-        date: "۱۴۰۳/۱۰/۱۰",
-        views: 89
-    },
-    {
-        id: 3,
-        title: "تجهیزات دفاعی مدرن و کاربردهای آن",
-        content: `
-            <p>تجهیزات دفاعی مدرن نقش حیاتی در حفظ امنیت ملی ایفا می‌کنند. این تجهیزات شامل طیف وسیعی از فناوری‌ها از سامانه‌های دفاع موشکی تا تجهیزات حفاظت فردی می‌شود.</p>
-            
-            <h3>انواع تجهیزات دفاعی مدرن:</h3>
-            
-            <p><strong>۱. سامانه‌های دفاع هوایی:</strong></p>
-            <p>این سامانه‌ها برای شناسایی، ردیابی و انهدام اهداف هوایی طراحی شده‌اند. سامانه‌هایی مانند باور-۳۷۳ و سوم خرداد از نمونه‌های پیشرفته ایرانی هستند.</p>
-            
-            <p><strong>۲. تجهیزات حفاظت فردی (PPE):</strong></p>
-            <p>شامل زره بدن، کلاه ایمنی، ماسک گاز و دستکش‌های ضد برش. این تجهیزات باید سبک، مقاوم و کاربرپسند باشند.</p>
-            
-            <p><strong>۳. سیستم‌های ارتباطی و شناسایی:</strong></p>
-            <p>ارتباط امن و پایدار در میدان نبرد حیاتی است. رادیوهای نظامی رمزنگاری شده و سیستم‌های شناسایی دوست از دشمن از اهمیت ویژه‌ای برخوردارند.</p>
-            
-            <p><strong>۴. وسایل نقلیه نظامی:</strong></p>
-            <p>از جمله تانک‌ها، نفربرها و خودروهای زرهی که باید در شرایط سخت عملیاتی قابلیت مانور بالایی داشته باشند.</p>
-            
-            <p>توسعه این تجهیزات نیازمند تحقیق و توسعه مستمر، آزمایش‌های دقیق و توجه به تجربیات عملیاتی است.</p>
-        `,
-        author: "سرهنگ دوم رضایی",
-        date: "۱۴۰۳/۱۰/۰۵",
-        views: 156
-    }
-];
-
-let cart = [];
-let cartOpen = false;
-let currentOrderId = '';
-let currentOrderTotal = 0;
-
-// ==================== توابع نمایش محصولات ====================
-function showProducts(category) {
-    const products = productData[category];
-    if (!products) return;
-    
-    let html = `
-        <div style="text-align: center; margin: 20px 0;">
-            <button onclick="showCategories()" class="button back-btn">
-                ↩️ بازگشت به دسته‌بندی‌ها
-            </button>
-        </div>
-        <h3>محصولات ${getCategoryName(category)}</h3>
-        <div class="grid">
-    `;
-    
-    products.forEach(product => {
-        html += `
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="${product.name}">
-                <h4>${product.name}</h4>
-                <p class="product-price">${product.price.toLocaleString()} تومان</p>
-                <button onclick="addToCart('${category}', ${product.id})">افزودن به سبد خرید</button>
-            </div>
-        `;
-    });
-    
-    html += `</div>`;
-    document.getElementById('products').innerHTML = html;
-    document.getElementById('categories').style.display = 'none';
-}
-
-function getCategoryName(category) {
-    const names = {
-        'defense': 'لوازم دفاع',
-        'signs': 'تابلو و علائم',
-        'clothing': 'لباس نظامی',
-        'shoes': 'کفش و پوتین',
-        'decorations': 'تزئینات و نشان‌ها',
-        'special': 'محصولات ویژه'
-    };
-    return names[category] || category;
-}
-
-function showCategories() {
-    document.getElementById('products').innerHTML = '';
-    document.getElementById('categories').style.display = 'grid';
-}
-
-// ==================== توابع مقالات ====================
-function showArticles() {
-    let html = `
-        <div style="text-align: center; margin: 20px 0;">
-            <button onclick="showCategories()" class="button back-btn">
-                ↩️ بازگشت به دسته‌بندی‌ها
-            </button>
-        </div>
-        <h3 style="color: #9C27B0;">مقالات نظامی</h3>
-        <p style="text-align: center; color: #aaa; margin-bottom: 30px;">
-            دانش نظامی خود را با مطالعه این مقالات افزایش دهید
-        </p>
-        <div class="articles-list">
-    `;
-    
-    militaryArticles.forEach(article => {
-        html += `
-            <div class="article-list-item" onclick="openFullscreenArticle(${article.id})">
-                <h4 style="color: #9C27B0; margin-top: 0;">${article.title}</h4>
-                <p style="color: #aaa; font-size: 14px; margin-bottom: 8px;">
-                    نویسنده: ${article.author} | تاریخ: ${article.date} | بازدید: ${article.views}
-                </p>
-                <p style="color: #ccc; font-size: 14px;">
-                    ${article.content.substring(0, 150)}...
-                </p>
-                <button style="margin-top: 10px; background: #9C27B0;">مطالعه کامل مقاله</button>
-            </div>
-        `;
-    });
-    
-    html += `</div>`;
-    document.getElementById('products').innerHTML = html;
-    document.getElementById('categories').style.display = 'none';
-}
-
-function openFullscreenArticle(articleId) {
-    const article = militaryArticles.find(a => a.id === articleId);
-    if (!article) return;
-    
-    // افزایش تعداد بازدیدها
-    article.views++;
-    
-    const container = document.getElementById('articleContainer');
-    container.innerHTML = `
-        <div class="article-header">
-            <h1 class="article-title">${article.title}</h1>
-            <div class="article-meta">
-                <span>✍️ نویسنده: ${article.author}</span>
-                <span>📅 تاریخ: ${article.date}</span>
-                <span>👁️ بازدید: ${article.views}</span>
-            </div>
-        </div>
-        <div class="article-content">
-            ${article.content}
-        </div>
-    `;
-    
-    document.getElementById('fullscreenArticle').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeFullscreenArticle() {
-    document.getElementById('fullscreenArticle').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// ==================== توابع سبد خرید ====================
-function addToCart(category, productId) {
-    const product = productData[category].find(p => p.id === productId);
-    if (!product) return;
-    
-    // بررسی وجود محصول در سبد خرید
-   
+<!-- فوتر -->
+<footer class="footer" id="contact">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h
